@@ -37,6 +37,39 @@ function h1Of(file) {
   return path.basename(file, '.md')
 }
 
+// 提取纯文本摘要（去掉代码块、公式、markdown 语法）
+function summaryOf(file) {
+  try {
+    let text = fs.readFileSync(file, 'utf8')
+    text = text.replace(/```[\s\S]*?```/g, ' ')
+    text = text.replace(/`[^`]*`/g, ' ')
+    text = text.replace(/\$\$[\s\S]*?\$\$/g, ' ')
+    text = text.replace(/\$([^$\n]*)\$/g, (_m, g) => g.replace(/\\/g, ' ').replace(/[{}]/g, ' '))
+    text = text.replace(/^---[\s\S]*?---$/m, ' ')
+    text = text.replace(/^#.*$/gm, ' ')
+    text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    text = text.replace(/[*_>|#~]/g, ' ')
+    text = text.replace(/\s+/g, ' ').trim()
+    if (!text) return '（暂无摘要）'
+    return text.length > 80 ? text.slice(0, 80) + '...' : text
+  } catch {
+    return ''
+  }
+}
+
+// 分类目录名 → 展示名（洛谷风格中文平台名）
+function categoryName(dir) {
+  if (dir === '专题') return '专题'
+  const m = dir.match(/^nowcoder_summer_holiday_competition(\d*)$/)
+  if (m) return '牛客暑期联赛' + (m[1] ? `（第${m[1]}场）` : '')
+  if (dir.startsWith('nowcoder')) return '牛客' + dir.replace(/^nowcoder_?/, '')
+  if (dir.startsWith('codeforces')) return 'Codeforces'
+  if (dir.startsWith('luogu')) return '洛谷'
+  if (dir.startsWith('atcoder')) return 'AtCoder'
+  if (dir.startsWith('leetcode')) return 'LeetCode'
+  return dir
+}
+
 // 1. 清空并重建目标目录
 fs.rmSync(dstDir, { recursive: true, force: true })
 fs.mkdirSync(dstDir, { recursive: true })
@@ -66,4 +99,28 @@ for (const group of [...groups.keys()].sort()) {
 }
 fs.writeFileSync(path.join(dstDir, 'index.md'), index)
 
+// 4. 生成站点数据文件（首页组件使用）：docs/.vitepress/solutionIndex.json
+const dataDir = path.join(blogRoot, 'docs', '.vitepress')
+fs.mkdirSync(dataDir, { recursive: true })
+const solutionIndex = files.map((rel) => {
+  const dir = path.dirname(rel) === '.' ? '专题' : path.dirname(rel)
+  const full = path.join(srcDir, rel)
+  return {
+    title: h1Of(full),
+    category: categoryName(dir),
+    link: '/solutions/' + rel.replace(/\.md$/, '').replaceAll('\\', '/'),
+    summary: summaryOf(full),
+    date: fs.statSync(full).mtime.toISOString().slice(0, 10),
+  }
+})
+// 组内按标题排序，组间保持原顺序
+solutionIndex.sort((a, b) =>
+  a.category === b.category ? a.title.localeCompare(b.title, 'zh') : 0
+)
+fs.writeFileSync(
+  path.join(dataDir, 'solutionIndex.json'),
+  JSON.stringify(solutionIndex, null, 2)
+)
+
 console.log(`同步完成：${files.length} 篇题解 → docs/solutions/`)
+console.log(`站点数据 → docs/.vitepress/solutionIndex.json`)

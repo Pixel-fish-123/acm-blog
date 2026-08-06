@@ -1,0 +1,23 @@
+[
+  {
+    "title": "G Grid Marking 题解",
+    "category": "牛客暑期联赛（第3场）",
+    "link": "/solutions/nowcoder_summer_holiday_competition3/G_solution",
+    "summary": "给定一个 n times m 的网格，每个格子有一个正整数。 若存在两个格子 (r 1, c 1) 和 (r 2, c 2) 满足 r 1 < r 2 且 c ...",
+    "date": "2026-08-03"
+  },
+  {
+    "title": "G 题解",
+    "category": "牛客暑期联赛（第6场）",
+    "link": "/solutions/nowcoder_summer_holiday_competition6/G_solution",
+    "summary": "给定一个简单连通无向图 G，有 n 个顶点、m 条边，其中 k 个顶点是特殊顶点。保证所有顶点度数不超过 3。 Alice 从某个非特殊顶点 s 出发，Alic...",
+    "date": "2026-08-06"
+  },
+  {
+    "title": "高斯消元解异或方程组 与 两种线性基",
+    "category": "专题",
+    "link": "/solutions/专题_高斯消元解异或方程组与两种线性基",
+    "summary": "专题文章 · 面向 XCPC / OI 关键词：GF(2) 线性代数、增广矩阵、线性基（插入型 / 对角化型）、最大异或、第 k 小异或 本文分三部分： 1. ...",
+    "date": "2026-08-05"
+  }
+]

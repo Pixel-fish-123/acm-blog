@@ -1,0 +1,40 @@
+/* 洛谷专栏风格全局配色 */
+
+:root {
+  /* 品牌色：洛谷蓝 */
+  --vp-c-brand-1: #3498db;
+  --vp-c-brand-2: #2980b9;
+  --vp-c-brand-3: #2f89c5;
+  --vp-c-brand-soft: rgba(52, 152, 219, 0.14);
+
+  /* 页面底色：浅灰蓝 */
+  --lg-bg: #f4f6f9;
+  --lg-card-border: #e3e8ef;
+}
+
+body {
+  background-color: var(--lg-bg);
+}
+
+/* 题解阅读页：白底卡片效果 */
+.VPDoc .content-container {
+  background: #fff;
+  border: 1px solid var(--lg-card-border);
+  border-radius: 6px;
+  padding: 28px 36px;
+  box-shadow: 0 1px 3px rgba(20, 40, 80, 0.04);
+}
+
+.VPDoc .content-container > h1 {
+  margin-top: 0;
+}
+
+/* 阅读页侧边目录/侧栏底色对齐灰底 */
+.VPDoc .aside {
+  background: transparent;
+}
+
+/* 导航栏：白底细边框 */
+.VPNavBar {
+  border-bottom: 1px solid var(--lg-card-border);
+}
