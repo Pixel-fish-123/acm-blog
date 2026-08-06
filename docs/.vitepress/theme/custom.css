@@ -37,15 +37,15 @@ body {
   padding-left: 0;
 }
 
-/* wrapper 层默认 32px 左内边距（搜索偏移的最终来源） */
+/* wrapper 层默认 32px 左内边距；改为 24px，搜索按钮与页面边缘保持舒适距离 */
 .VPNavBar .wrapper.wrapper.wrapper {
-  padding-left: 0;
+  padding-left: 24px;
 }
 
-/* 文章页：单栏居中阅读（无侧边栏、无右侧大纲） */
+/* 文章页：单栏居中阅读（无侧边栏、无右侧大纲），加宽至约 1000px */
 .VPDoc .content.content.content,
 .VPDoc .content {
-  max-width: 880px;
+  max-width: 1000px;
 }
 
 .VPDoc .content-container {
@@ -53,7 +53,7 @@ body {
   border: 1px solid var(--lg-card-border);
   border-radius: 4px;
   padding: 28px 36px;
-  max-width: 880px;
+  max-width: 1000px;
 }
 
 .VPDoc .content-container > h1 {
