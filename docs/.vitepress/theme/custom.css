@@ -10,42 +10,10 @@
   /* 页面底色：浅灰 */
   --lg-bg: #f4f6f9;
   --lg-card-border: #e3e8ef;
-
-  /* 侧边栏变窄 */
-  --vp-sidebar-width: 200px;
 }
 
 body {
   background-color: var(--lg-bg);
-}
-
-/* 首页（自定义组件页）：去除默认文档容器样式 */
-.home-page .content-container {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  max-width: none;
-}
-
-/* 题解阅读页：白底卡片 */
-.VPDoc.has-aside .content-container.content-container,
-.VPDoc .content-container {
-  background: #fff;
-  border: 1px solid var(--lg-card-border);
-  border-radius: 4px;
-  padding: 24px 32px;
-  max-width: 920px;
-}
-
-.VPDoc .content-container > h1 {
-  margin-top: 0;
-}
-
-/* 阅读页右侧索引栏：透明底，随内容右对齐 */
-.VPDoc .aside {
-  background: transparent;
 }
 
 /* 导航栏：白底细边框 */
@@ -56,6 +24,40 @@ body {
 /* 隐藏左上角站名（原生搜索框占据该位置；siteTitle:false 时该元素仍占位） */
 .VPNavBarTitle {
   display: none;
+}
+
+/* 搜索框贴左上角：消除 VitePress 对搜索容器的默认 32px 左内边距 */
+.VPNavBarSearch {
+  padding-left: 0;
+}
+
+/* 导航容器去居中约束，让搜索按钮严格贴左上角（x=0） */
+.VPNavBar .container.container.container {
+  max-width: none;
+  padding-left: 0;
+}
+
+/* wrapper 层默认 32px 左内边距（搜索偏移的最终来源） */
+.VPNavBar .wrapper.wrapper.wrapper {
+  padding-left: 0;
+}
+
+/* 文章页：单栏居中阅读（无侧边栏、无右侧大纲） */
+.VPDoc .content.content.content,
+.VPDoc .content {
+  max-width: 880px;
+}
+
+.VPDoc .content-container {
+  background: #fff;
+  border: 1px solid var(--lg-card-border);
+  border-radius: 4px;
+  padding: 28px 36px;
+  max-width: 880px;
+}
+
+.VPDoc .content-container > h1 {
+  margin-top: 0;
 }
 
 /* 行内代码：浅蓝底 */

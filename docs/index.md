@@ -1,5 +1,5 @@
 ---
-class: home-page
+layout: page
 ---
 
 <script setup>

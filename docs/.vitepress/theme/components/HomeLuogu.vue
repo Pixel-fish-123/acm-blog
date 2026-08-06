@@ -35,11 +35,14 @@ const luogu = {
               class="lg-item"
               :href="withBase(item.link)"
             >
-              <div class="lg-item-title">{{ item.title }}</div>
-              <div class="lg-item-summary">{{ item.summary }}</div>
-              <div class="lg-item-meta">
-                <span class="lg-tag">{{ item.category }}</span>
-                <span class="lg-date">{{ item.date }}</span>
+              <div class="lg-item-main">
+                <div class="lg-item-title">{{ item.title }}</div>
+                <div class="lg-item-summary">{{ item.summary }}</div>
+              </div>
+              <div class="lg-item-author">
+                <img class="lg-item-avatar" :src="withBase('/avatar.png')" alt="avatar" />
+                <div class="lg-item-author-name">Pixel_fish</div>
+                <div class="lg-item-author-date">{{ item.date }}</div>
               </div>
             </a>
           </div>
@@ -122,7 +125,7 @@ const luogu = {
 }
 
 .lg-main {
-  max-width: 1360px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   gap: 20px;
@@ -172,9 +175,13 @@ const luogu = {
   padding: 8px 0;
 }
 
+/* 洛谷 article 风格条目：左侧标题+摘要，右侧作者头像/名字/日期 */
 .lg-item {
-  display: block;
-  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 24px;
   border-bottom: 1px solid #f2f4f8;
   text-decoration: none;
   transition: background 0.15s;
@@ -188,8 +195,13 @@ const luogu = {
   background: #f7fafd;
 }
 
+.lg-item-main {
+  flex: 1;
+  min-width: 0;
+}
+
 .lg-item-title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: #2d3436;
   line-height: 1.5;
@@ -200,7 +212,7 @@ const luogu = {
 }
 
 .lg-item-summary {
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 13px;
   color: #6b7785;
   line-height: 1.6;
@@ -210,23 +222,31 @@ const luogu = {
   overflow: hidden;
 }
 
-.lg-item-meta {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.lg-item-author {
+  flex-shrink: 0;
+  width: 72px;
+  text-align: center;
 }
 
-.lg-tag {
-  display: inline-block;
-  padding: 1px 8px;
+.lg-item-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e3e8ef;
+}
+
+.lg-item-author-name {
+  margin-top: 6px;
   font-size: 12px;
-  color: #3498db;
-  background: #eaf3fb;
-  border-radius: 3px;
+  font-weight: 600;
+  color: #52c41a; /* 洛谷等级色：绿 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.lg-date {
+.lg-item-author-date {
+  margin-top: 2px;
   font-size: 12px;
   color: #a0aab6;
 }
