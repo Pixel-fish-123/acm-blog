@@ -14,6 +14,13 @@
     "date": "2026-08-03"
   },
   {
+    "title": "B Quadratic Residue 题解",
+    "category": "牛客暑期联赛（第4场）",
+    "link": "/solutions/nowcoder_summer_holiday_competition4/B_solution",
+    "summary": "多组数据（T le 10^4），每组给定一个整数 p（2 le p le 10^9）。要求构造三个正整数 x 1、x 2、q，满足： - 1 le x 1 < ...",
+    "date": "2026-08-06"
+  },
+  {
     "title": "G 题解",
     "category": "牛客暑期联赛（第6场）",
     "link": "/solutions/nowcoder_summer_holiday_competition6/G_solution",
