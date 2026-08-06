@@ -7,7 +7,8 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
-    "sync": "node scripts/sync.mjs"
+    "sync": "node scripts/sync.mjs && node scripts/fetch-luogu.mjs",
+    "luogu": "node scripts/fetch-luogu.mjs"
   },
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",

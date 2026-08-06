@@ -8,7 +8,8 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
 
 ## Commands (PowerShell)
 - `npm run dev` — local preview; open `http://localhost:5173/acm-blog/` (site base is `/acm-blog/`)
-- `npm run sync` — copies `..\acm-icpc\solutions\*.md` into `docs/solutions/`, regenerates index page + homepage data. Override source dir: `$env:ACM_ICPC_ROOT = "D:\code\acm-icpc"; npm run sync`
+- `npm run sync` — copies `..\acm-icpc\solutions\*.md` into `docs/solutions/`, regenerates index page + homepage data, then fetches latest Luogu account stats into `HomeLuogu.vue`. Override source dir: `$env:ACM_ICPC_ROOT = "D:\code\acm-icpc"; npm run sync`
+- `npm run luogu` — fetch Luogu stats only (no solution sync). Luogu requires a cookie round-trip (first 302 sets `C3VK`); the script handles it. If the fetch fails it warns and keeps existing data.
 - `npm run build` — the only verification step (no lint/typecheck/tests). CI (`npm ci && npm run build`) runs on push to `main` and deploys to GitHub Pages.
 
 ## Commit rules
@@ -16,7 +17,7 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
 
 ## Architecture gotchas
 - `docs/.vitepress/config.mjs`: `appearance: false` must stay at the top level (not inside `themeConfig`) or the dark-mode toggle reappears. `base` is `/acm-blog/` (env `VITEPRESS_BASE` overrides); matches repo name — update both if renamed.
-- Homepage profile data is hardcoded in the `luogu` constant at the top of `docs/.vitepress/theme/components/HomeLuogu.vue` — update manually; list/tags are driven entirely by `solutionIndex.json`.
+- Homepage profile data lives in the `luogu` constant at the top of `docs/.vitepress/theme/components/HomeLuogu.vue` — auto-refreshed by `npm run sync` via `scripts/fetch-luogu.mjs` (can still be edited manually); list/tags are driven entirely by `solutionIndex.json`.
 - Category labels come from `categoryName()` in `scripts/sync.mjs` — new platform directories must be mapped there.
 - Theme wiring is slot injection in `docs/.vitepress/theme/index.js` (`nav-bar-content-after` → NavLuogu, `doc-before` → ArticleHeader).
 - Article "updated" date in `ArticleHeader.vue` is git commit time; dates in `solutionIndex.json` are source-file mtime.
