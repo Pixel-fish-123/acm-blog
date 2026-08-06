@@ -36,7 +36,10 @@ const luogu = {
               :href="withBase(item.link)"
             >
               <div class="lg-item-main">
-                <div class="lg-item-title">{{ item.title }}</div>
+                <div class="lg-item-title-row">
+                  <div class="lg-item-title">{{ item.title }}</div>
+                  <span class="lg-tag">{{ item.category }}</span>
+                </div>
                 <div class="lg-item-summary">{{ item.summary }}</div>
               </div>
               <div class="lg-item-author">
@@ -200,15 +203,35 @@ const luogu = {
   min-width: 0;
 }
 
+.lg-item-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
 .lg-item-title {
   font-size: 16px;
   font-weight: 600;
   color: #2d3436;
   line-height: 1.5;
+  min-width: 0;
 }
 
 .lg-item:hover .lg-item-title {
   color: #3498db;
+}
+
+/* 分类标签：洛谷风格小徽章 */
+.lg-tag {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 1px 8px;
+  font-size: 12px;
+  color: #3498db;
+  background: #eaf3fb;
+  border-radius: 3px;
+  white-space: nowrap;
 }
 
 .lg-item-summary {
