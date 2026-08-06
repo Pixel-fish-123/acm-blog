@@ -1,5 +1,12 @@
 [
   {
+    "title": "P6175 无向图的最小环问题 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P6175_solution",
+    "summary": "给定一张 n 个点、m 条边的无向带权图，求图中一个至少包含 3 个点、节点不重复的环，使得环上边权之和最小。输出最小环的边权和；若无环，输出 。 数据范围：1...",
+    "date": "2026-08-06"
+  },
+  {
     "title": "G Grid Marking 题解",
     "category": "牛客暑期联赛（第3场）",
     "link": "/solutions/nowcoder_summer_holiday_competition3/G_solution",
@@ -12,12 +19,5 @@
     "link": "/solutions/nowcoder_summer_holiday_competition6/G_solution",
     "summary": "给定一个简单连通无向图 G，有 n 个顶点、m 条边，其中 k 个顶点是特殊顶点。保证所有顶点度数不超过 3。 Alice 从某个非特殊顶点 s 出发，Alic...",
     "date": "2026-08-06"
-  },
-  {
-    "title": "高斯消元解异或方程组 与 两种线性基",
-    "category": "专题",
-    "link": "/solutions/专题_高斯消元解异或方程组与两种线性基",
-    "summary": "专题文章 · 面向 XCPC / OI 关键词：GF(2) 线性代数、增广矩阵、线性基（插入型 / 对角化型）、最大异或、第 k 小异或 本文分三部分： 1. ...",
-    "date": "2026-08-05"
   }
 ]
