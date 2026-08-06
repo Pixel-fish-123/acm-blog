@@ -9,10 +9,8 @@ const categories = [...new Set(items.map((i) => i.category))]
 // 洛谷用户信息（来源：https://www.luogu.com.cn/user/361708）
 const luogu = {
   home: 'https://www.luogu.com.cn/user/361708',
-  avatar: 'https://cdn.luogu.com.cn/upload/usericon/361708.png',
   name: 'Pixel_fish',
   slogan: '有时候在想，然后我忘了（）',
-  level: 7, // CCF NOI 等级
   followers: 9,
   following: 10,
   passed: 376,
@@ -52,12 +50,9 @@ const luogu = {
         <!-- 洛谷用户主页风格信息栏 -->
         <div class="lg-card lg-profile">
           <a class="lg-avatar-wrap" :href="luogu.home" target="_blank" rel="noopener">
-            <img class="lg-avatar" :src="luogu.avatar" alt="avatar" />
+            <img class="lg-avatar" :src="withBase('/avatar.png')" alt="avatar" />
           </a>
-          <div class="lg-name-row">
-            <span class="lg-name">{{ luogu.name }}</span>
-            <span class="lg-level">Lv.{{ luogu.level }}</span>
-          </div>
+          <div class="lg-name">{{ luogu.name }}</div>
           <div class="lg-slogan">{{ luogu.slogan }}</div>
 
           <div class="lg-stats">
@@ -127,7 +122,7 @@ const luogu = {
 }
 
 .lg-main {
-  max-width: 1120px;
+  max-width: 1360px;
   margin: 0 auto;
   display: flex;
   gap: 20px;
@@ -149,9 +144,8 @@ const luogu = {
 
 .lg-card {
   background: #fff;
-  border: 1px solid #e3e8ef;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(20, 40, 80, 0.04);
+  border: 1px solid var(--lg-card-border, #e3e8ef);
+  border-radius: 4px;
 }
 
 .lg-card-head {
@@ -259,28 +253,11 @@ const luogu = {
   opacity: 0.85;
 }
 
-.lg-name-row {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
 .lg-name {
+  margin-top: 12px;
   font-size: 18px;
   font-weight: 600;
-  color: #52c41a; /* 洛谷等级色：绿（Lv.7） */
-}
-
-.lg-level {
-  display: inline-block;
-  padding: 1px 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  background: #52c41a;
-  border-radius: 3px;
+  color: #52c41a; /* 洛谷等级色：绿 */
 }
 
 .lg-slogan {

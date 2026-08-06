@@ -1,4 +1,4 @@
-/* 洛谷专栏风格全局配色 */
+/* 洛谷风格全局样式（简洁版） */
 
 :root {
   /* 品牌色：洛谷蓝 */
@@ -7,32 +7,43 @@
   --vp-c-brand-3: #2f89c5;
   --vp-c-brand-soft: rgba(52, 152, 219, 0.14);
 
-  /* 页面底色：浅灰蓝 */
+  /* 页面底色：浅灰 */
   --lg-bg: #f4f6f9;
   --lg-card-border: #e3e8ef;
+
+  /* 侧边栏变窄 */
+  --vp-sidebar-width: 200px;
 }
 
 body {
   background-color: var(--lg-bg);
 }
 
-/* 题解阅读页：白底卡片效果（仿洛谷文章容器，约 820px 宽）
-   类重复技巧：特异性 (0,4,0) 需压过 VitePress scoped 规则 (0,3,1) */
+/* 首页（自定义组件页）：去除默认文档容器样式 */
+.home-page .content-container {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  max-width: none;
+}
+
+/* 题解阅读页：白底卡片 */
 .VPDoc.has-aside .content-container.content-container,
 .VPDoc .content-container {
   background: #fff;
   border: 1px solid var(--lg-card-border);
-  border-radius: 6px;
-  padding: 28px 36px;
-  box-shadow: 0 1px 3px rgba(20, 40, 80, 0.04);
-  max-width: 820px;
+  border-radius: 4px;
+  padding: 24px 32px;
+  max-width: 920px;
 }
 
 .VPDoc .content-container > h1 {
   margin-top: 0;
 }
 
-/* 阅读页侧边目录/侧栏底色对齐灰底 */
+/* 阅读页右侧索引栏：透明底，随内容右对齐 */
 .VPDoc .aside {
   background: transparent;
 }
@@ -42,28 +53,12 @@ body {
   border-bottom: 1px solid var(--lg-card-border);
 }
 
-/* ---- 洛谷文章排版细节 ---- */
-
-/* 二级标题：大字号 + 底部浅分隔线 */
-.vp-doc h2 {
-  font-size: 1.45em;
-  border-bottom: 1px solid #eef1f6;
-  padding-bottom: 8px;
-  margin-top: 36px;
+/* 隐藏左上角站名（原生搜索框占据该位置；siteTitle:false 时该元素仍占位） */
+.VPNavBarTitle {
+  display: none;
 }
 
-.vp-doc h2::before {
-  content: '';
-  display: inline-block;
-  width: 4px;
-  height: 1em;
-  margin-right: 10px;
-  background: #3498db;
-  border-radius: 2px;
-  vertical-align: -0.15em;
-}
-
-/* 行内代码：洛谷风格浅蓝底 */
+/* 行内代码：浅蓝底 */
 .vp-doc :not(pre) > code {
   color: #2d6da3;
   background: #eef6fc;
@@ -77,14 +72,14 @@ body {
   content: none;
 }
 
-/* 代码块：浅底细边框 */
+/* 代码块：细边框 */
 .vp-doc div[class*='language-'] {
   border: 1px solid var(--lg-card-border);
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
-/* 表格：洛谷风格细边框 */
+/* 表格：细边框 */
 .vp-doc table {
   border: 1px solid #e3e8ef;
   border-radius: 4px;
@@ -93,23 +88,21 @@ body {
 
 .vp-doc th {
   background: #f7f9fb;
-  font-weight: 600;
 }
 
-/* 引用块：左侧蓝色竖线 */
+/* 引用：左侧蓝色竖线 */
 .vp-doc blockquote {
   border-left: 3px solid #3498db;
-  background: #f7fafd;
-  border-radius: 0 4px 4px 0;
+  margin-left: 0;
 }
 
-/* 图片：圆角限制宽度 */
+/* 图片 */
 .vp-doc img {
   border-radius: 4px;
   max-width: 100%;
 }
 
-/* 数学公式：修正行内公式垂直对齐与行高溢出 */
+/* 数学公式：对齐修正 */
 mjx-container {
   vertical-align: middle;
 }
