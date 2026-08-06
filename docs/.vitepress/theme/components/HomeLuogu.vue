@@ -5,6 +5,20 @@ import solutionIndex from '../../solutionIndex.json'
 const items = solutionIndex
 const total = items.length
 const categories = [...new Set(items.map((i) => i.category))]
+
+// 洛谷用户信息（来源：https://www.luogu.com.cn/user/361708）
+const luogu = {
+  home: 'https://www.luogu.com.cn/user/361708',
+  avatar: 'https://cdn.luogu.com.cn/upload/usericon/361708.png',
+  name: 'Pixel_fish',
+  slogan: '有时候在想，然后我忘了（）',
+  level: 7, // CCF NOI 等级
+  followers: 9,
+  following: 10,
+  passed: 376,
+  submitted: 381,
+  ranking: 10941,
+}
 </script>
 
 <template>
@@ -35,30 +49,51 @@ const categories = [...new Set(items.map((i) => i.category))]
       </div>
 
       <aside class="lg-side">
+        <!-- 洛谷用户主页风格信息栏 -->
         <div class="lg-card lg-profile">
-          <img
-            class="lg-avatar"
-            src="https://avatars.githubusercontent.com/Pixel-fish-123"
-            alt="avatar"
-          />
-          <div class="lg-name">Pixel-fish-123</div>
-          <div class="lg-bio">算法竞赛 · 刷题与题解记录</div>
+          <a class="lg-avatar-wrap" :href="luogu.home" target="_blank" rel="noopener">
+            <img class="lg-avatar" :src="luogu.avatar" alt="avatar" />
+          </a>
+          <div class="lg-name-row">
+            <span class="lg-name">{{ luogu.name }}</span>
+            <span class="lg-level">Lv.{{ luogu.level }}</span>
+          </div>
+          <div class="lg-slogan">{{ luogu.slogan }}</div>
+
           <div class="lg-stats">
+            <div class="lg-stat">
+              <b>{{ luogu.following }}</b>
+              <span>关注</span>
+            </div>
+            <div class="lg-stat">
+              <b>{{ luogu.followers }}</b>
+              <span>粉丝</span>
+            </div>
             <div class="lg-stat">
               <b>{{ total }}</b>
               <span>题解</span>
             </div>
-            <div class="lg-stat">
-              <b>{{ categories.length }}</b>
-              <span>分类</span>
+          </div>
+
+          <div class="lg-codes">
+            <div class="lg-code">
+              <span class="lg-code-num">{{ luogu.passed }}</span>
+              <span class="lg-code-label">通过</span>
+            </div>
+            <div class="lg-code">
+              <span class="lg-code-num">{{ luogu.submitted }}</span>
+              <span class="lg-code-label">提交</span>
+            </div>
+            <div class="lg-code">
+              <span class="lg-code-num">{{ luogu.ranking }}</span>
+              <span class="lg-code-label">排名</span>
             </div>
           </div>
-          <a
-            class="lg-btn"
-            href="https://github.com/Pixel-fish-123"
-            target="_blank"
-            rel="noopener"
-          >GitHub 主页</a>
+
+          <div class="lg-btns">
+            <a class="lg-btn lg-btn-primary" :href="luogu.home" target="_blank" rel="noopener">洛谷主页</a>
+            <a class="lg-btn lg-btn-ghost" href="https://github.com/Pixel-fish-123" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
 
         <div class="lg-card">
@@ -202,9 +237,14 @@ const categories = [...new Set(items.map((i) => i.category))]
   color: #a0aab6;
 }
 
+/* ---- 洛谷用户主页风格信息栏 ---- */
 .lg-profile {
   padding: 24px 20px 20px;
   text-align: center;
+}
+
+.lg-avatar-wrap {
+  display: inline-block;
 }
 
 .lg-avatar {
@@ -212,25 +252,47 @@ const categories = [...new Set(items.map((i) => i.category))]
   height: 88px;
   border-radius: 50%;
   border: 1px solid #e3e8ef;
+  transition: opacity 0.15s;
+}
+
+.lg-avatar:hover {
+  opacity: 0.85;
+}
+
+.lg-name-row {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .lg-name {
-  margin-top: 12px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
-  color: #2d3436;
+  color: #52c41a; /* 洛谷等级色：绿（Lv.7） */
 }
 
-.lg-bio {
-  margin-top: 4px;
+.lg-level {
+  display: inline-block;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: #52c41a;
+  border-radius: 3px;
+}
+
+.lg-slogan {
+  margin-top: 6px;
   font-size: 13px;
   color: #7f8c9b;
+  line-height: 1.5;
 }
 
 .lg-stats {
   margin-top: 16px;
   display: flex;
-  justify-content: center;
   border-top: 1px solid #eef1f6;
   border-bottom: 1px solid #eef1f6;
 }
@@ -247,7 +309,7 @@ const categories = [...new Set(items.map((i) => i.category))]
 
 .lg-stat b {
   display: block;
-  font-size: 18px;
+  font-size: 17px;
   color: #2d3436;
 }
 
@@ -256,20 +318,57 @@ const categories = [...new Set(items.map((i) => i.category))]
   color: #7f8c9b;
 }
 
-.lg-btn {
+.lg-codes {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.lg-code {
+  text-align: center;
+}
+
+.lg-code-num {
   display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.lg-code-label {
+  font-size: 12px;
+  color: #a0aab6;
+}
+
+.lg-btns {
   margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.lg-btn {
+  flex: 1;
+  display: block;
   padding: 8px 0;
   font-size: 14px;
-  color: #fff;
-  background: #3498db;
   border-radius: 4px;
   text-decoration: none;
-  transition: background 0.15s;
+  transition: opacity 0.15s;
 }
 
 .lg-btn:hover {
-  background: #2980b9;
+  opacity: 0.88;
+}
+
+.lg-btn-primary {
+  color: #fff;
+  background: #3498db;
+}
+
+.lg-btn-ghost {
+  color: #4a5664;
+  background: #f2f4f8;
 }
 
 .lg-cats {
