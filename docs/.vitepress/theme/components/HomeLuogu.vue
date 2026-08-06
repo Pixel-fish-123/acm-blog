@@ -248,7 +248,9 @@ const luogu = {
 .lg-item-author {
   flex-shrink: 0;
   width: 72px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .lg-item-avatar {
