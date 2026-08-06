@@ -53,6 +53,9 @@ export default defineConfig({
   base,
   lastUpdated: true,
   cleanUrls: true,
+  markdown: {
+    math: true, // 启用 KaTeX 数学公式渲染（题解中的 $...$ / $$...$$）
+  },
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
