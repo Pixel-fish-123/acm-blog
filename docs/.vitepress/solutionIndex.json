@@ -26,5 +26,12 @@
     "link": "/solutions/nowcoder_summer_holiday_competition6/G_solution",
     "summary": "给定一个简单连通无向图 G，有 n 个顶点、m 条边，其中 k 个顶点是特殊顶点。保证所有顶点度数不超过 3。 Alice 从某个非特殊顶点 s 出发，Alic...",
     "date": "2026-08-06"
+  },
+  {
+    "title": "K D-Mail Institution Codes 题解",
+    "category": "牛客暑期联赛（第7场）",
+    "link": "/solutions/nowcoder_summer_holiday_competition7/K_solution",
+    "summary": "有 n（1 le n le 20）所研究机构，每所机构的名字由 1 sim 20 个单词组成，单词之间以单个空格分隔；每个单词含 1 sim 20 个英文字母，...",
+    "date": "2026-08-09"
   }
 ]

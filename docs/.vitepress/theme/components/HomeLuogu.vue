@@ -12,7 +12,7 @@ const luogu = {
   name: 'Pixel_fish',
   slogan: '有时候在想，然后我忘了（）',
   followers: 9,
-  following: 10,
+  following: 11,
   passed: 377,
   submitted: 382,
   ranking: 10941,

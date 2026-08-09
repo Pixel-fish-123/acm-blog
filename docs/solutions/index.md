@@ -18,3 +18,7 @@
 
 - [G 题解](./nowcoder_summer_holiday_competition6/G_solution.md)
 
+## nowcoder_summer_holiday_competition7
+
+- [K D-Mail Institution Codes 题解](./nowcoder_summer_holiday_competition7/K_solution.md)
+
