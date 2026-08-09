@@ -33,5 +33,12 @@
     "link": "/solutions/nowcoder_summer_holiday_competition7/K_solution",
     "summary": "有 n（1 le n le 20）所研究机构，每所机构的名字由 1 sim 20 个单词组成，单词之间以单个空格分隔；每个单词含 1 sim 20 个英文字母，...",
     "date": "2026-08-09"
+  },
+  {
+    "title": "L Bobo and Modulo 题解",
+    "category": "牛客暑期联赛（第7场）",
+    "link": "/solutions/nowcoder_summer_holiday_competition7/L_solution",
+    "summary": "对 1 le a,b le n 的有序对计数，满足： 其中 n le 10^ 12 ，答案可能很大（需 64 位整数）。 算法类型 ：数论（中国剩余定理）+ 按...",
+    "date": "2026-08-09"
   }
 ]
