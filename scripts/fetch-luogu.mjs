@@ -23,6 +23,19 @@ const FIELD_MAP = {
   ranking: 'ranking',
   name: 'name',
   slogan: 'slogan',
+  color: 'color',
+}
+
+// 洛谷等级颜色 → 站点使用的 16 进制色值（与洛谷官方配色一致）
+const COLOR_MAP = {
+  Gray: '#7f8c9b',
+  Red: '#e74c3c',
+  Yellow: '#f1c40f',
+  Green: '#52c41a',
+  Blue: '#3498db',
+  Purple: '#9b59b6',
+  Orange: '#f39c12',
+  Gold: '#d4a017',
 }
 
 function esc(s) {
@@ -80,8 +93,9 @@ async function main() {
   let updated = false
   const changed = []
   for (const [apiKey, vueKey] of Object.entries(FIELD_MAP)) {
-    const value = user[apiKey]
+    let value = user[apiKey]
     if (value === undefined || value === null) continue
+    if (vueKey === 'color') value = COLOR_MAP[value] || value
     let pattern
     let replacement
     if (typeof value === 'number') {

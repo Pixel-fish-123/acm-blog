@@ -11,6 +11,7 @@ const luogu = {
   home: 'https://www.luogu.com.cn/user/361708',
   name: 'Pixel_fish',
   slogan: '有时候在想，然后我忘了（）',
+  color: '#f39c12',
   followers: 9,
   following: 11,
   passed: 379,
@@ -20,7 +21,7 @@ const luogu = {
 </script>
 
 <template>
-  <div class="lg-home">
+  <div class="lg-home" :style="{ '--lg-name-color': luogu.color }">
     <div class="lg-main">
       <div class="lg-content">
         <section class="lg-card">
@@ -264,7 +265,7 @@ const luogu = {
   margin-top: 6px;
   font-size: 12px;
   font-weight: 600;
-  color: #52c41a; /* 洛谷等级色：绿 */
+  color: var(--lg-name-color, #52c41a); /* 洛谷等级色 */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -302,7 +303,7 @@ const luogu = {
   margin-top: 12px;
   font-size: 18px;
   font-weight: 600;
-  color: #52c41a; /* 洛谷等级色：绿 */
+  color: var(--lg-name-color, #52c41a); /* 洛谷等级色 */
 }
 
 .lg-slogan {
