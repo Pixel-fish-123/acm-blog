@@ -60,6 +60,7 @@ function summaryOf(file) {
 // 分类目录名 → 展示名（洛谷风格中文平台名）
 function categoryName(dir) {
   if (dir === '专题') return '专题'
+  if (dir === 'greedy_tuition') return '贪心入门'
   const m = dir.match(/^nowcoder_summer_holiday_competition(\d*)$/)
   if (m) return '牛客暑期联赛' + (m[1] ? `（第${m[1]}场）` : '')
   if (dir.startsWith('nowcoder')) return '牛客' + dir.replace(/^nowcoder_?/, '')

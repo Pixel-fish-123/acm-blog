@@ -1,5 +1,54 @@
 [
   {
+    "title": "1 线段重合 题解",
+    "category": "贪心入门",
+    "link": "/solutions/greedy_tuition/1_solution",
+    "summary": "给定 N 条线段，每条线段用 X 轴上的起止位置 [start, end] 表示。求所有重合区域中，同一位置最多重合了几条线段。注意首尾相接的线段不算重合，例如...",
+    "date": "2026-08-12"
+  },
+  {
+    "title": "2 P1090 [NOIP 2004 提高组] 合并果子 题解",
+    "category": "贪心入门",
+    "link": "/solutions/greedy_tuition/2_solution",
+    "summary": "在一个果园里，多多把 n 种果子分成了 n 堆，每次合并可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。经过 n-1 次合并后所有果子合成一堆，总消...",
+    "date": "2026-08-12"
+  },
+  {
+    "title": "3 P6033 [NOIP 2004 提高组] 合并果子 加强版 题解",
+    "category": "贪心入门",
+    "link": "/solutions/greedy_tuition/3_solution",
+    "summary": "与 P1090 完全一致：果园里有 n 堆果子，每次合并两堆，消耗体力等于两堆重量之和，经过 n-1 次合并后合成一堆，求最小总消耗体力。 数据范围：1 le ...",
+    "date": "2026-08-12"
+  },
+  {
+    "title": "4 知识竞赛 题解",
+    "category": "贪心入门",
+    "link": "/solutions/greedy_tuition/4_solution",
+    "summary": "部门要选两个员工去参加需要合作的知识竞赛，每个员工 i 有推理能力值 A i 和阅读能力值 B i。选择第 i 人和第 j 人参赛时，他们在阅读方面表现出的能力...",
+    "date": "2026-08-12"
+  },
+  {
+    "title": "5 P1012 [NOIP 1998 提高组] 拼数 题解",
+    "category": "贪心入门",
+    "link": "/solutions/greedy_tuition/5_solution",
+    "summary": "设有 n 个正整数 a 1, dots, a n，将它们连接成一排，相邻数字首尾相接，组成一个最大的整数，输出这个整数。 数据范围：1 le n le 20，1...",
+    "date": "2026-08-12"
+  },
+  {
+    "title": "6 P1080 [NOIP 2012 提高组] 国王游戏 题解",
+    "category": "贪心入门",
+    "link": "/solutions/greedy_tuition/6_solution",
+    "summary": "国王邀请 n 位大臣玩游戏，国王与每位大臣左右手上各写一个整数。大臣排成一排，国王站在最前面。每位大臣获得的金币数为：排在该大臣前面的所有人（含国王）左手数的乘...",
+    "date": "2026-08-12"
+  },
+  {
+    "title": "7 P1109 学生分组 题解",
+    "category": "贪心入门",
+    "link": "/solutions/greedy_tuition/7_solution",
+    "summary": "有 n 组学生，给出初始时每组的学生数，再给出每组学生数的上界 R 和下界 L（L le R）。每次操作可以在某组中选出一名学生，把他安排到另外一组中。问最少需...",
+    "date": "2026-08-12"
+  },
+  {
     "title": "P6175 无向图的最小环问题 题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P6175_solution",

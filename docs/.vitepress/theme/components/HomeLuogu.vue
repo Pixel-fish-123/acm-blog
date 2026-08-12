@@ -13,9 +13,9 @@ const luogu = {
   slogan: '有时候在想，然后我忘了（）',
   followers: 9,
   following: 11,
-  passed: 377,
-  submitted: 382,
-  ranking: 10941,
+  passed: 379,
+  submitted: 384,
+  ranking: 10519,
 }
 </script>
 

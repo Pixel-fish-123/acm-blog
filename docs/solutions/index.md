@@ -2,6 +2,16 @@
 
 > 本页由 `npm run sync` 自动生成，请勿手动编辑。
 
+## greedy_tuition
+
+- [1 线段重合 题解](./greedy_tuition/1_solution.md)
+- [2 P1090 [NOIP 2004 提高组] 合并果子 题解](./greedy_tuition/2_solution.md)
+- [3 P6033 [NOIP 2004 提高组] 合并果子 加强版 题解](./greedy_tuition/3_solution.md)
+- [4 知识竞赛 题解](./greedy_tuition/4_solution.md)
+- [5 P1012 [NOIP 1998 提高组] 拼数 题解](./greedy_tuition/5_solution.md)
+- [6 P1080 [NOIP 2012 提高组] 国王游戏 题解](./greedy_tuition/6_solution.md)
+- [7 P1109 学生分组 题解](./greedy_tuition/7_solution.md)
+
 ## luogu
 
 - [P6175 无向图的最小环问题 题解](./luogu/P6175_solution.md)
