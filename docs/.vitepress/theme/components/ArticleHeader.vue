@@ -46,7 +46,7 @@ const date = computed(() => {
 .ah-name {
   font-size: 13px;
   font-weight: 600;
-  color: #52c41a; /* 洛谷等级色：绿 */
+  color: #f39c12; /* 洛谷等级色（npm run sync 自动同步） */
   text-decoration: none;
 }
 

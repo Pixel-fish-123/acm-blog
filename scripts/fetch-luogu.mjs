@@ -115,6 +115,33 @@ async function main() {
     }
   }
 
+  // 文章页作者名颜色与首页保持同步
+  const colorHex = COLOR_MAP[user.color]
+  if (colorHex) {
+    const articleVueFile = path.resolve(
+      __dirname,
+      '..',
+      'docs',
+      '.vitepress',
+      'theme',
+      'components',
+      'ArticleHeader.vue'
+    )
+    try {
+      const art = fs.readFileSync(articleVueFile, 'utf8')
+      const next = art.replace(
+        /(\.ah-name\s*\{[\s\S]*?color:\s*)#[0-9a-fA-F]{6}/,
+        `$1${colorHex}`
+      )
+      if (next !== art) {
+        fs.writeFileSync(articleVueFile, next)
+        console.log(`文章页作者名颜色同步：${colorHex}`)
+      }
+    } catch (e) {
+      console.warn(`文章页作者名颜色同步失败（${e.message}）`)
+    }
+  }
+
   if (!updated) {
     console.log('洛谷数据更新：无变化')
     return
