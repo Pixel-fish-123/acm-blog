@@ -77,6 +77,13 @@
     "date": "2026-08-06"
   },
   {
+    "title": "A 入侵天使领域行动 题解",
+    "category": "牛客暑期联赛（第7场）",
+    "link": "/solutions/nowcoder_summer_holiday_competition7/A_solution",
+    "summary": "给定长度为 n 的非负整数数组 a = (a 1, a 2, ldots, a n)（数值按 31 位二进制处理，即 0 le a i < 2^ 31 ）。一次...",
+    "date": "2026-08-26"
+  },
+  {
     "title": "K D-Mail Institution Codes 题解",
     "category": "牛客暑期联赛（第7场）",
     "link": "/solutions/nowcoder_summer_holiday_competition7/K_solution",

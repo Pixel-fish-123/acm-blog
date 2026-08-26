@@ -30,6 +30,7 @@
 
 ## nowcoder_summer_holiday_competition7
 
+- [A 入侵天使领域行动 题解](./nowcoder_summer_holiday_competition7/A_solution.md)
 - [K D-Mail Institution Codes 题解](./nowcoder_summer_holiday_competition7/K_solution.md)
 - [L Bobo and Modulo 题解](./nowcoder_summer_holiday_competition7/L_solution.md)
 
