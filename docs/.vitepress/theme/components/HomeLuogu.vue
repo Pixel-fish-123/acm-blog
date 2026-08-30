@@ -14,8 +14,8 @@ const luogu = {
   color: '#f39c12',
   followers: 9,
   following: 11,
-  passed: 379,
-  submitted: 384,
+  passed: 380,
+  submitted: 385,
   ranking: 10339,
 }
 </script>

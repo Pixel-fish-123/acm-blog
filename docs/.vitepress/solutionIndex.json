@@ -49,6 +49,13 @@
     "date": "2026-08-12"
   },
   {
+    "title": "P5854 【模板】笛卡尔树 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P5854_solution",
+    "summary": "给定一个长度为 n 的排列 p，要求构建这组 (下标, 值) 二元组的笛卡尔树：树的中序遍历恰好是下标 1, 2, dots, n（即对下标是一棵二叉搜索树），...",
+    "date": "2026-08-30"
+  },
+  {
     "title": "P6175 无向图的最小环问题 题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P6175_solution",
