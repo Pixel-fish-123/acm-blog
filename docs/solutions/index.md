@@ -14,6 +14,7 @@
 
 ## luogu
 
+- [P1377 [TJOI2011] 树的序 题解](./luogu/P1377_solution.md)
 - [P5854 【模板】笛卡尔树 题解](./luogu/P5854_solution.md)
 - [P6175 无向图的最小环问题 题解](./luogu/P6175_solution.md)
 

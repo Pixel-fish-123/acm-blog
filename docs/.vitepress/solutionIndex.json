@@ -49,6 +49,13 @@
     "date": "2026-08-12"
   },
   {
+    "title": "P1377 [TJOI2011] 树的序 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P1377_solution",
+    "summary": "给定一个 1 sim n 的排列 k 1, k 2, ldots, k n，将其按顺序逐个插入一棵初始为空的二叉查找树（小于根往左，否则往右）。称能生成同一棵树...",
+    "date": "2026-08-31"
+  },
+  {
     "title": "P5854 【模板】笛卡尔树 题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P5854_solution",
