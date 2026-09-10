@@ -56,6 +56,34 @@
     "date": "2026-08-12"
   },
   {
+    "title": "C Jiaxun! 题解",
+    "category": "ICPC 2025 网络赛（第2场）",
+    "link": "/solutions/icpc_2025_online_ver2/C_solution",
+    "summary": "共有 S 道待解决的题，按\"哪几名队员能做\"分成七类，各类题数依次记作 F 1..F 7（七类之和恰为 S）。类别编号 i 的二进制位指明可做该题的人：第 0 ...",
+    "date": "2026-09-05"
+  },
+  {
+    "title": "A Recall 题解",
+    "category": "ICPC 2026 网络赛（第1场）",
+    "link": "/solutions/icpc_2026_online_ver1/A_solution",
+    "summary": "有一个初始为空的栈 S，操作有三种： - ：把 x 压入栈； - ：询问 x 是否在栈中，结果是 （存在）或 （不存在）； - ：弹出栈顶元素（此时栈必须非空）...",
+    "date": "2026-09-10"
+  },
+  {
+    "title": "C Permutation Inversions 题解",
+    "category": "ICPC 2026 网络赛（第1场）",
+    "link": "/solutions/icpc_2026_online_ver1/C_solution",
+    "summary": "有一个未知的排列 p=(p 1,p 2, dots,p n)（1 sim n 的排列），并给出 m 条信息。第 i 条信息给出一个区间 [l i,r i] 和该...",
+    "date": "2026-09-10"
+  },
+  {
+    "title": "L Longest Common Prefix 题解",
+    "category": "ICPC 2026 网络赛（第1场）",
+    "link": "/solutions/icpc_2026_online_ver1/L_solution",
+    "summary": "给定 n 个字符串 s 1,s 2, dots,s n，按顺序处理。对每个 1 le i le n 和每个 1 le j le i，从下标集合 1,2, dot...",
+    "date": "2026-09-10"
+  },
+  {
     "title": "P1115 最大子段和 题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P1115_solution",
@@ -179,7 +207,7 @@
     "category": "洛谷",
     "link": "/solutions/luogu/P3812_solution",
     "summary": "给定 n 个整数（数字可能重复），从中选取任意个，求最大异或和（1 le n le 50，0 le S i<2^ 50 ）。 算法类型 ：线性基（异或空间的高斯...",
-    "date": "2026-09-01"
+    "date": "2026-09-05"
   },
   {
     "title": "P4279 [SHOI2008] 小约翰的游戏 题解",
@@ -229,6 +257,13 @@
     "link": "/solutions/luogu/P6175_solution",
     "summary": "给定一张 n 个点、m 条边的无向带权图，求图中一个至少包含 3 个点、节点不重复的环，使得环上边权之和最小。输出最小环的边权和；若无环，输出 。 数据范围：1...",
     "date": "2026-08-06"
+  },
+  {
+    "title": "P6453 [COCI 2008/2009 #4] PERIODNI 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P6453_solution",
+    "summary": "给定一个由 n 列组成、底部对齐的表格，第 i 列的高度为 h i（即该列从下往上含 h i 个格子）。要在表格的格子里填入 k 个 相同 的数，满足： - 任...",
+    "date": "2026-09-04"
   },
   {
     "title": "P6487 [COCI 2010/2011 #4] HRPA 题解",

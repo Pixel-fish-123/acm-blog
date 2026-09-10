@@ -16,6 +16,16 @@
 - [6 P1080 [NOIP 2012 提高组] 国王游戏 题解](./greedy_tuition/6_solution.md)
 - [7 P1109 学生分组 题解](./greedy_tuition/7_solution.md)
 
+## icpc_2025_online_ver2
+
+- [C Jiaxun! 题解](./icpc_2025_online_ver2/C_solution.md)
+
+## icpc_2026_online_ver1
+
+- [A Recall 题解](./icpc_2026_online_ver1/A_solution.md)
+- [C Permutation Inversions 题解](./icpc_2026_online_ver1/C_solution.md)
+- [L Longest Common Prefix 题解](./icpc_2026_online_ver1/L_solution.md)
+
 ## luogu
 
 - [P1115 最大子段和 题解](./luogu/P1115_solution.md)
@@ -43,6 +53,7 @@
 - [P5854 【模板】笛卡尔树 题解](./luogu/P5854_solution.md)
 - [P5908 猫猫和企鹅 题解](./luogu/P5908_solution.md)
 - [P6175 无向图的最小环问题 题解](./luogu/P6175_solution.md)
+- [P6453 [COCI 2008/2009 #4] PERIODNI 题解](./luogu/P6453_solution.md)
 - [P6487 [COCI 2010/2011 #4] HRPA 题解](./luogu/P6487_solution.md)
 - [P8435 【模板】点双连通分量 题解](./luogu/P8435_solution.md)
 - [P8436 【模板】边双连通分量 题解](./luogu/P8436_solution.md)
