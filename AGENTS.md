@@ -17,6 +17,7 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
 - `npm run sync` / `npm run luogu` work from WSL (pure Node, cross-platform).
 - `npm run build` fails from WSL: `node_modules` is Windows-installed (missing `@rollup/rollup-linux-x64-gnu`). Never reinstall `node_modules` from WSL — it breaks the Windows install. Verify builds on Windows or rely on CI.
 - WSL git has no credential helper; `git push` fails with `could not read Username for 'https://github.com'`. Push via Windows git instead (uses Windows Credential Manager): `"/mnt/d/Git/cmd/git.exe" -C "C:\Users\13368\Desktop\acm-blog" push origin main`. Windows git is at `D:\Git\cmd\git.exe`, not `C:\Program Files`.
+- Line endings are pinned to LF by the root `.gitattributes` (`* text=auto eol=lf`). Windows git has `core.autocrlf=true` while WSL git does not, so with no attributes a WSL `git add` stores CRLF blobs and the two gits disagree about what is modified. Never "fix" a repo-wide modified list by committing it: check `git ls-files --eol` first, then `git add --renormalize .`. The same file is in the sibling repo `..\acm-icpc`; keep both identical.
 - If a Pages deploy run is stuck `queued` for hours, push an empty commit (`git commit --allow-empty`) to trigger a fresh run; watch `https://github.com/Pixel-fish-123/acm-blog/actions`.
 
 ## Commit rules

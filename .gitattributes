@@ -1,0 +1,16 @@
+# ── 换行符统一 ───────────────────────────────────────────────────────────
+# 仓库内存储与检出后一律 LF，不受各平台 core.autocrlf 影响。
+# 背景：Windows 的 git 全局带 core.autocrlf=true，WSL 的 git 没有；
+# 若不固定，同一个工作区在 Windows 下干净、在 WSL 下会显示整库"已修改"。
+* text=auto eol=lf
+
+# ── 静态资源：禁止行尾转换与文本 diff ───────────────────────────────────
+*.png  binary
+*.ico  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+
+# ── 语言类型提示 ────────────────────────────────────────────────────────
+*.md text diff=markdown
