@@ -5,6 +5,7 @@
 ## codeforces
 
 - [cf1748E Yet Another Array Counting Problem 题解](./codeforces/cf1748E_solution.md)
+- [cf2260C Maximize XOR, Minimize Operations 题解](./codeforces/cf2260C_solution.md)
 
 ## greedy_tuition
 
@@ -16,6 +17,10 @@
 - [6 P1080 [NOIP 2012 提高组] 国王游戏 题解](./greedy_tuition/6_solution.md)
 - [7 P1109 学生分组 题解](./greedy_tuition/7_solution.md)
 
+## icpc_2024_online_ver2
+
+- [I Strange Binary 题解](./icpc_2024_online_ver2/I_solution.md)
+
 ## icpc_2025_online_ver2
 
 - [C Jiaxun! 题解](./icpc_2025_online_ver2/C_solution.md)
@@ -25,6 +30,14 @@
 - [A Recall 题解](./icpc_2026_online_ver1/A_solution.md)
 - [C Permutation Inversions 题解](./icpc_2026_online_ver1/C_solution.md)
 - [L Longest Common Prefix 题解](./icpc_2026_online_ver1/L_solution.md)
+
+## icpc_2026_online_ver2
+
+- [K MEX 题解](./icpc_2026_online_ver2/K_solution.md)
+
+## leetcode
+
+- [leetcode421 数组中两个数的最大异或值 题解](./leetcode/leetcode421_solution.md)
 
 ## luogu
 
@@ -36,6 +49,7 @@
 - [P1395 会议 题解](./luogu/P1395_solution.md)
 - [P1435 [IOI 2000] 回文字串 题解](./luogu/P1435_solution.md)
 - [P1525 [NOIP 2010 提高组] 关押罪犯 题解](./luogu/P1525_solution.md)
+- [P17333 「TPOI-2C」Secret Illumination 题解](./luogu/P17333_solution.md)
 - [P2197 【模板】Nim 游戏 题解](./luogu/P2197_solution.md)
 - [P2252 【模板】威佐夫博弈 / [SHOI2002] 取石子游戏 题解](./luogu/P2252_solution.md)
 - [P3157 [CQOI2011] 动态逆序对 题解](./luogu/P3157_solution.md)
@@ -58,6 +72,10 @@
 - [P8435 【模板】点双连通分量 题解](./luogu/P8435_solution.md)
 - [P8436 【模板】边双连通分量 题解](./luogu/P8436_solution.md)
 - [SP18185 GIVEAWAY - Give Away 题解](./luogu/SP18185_solution.md)
+
+## nowcoder
+
+- [nowcoder_pt1 接头密匙 题解](./nowcoder/nowcoder_pt1_solution.md)
 
 ## nowcoder_summer_holiday_competition3
 

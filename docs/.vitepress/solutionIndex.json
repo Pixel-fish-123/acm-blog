@@ -7,6 +7,13 @@
     "date": "2026-09-01"
   },
   {
+    "title": "cf2260C Maximize XOR, Minimize Operations 题解",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2260C_solution",
+    "summary": "给定两个非负整数 x, y。一次操作同时执行两件事：x leftarrow x - 1，y leftarrow y + 1；当 x = 0 时无法操作。 对每一...",
+    "date": "2026-09-13"
+  },
+  {
     "title": "1 线段重合 题解",
     "category": "贪心入门",
     "link": "/solutions/greedy_tuition/1_solution",
@@ -56,6 +63,13 @@
     "date": "2026-08-12"
   },
   {
+    "title": "I Strange Binary 题解",
+    "category": "ICPC 2024 网络赛（第2场）",
+    "link": "/solutions/icpc_2024_online_ver2/I_solution",
+    "summary": "通常的二进制分解写作 n= overline a 31 a 30 dots a 0 ，其中每个 a i in 0,1 。本题把系数集合放松成 -1,0,1 ，但...",
+    "date": "2026-09-13"
+  },
+  {
     "title": "C Jiaxun! 题解",
     "category": "ICPC 2025 网络赛（第2场）",
     "link": "/solutions/icpc_2025_online_ver2/C_solution",
@@ -82,6 +96,20 @@
     "link": "/solutions/icpc_2026_online_ver1/L_solution",
     "summary": "给定 n 个字符串 s 1,s 2, dots,s n，按顺序处理。对每个 1 le i le n 和每个 1 le j le i，从下标集合 1,2, dot...",
     "date": "2026-09-10"
+  },
+  {
+    "title": "K MEX 题解",
+    "category": "ICPC 2026 网络赛（第2场）",
+    "link": "/solutions/icpc_2026_online_ver2/K_solution",
+    "summary": "给定长度为 n 的数组 a，其中 0 le a i le 10^9。 mathrm mex (a) 定义为最小的 不出现 在 a 中的非负整数，例如 mathr...",
+    "date": "2026-09-13"
+  },
+  {
+    "title": "leetcode421 数组中两个数的最大异或值 题解",
+    "category": "LeetCode",
+    "link": "/solutions/leetcode/leetcode421_solution",
+    "summary": "给定一个整数数组 textit nums ，返回 其中 n= textit nums.length ，1 le n le 2 times 10^ 5 ，0 le...",
+    "date": "2026-09-13"
   },
   {
     "title": "P1115 最大子段和 题解",
@@ -115,8 +143,8 @@
     "title": "P1377 [TJOI2011] 树的序 题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P1377_solution",
-    "summary": "给定一个 1 sim n 的排列 k 1, k 2, ldots, k n，将其按顺序逐个插入一棵初始为空的二叉查找树（小于根往左，否则往右）。称能生成同一棵树...",
-    "date": "2026-08-31"
+    "summary": "按题目给定的规则，把 k 1,k 2, dots,k n 依次插入一棵初始为空的二叉查找树：插入 k 时，若 k 小于当前子树根的键值就进入左子树，否则进入右子...",
+    "date": "2026-09-13"
   },
   {
     "title": "P1395 会议 题解",
@@ -138,6 +166,13 @@
     "link": "/solutions/luogu/P1525_solution",
     "summary": "两座监狱关押 N 名罪犯，M 对罪犯之间存在仇恨（怨气值 c j）。同一监狱内的仇恨对必然发生影响力为 c j 的冲突。重新分配罪犯，使发生的冲突中 影响力最大...",
     "date": "2026-09-01"
+  },
+  {
+    "title": "P17333 「TPOI-2C」Secret Illumination 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P17333_solution",
+    "summary": "构造长度为 n 的数组 a，满足 1 le a i le 10^9，并且 把同一个下标 j 被计入的次数合并，令 条件就等价于简洁的加权形式 sum j=1 ^...",
+    "date": "2026-09-13"
   },
   {
     "title": "P2197 【模板】Nim 游戏 题解",
@@ -292,6 +327,13 @@
     "link": "/solutions/luogu/SP18185_solution",
     "summary": "给定一个 1 下标、长度为 N 的数组 X（N le 5 times 10^5），Q 个询问： 查询区间 [a,b] 中值 ge c 的元素个数； 把第 a 个...",
     "date": "2026-09-01"
+  },
+  {
+    "title": "nowcoder_pt1 接头密匙 题解",
+    "category": "牛客",
+    "link": "/solutions/nowcoder/nowcoder_pt1_solution",
+    "summary": "牛牛和朋友们约定了一套接头密匙系统，用于确认彼此身份。一个密匙用一组数字序列表示，两个密匙被认为一致，当且仅当下面两条同时成立： 1. b le a ，即 b ...",
+    "date": "2026-09-13"
   },
   {
     "title": "G Grid Marking 题解",
