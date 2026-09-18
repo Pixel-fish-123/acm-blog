@@ -2,6 +2,10 @@
 
 > 本页由 `npm run sync` 自动生成，请勿手动编辑。
 
+## atcoder
+
+- [agc_028B Removing Blocks 题解](./atcoder/agc_028B_solution.md)
+
 ## codeforces
 
 - [cf1748E Yet Another Array Counting Problem 题解](./codeforces/cf1748E_solution.md)
@@ -38,6 +42,7 @@
 ## leetcode
 
 - [leetcode421 数组中两个数的最大异或值 题解](./leetcode/leetcode421_solution.md)
+- [leetcode572 另一棵树的子树 题解](./leetcode/leetcode572_solution.md)
 
 ## luogu
 
@@ -53,6 +58,7 @@
 - [P2197 【模板】Nim 游戏 题解](./luogu/P2197_solution.md)
 - [P2252 【模板】威佐夫博弈 / [SHOI2002] 取石子游戏 题解](./luogu/P2252_solution.md)
 - [P3157 [CQOI2011] 动态逆序对 题解](./luogu/P3157_solution.md)
+- [P3375 【模板】KMP 题解](./luogu/P3375_solution.md)
 - [P3379(tarjan) 【模板】最近公共祖先（LCA）题解（Tarjan 离线做法）](./luogu/P3379(tarjan)_solution.md)
 - [P3379 【模板】最近公共祖先（LCA）题解](./luogu/P3379_solution.md)
 - [P3384 【模板】重链剖分 / 树链剖分 题解](./luogu/P3384_solution.md)
@@ -61,8 +67,10 @@
 - [P3810 【模板】三维偏序 / 陌上花开 题解](./luogu/P3810_solution.md)
 - [P3812 【模板】线性基 题解](./luogu/P3812_solution.md)
 - [P4279 [SHOI2008] 小约翰的游戏 题解](./luogu/P4279_solution.md)
+- [P4391 [BalticOI 2009] Radio Transmission 题解](./luogu/P4391_solution.md)
 - [P4556 【模板】线段树合并 / [Vani 有约会] 雨天的尾巴 题解](./luogu/P4556_solution.md)
 - [P4782 【模板】2-SAT 题解](./luogu/P4782_solution.md)
+- [P4824 [USACO15FEB] Censoring S 题解](./luogu/P4824_solution.md)
 - [P5782 [POI 2001 R2] 和平委员会 题解](./luogu/P5782_solution.md)
 - [P5854 【模板】笛卡尔树 题解](./luogu/P5854_solution.md)
 - [P5908 猫猫和企鹅 题解](./luogu/P5908_solution.md)

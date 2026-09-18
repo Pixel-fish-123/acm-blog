@@ -1,5 +1,12 @@
 [
   {
+    "title": "agc_028B Removing Blocks 题解",
+    "category": "AtCoder",
+    "link": "/solutions/atcoder/agc_028B_solution",
+    "summary": "有 n 块砖排成一行，第 i 块的重量为 arr i。每次操作可以选择一块 尚未被消除 的砖块将其消除，获得的收益为 当前与它连通的所有砖块 （即包含它的那一段...",
+    "date": "2026-09-18"
+  },
+  {
     "title": "cf1748E Yet Another Array Counting Problem 题解",
     "category": "Codeforces",
     "link": "/solutions/codeforces/cf1748E_solution",
@@ -112,6 +119,13 @@
     "date": "2026-09-13"
   },
   {
+    "title": "leetcode572 另一棵树的子树 题解",
+    "category": "LeetCode",
+    "link": "/solutions/leetcode/leetcode572_solution",
+    "summary": "给定两棵二叉树的根 与 ，判断 中是否存在一棵与 结构相同、且对应节点值完全相同 的子树。这里的子树指 的某个节点连同它的全部后代； 自身也算它自己的一棵子树。...",
+    "date": "2026-09-18"
+  },
+  {
     "title": "P1115 最大子段和 题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P1115_solution",
@@ -196,6 +210,13 @@
     "date": "2026-09-01"
   },
   {
+    "title": "P3375 【模板】KMP 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P3375_solution",
+    "summary": "给出两个只含大写英文字母的字符串 s 1,s 2（1 le s 1 , s 2 le 10^6）： - 求出 s 2 在 s 1 中所有出现的位置（位置即子串左...",
+    "date": "2026-09-18"
+  },
+  {
     "title": "P3379 【模板】最近公共祖先（LCA）题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P3379_solution",
@@ -252,6 +273,13 @@
     "date": "2026-09-01"
   },
   {
+    "title": "P4391 [BalticOI 2009] Radio Transmission 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P4391_solution",
+    "summary": "给出长度为 L（1 le L le 10^6）的小写字母串 S。已知 S 是某个字符串 S' 无限重复 S'+S'+S'+ cdots 的一个子串，且 S ge...",
+    "date": "2026-09-18"
+  },
+  {
     "title": "P4556 【模板】线段树合并 / [Vani 有约会] 雨天的尾巴 题解",
     "category": "洛谷",
     "link": "/solutions/luogu/P4556_solution",
@@ -264,6 +292,13 @@
     "link": "/solutions/luogu/P4782_solution",
     "summary": "有 n 个布尔变量 x 1 sim x n（1 le n,m le 10^6）与 m 个条件，每个条件形如「x i 为 a 或 x j 为 b」（a,b in ...",
     "date": "2026-09-01"
+  },
+  {
+    "title": "P4824 [USACO15FEB] Censoring S 题解",
+    "category": "洛谷",
+    "link": "/solutions/luogu/P4824_solution",
+    "summary": "给出两个只含小写字母的字符串 S 与 T，其中 S le 10^6， T le S 。反复执行下面的操作：在当前 S 中找到 第一个 出现的子串 T 并把它删除...",
+    "date": "2026-09-18"
   },
   {
     "title": "P5782 [POI 2001 R2] 和平委员会 题解",
