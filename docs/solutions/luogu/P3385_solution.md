@@ -1,3 +1,8 @@
+---
+tags: [最短路]
+difficulty: "普及"
+source: "https://www.luogu.com.cn/problem/P3385"
+---
 # P3385 【模板】负环 题解
 
 ## 题意

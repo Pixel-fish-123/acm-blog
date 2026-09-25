@@ -1,3 +1,6 @@
+---
+tags: [Trie]
+---
 # nowcoder_pt1 接头密匙 题解
 
 ## 题意

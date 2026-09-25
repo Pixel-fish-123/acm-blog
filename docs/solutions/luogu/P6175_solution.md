@@ -1,3 +1,8 @@
+---
+tags: [最短路, 枚举]
+difficulty: "普及"
+source: "https://www.luogu.com.cn/problem/P6175"
+---
 # P6175 无向图的最小环问题 题解
 
 ## 题意

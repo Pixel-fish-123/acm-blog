@@ -1,3 +1,8 @@
+---
+tags: [KMP, 栈]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P4824"
+---
 # P4824 [USACO15FEB] Censoring S 题解
 
 ## 题意

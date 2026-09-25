@@ -1,3 +1,6 @@
+---
+tags: [Trie, 枚举]
+---
 # L Longest Common Prefix 题解
 
 ## 题意

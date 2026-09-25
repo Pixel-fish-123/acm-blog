@@ -1,3 +1,8 @@
+---
+tags: [LCA, 树上问题]
+difficulty: "普及"
+source: "https://www.luogu.com.cn/problem/P3379"
+---
 # P3379 【模板】最近公共祖先（LCA）题解
 
 ## 题意

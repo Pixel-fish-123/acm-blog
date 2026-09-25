@@ -1,3 +1,8 @@
+---
+tags: [区间DP]
+difficulty: "普及"
+source: "https://www.luogu.com.cn/problem/P1435"
+---
 # P1435 [IOI 2000] 回文字串 题解
 
 ## 题意

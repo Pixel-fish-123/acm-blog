@@ -1,3 +1,8 @@
+---
+tags: [Tarjan]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P8436"
+---
 # P8436 【模板】边双连通分量 题解
 
 ## 题意

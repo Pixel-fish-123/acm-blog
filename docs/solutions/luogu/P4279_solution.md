@@ -1,3 +1,8 @@
+---
+tags: [博弈论]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P4279"
+---
 # P4279 [SHOI2008] 小约翰的游戏 题解
 
 ## 题意

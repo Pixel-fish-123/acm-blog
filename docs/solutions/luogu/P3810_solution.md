@@ -1,3 +1,8 @@
+---
+tags: [CDQ分治, 树状数组]
+difficulty: "提高+/省选-"
+source: "https://www.luogu.com.cn/problem/P3810"
+---
 # P3810 【模板】三维偏序 / 陌上花开 题解
 
 ## 题意

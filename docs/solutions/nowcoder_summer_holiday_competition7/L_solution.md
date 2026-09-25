@@ -1,3 +1,6 @@
+---
+tags: [数论, 枚举]
+---
 # L Bobo and Modulo 题解
 
 ## 题意

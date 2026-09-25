@@ -1,3 +1,8 @@
+---
+tags: [二分, 构造]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P17333"
+---
 # P17333 「TPOI-2C」Secret Illumination 题解
 
 ## 题意

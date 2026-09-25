@@ -1,3 +1,6 @@
+---
+tags: [构造, 数论]
+---
 # B Quadratic Residue 题解
 
 ## 题意

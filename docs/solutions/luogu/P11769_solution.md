@@ -1,3 +1,8 @@
+---
+tags: [前缀和, 差分]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P11769"
+---
 # P11769 歌唱练习 题解
 
 ## 题意

@@ -1,3 +1,8 @@
+---
+tags: [线性基]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P3812"
+---
 # P3812 【模板】线性基 题解
 
 ## 题意

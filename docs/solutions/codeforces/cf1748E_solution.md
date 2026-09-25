@@ -1,3 +1,8 @@
+---
+tags: [计数DP, 笛卡尔树, 单调栈]
+difficulty: "CF 2300"
+source: "https://codeforces.com/problemset/problem/1748/E"
+---
 # cf1748E Yet Another Array Counting Problem 题解
 
 ## 题意

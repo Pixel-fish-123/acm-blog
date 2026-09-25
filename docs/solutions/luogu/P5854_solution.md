@@ -1,3 +1,8 @@
+---
+tags: [笛卡尔树, 单调栈]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P5854"
+---
 # P5854 【模板】笛卡尔树 题解
 
 ## 题意

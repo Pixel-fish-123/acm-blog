@@ -1,3 +1,8 @@
+---
+tags: [树的重心, DFS]
+difficulty: "普及"
+source: "https://www.luogu.com.cn/problem/P1395"
+---
 # P1395 会议 题解
 
 ## 题意

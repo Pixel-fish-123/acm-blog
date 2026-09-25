@@ -1,3 +1,8 @@
+---
+tags: [树链剖分, 线段树]
+difficulty: "提高+/省选-"
+source: "https://www.luogu.com.cn/problem/P3384"
+---
 # P3384 【模板】重链剖分 / 树链剖分 题解
 
 ## 题意

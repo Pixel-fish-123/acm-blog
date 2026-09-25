@@ -1,3 +1,7 @@
+---
+tags: [笛卡尔树, 组合数学]
+source: "https://atcoder.jp/contests/agc028/tasks/agc028_b"
+---
 # agc_028B Removing Blocks 题解
 
 ## 题意

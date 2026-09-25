@@ -1,3 +1,8 @@
+---
+tags: [2-SAT, Tarjan]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P4782"
+---
 # P4782 【模板】2-SAT 题解
 
 ## 题意

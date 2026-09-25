@@ -1,3 +1,8 @@
+---
+tags: [博弈论, 数论]
+difficulty: "省选/NOI-"
+source: "https://www.luogu.com.cn/problem/P2252"
+---
 # P2252 【模板】威佐夫博弈 / [SHOI2002] 取石子游戏 题解
 
 ## 题意

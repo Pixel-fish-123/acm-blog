@@ -1,3 +1,8 @@
+---
+tags: [线性DP]
+difficulty: "普及-"
+source: "https://www.luogu.com.cn/problem/P1115"
+---
 # P1115 最大子段和 题解
 
 ## 题意

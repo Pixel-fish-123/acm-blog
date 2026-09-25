@@ -1,3 +1,8 @@
+---
+tags: [博弈论, 位运算]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P2197"
+---
 # P2197 【模板】Nim 游戏 题解
 
 ## 题意

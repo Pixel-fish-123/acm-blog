@@ -1,3 +1,8 @@
+---
+tags: [贪心, 枚举]
+difficulty: "普及-"
+source: "https://www.luogu.com.cn/problem/P11768"
+---
 # P11768 破自行车 题解
 
 ## 题意

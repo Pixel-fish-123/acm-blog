@@ -1,3 +1,8 @@
+---
+tags: [笛卡尔树, 树形DP, 组合数学]
+difficulty: "省选/NOI-"
+source: "https://www.luogu.com.cn/problem/P6453"
+---
 # P6453 [COCI 2008/2009 #4] PERIODNI 题解
 
 ## 题意

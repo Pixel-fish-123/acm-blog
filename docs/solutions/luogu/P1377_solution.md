@@ -1,3 +1,8 @@
+---
+tags: [笛卡尔树, 拓扑排序]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P1377"
+---
 # P1377 [TJOI2011] 树的序 题解
 
 ## 题意

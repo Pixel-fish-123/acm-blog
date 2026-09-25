@@ -10,6 +10,11 @@
 
 - [cf1748E Yet Another Array Counting Problem 题解](./codeforces/cf1748E_solution.md)
 - [cf2260C Maximize XOR, Minimize Operations 题解](./codeforces/cf2260C_solution.md)
+- [gym101055C It-miha 题解](./codeforces/gym101055C_solution.md)
+- [gym101059B Shift and Push 题解](./codeforces/gym101059B_solution.md)
+- [gym101059D Impressive Queries 题解](./codeforces/gym101059D_solution.md)
+- [gym104518F Vacation 题解](./codeforces/gym104518F_solution.md)
+- [gym105109D Counting Records 题解](./codeforces/gym105109D_solution.md)
 
 ## greedy_tuition
 

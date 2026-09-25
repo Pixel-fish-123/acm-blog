@@ -1,3 +1,8 @@
+---
+tags: [CDQ分治, 树状数组]
+difficulty: "省选/NOI-"
+source: "https://www.luogu.com.cn/problem/P3157"
+---
 # P3157 [CQOI2011] 动态逆序对 题解
 
 ## 题意

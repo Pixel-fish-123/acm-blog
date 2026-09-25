@@ -1,3 +1,8 @@
+---
+tags: [LCA, Tarjan, 并查集]
+difficulty: "普及"
+source: "https://www.luogu.com.cn/problem/P3379"
+---
 # P3379(tarjan) 【模板】最近公共祖先（LCA）题解（Tarjan 离线做法）
 
 ## 题意

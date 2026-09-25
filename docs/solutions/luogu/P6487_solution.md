@@ -1,3 +1,8 @@
+---
+tags: [博弈论, 数论]
+difficulty: "NOI/NOI+/CTS"
+source: "https://www.luogu.com.cn/problem/P6487"
+---
 # P6487 [COCI 2010/2011 #4] HRPA 题解
 
 ## 题意

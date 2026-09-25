@@ -1,3 +1,8 @@
+---
+tags: [2-SAT, Tarjan]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P5782"
+---
 # P5782 [POI 2001 R2] 和平委员会 题解
 
 ## 题意

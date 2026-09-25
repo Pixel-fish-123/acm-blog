@@ -1,3 +1,8 @@
+---
+tags: [线段树合并, 树上问题, 差分]
+difficulty: "提高+/省选-"
+source: "https://www.luogu.com.cn/problem/P4556"
+---
 # P4556 【模板】线段树合并 / [Vani 有约会] 雨天的尾巴 题解
 
 ## 题意

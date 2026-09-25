@@ -1,3 +1,6 @@
+---
+tags: [拓扑排序, 堆]
+---
 # C Permutation Inversions 题解
 
 ## 题意

@@ -1,3 +1,6 @@
+---
+tags: [模拟]
+---
 # K D-Mail Institution Codes 题解
 
 ## 题意

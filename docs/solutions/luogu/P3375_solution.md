@@ -1,3 +1,8 @@
+---
+tags: [KMP]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P3375"
+---
 # P3375 【模板】KMP 题解
 
 ## 题意

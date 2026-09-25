@@ -1,3 +1,8 @@
+---
+tags: [位运算, 构造]
+difficulty: "CF 1300"
+source: "https://codeforces.com/problemset/problem/2260/C"
+---
 # cf2260C Maximize XOR, Minimize Operations 题解
 
 ## 题意

@@ -1,3 +1,6 @@
+---
+tags: [构造, 位运算]
+---
 # I Strange Binary 题解
 
 ## 题意

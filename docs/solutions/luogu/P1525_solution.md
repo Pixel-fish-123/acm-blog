@@ -1,3 +1,8 @@
+---
+tags: [二分图, 并查集, 二分]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P1525"
+---
 # P1525 [NOIP 2010 提高组] 关押罪犯 题解
 
 ## 题意

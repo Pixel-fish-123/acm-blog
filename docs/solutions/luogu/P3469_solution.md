@@ -1,3 +1,8 @@
+---
+tags: [Tarjan, DFS]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/P3469"
+---
 # P3469 [POI 2008] BLO-Blockade 题解
 
 ## 题意

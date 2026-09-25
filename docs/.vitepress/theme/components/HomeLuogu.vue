@@ -16,7 +16,7 @@ const luogu = {
   following: 11,
   passed: 385,
   submitted: 390,
-  ranking: 10305,
+  ranking: 10103,
 }
 </script>
 

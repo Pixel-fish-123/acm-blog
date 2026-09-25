@@ -37,6 +37,29 @@ function h1Of(file) {
   return path.basename(file, '.md')
 }
 
+// 解析源题解开头的 frontmatter（只取站点需要的三个字段，不引入 YAML 依赖）
+function frontmatterOf(file) {
+  const out = {}
+  try {
+    const raw = fs.readFileSync(file, 'utf8')
+    const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)
+    if (!m) return out
+    const body = m[1]
+    const tags = body.match(/^tags:\s*\[([^\]]*)\]\s*$/m)
+    if (tags) {
+      out.tags = tags[1]
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean)
+    }
+    for (const key of ['difficulty', 'source']) {
+      const kv = body.match(new RegExp(`^${key}:\\s*"([^"]*)"\\s*$`, 'm'))
+      if (kv) out[key] = kv[1]
+    }
+  } catch { /* 无 frontmatter 或读取失败 */ }
+  return out
+}
+
 // 提取纯文本摘要（去掉代码块、公式、markdown 语法）
 function summaryOf(file) {
   try {
@@ -108,13 +131,19 @@ fs.mkdirSync(dataDir, { recursive: true })
 const solutionIndex = files.map((rel) => {
   const dir = path.dirname(rel) === '.' ? '专题' : path.dirname(rel)
   const full = path.join(srcDir, rel)
-  return {
+  const fm = frontmatterOf(full)
+  const entry = {
     title: h1Of(full),
     category: categoryName(dir),
     link: '/solutions/' + rel.replace(/\.md$/, '').replaceAll('\\', '/'),
     summary: summaryOf(full),
     date: fs.statSync(full).mtime.toISOString().slice(0, 10),
   }
+  // 源文件可选 frontmatter 字段（页面暂不展示，仅供后续筛选功能使用）
+  if (fm.tags) entry.tags = fm.tags
+  if (fm.difficulty) entry.difficulty = fm.difficulty
+  if (fm.source) entry.source = fm.source
+  return entry
 })
 // 组内按标题排序，组间保持原顺序
 solutionIndex.sort((a, b) =>

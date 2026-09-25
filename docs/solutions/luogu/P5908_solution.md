@@ -1,3 +1,8 @@
+---
+tags: [DFS, 树上问题]
+difficulty: "普及-"
+source: "https://www.luogu.com.cn/problem/P5908"
+---
 # P5908 猫猫和企鹅 题解
 
 ## 题意

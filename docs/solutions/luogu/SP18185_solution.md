@@ -1,3 +1,8 @@
+---
+tags: [分块]
+difficulty: "提高"
+source: "https://www.luogu.com.cn/problem/SP18185"
+---
 # SP18185 GIVEAWAY - Give Away 题解
 
 ## 题意

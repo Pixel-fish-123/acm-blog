@@ -1,3 +1,8 @@
+---
+tags: [BFS]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P1126"
+---
 # P1126 [CERC1996] 机器人搬重物 题解
 
 ## 题意

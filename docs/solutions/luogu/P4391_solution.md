@@ -1,3 +1,8 @@
+---
+tags: [KMP]
+difficulty: "普及+/提高-"
+source: "https://www.luogu.com.cn/problem/P4391"
+---
 # P4391 [BalticOI 2009] Radio Transmission 题解
 
 ## 题意
