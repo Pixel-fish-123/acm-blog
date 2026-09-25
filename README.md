@@ -183,6 +183,7 @@ acm-icpc/solutions/*.md  ──npm run sync──►  docs/solutions/*.md
 | 中文搜不到 | 搜索索引只在构建产物里，请用 `npm run build` + `npm run preview` 验证；确认没有改动 `config.mjs` 里的 `cjkTokenize` |
 | preview 页面样式全丢/点不动 | 构建后没有重启 `npm run preview`：静态服务器的文件清单在启动时确定，新 hash 的文件会 404 |
 | push 报 TLS/连接错误 | 网络对 GitHub 不稳定，等待数秒重试即可 |
+| push 报 `Failed to connect to github.com port 443 via 127.0.0.1` | 走的是本机代理 `127.0.0.1:7897`（已写入全局 git 配置 `http.proxy` / `https.proxy`）。先确认代理软件已开启且端口一致，再用 `git config --global http.proxy http://127.0.0.1:<端口>` 修正；临时覆盖可加 `git -c http.proxy=http://127.0.0.1:7897 -c https.proxy=http://127.0.0.1:7897 push origin main`。可先用 `git ls-remote origin HEAD` 验证连通性 |
 | 公式显示为源码 | 题解中 `$...$` 需成对闭合；MathJax 渲染已启用（`markdown.math: true`） |
 | 明暗切换按钮出现 | 确认 `appearance: false` 在 `config.mjs` **顶层**（不在 themeConfig 内） |
 
