@@ -1,8 +1,3 @@
----
-tags: [KMP, 栈]
-difficulty: "提高"
-source: "https://www.luogu.com.cn/problem/P4824"
----
 # P4824 [USACO15FEB] Censoring S 题解
 
 ## 题意
@@ -37,6 +32,8 @@ source: "https://www.luogu.com.cn/problem/P4824"
 - `stk1`、`stk2` 两个 $10^6+5$ 大小的数组开在**全局**（静态存储区），避免爆栈。
 - `Get_Next` 的形参写成 `std::string &` 而不是按值传参：按值会白白拷贝一份 $10^6$ 量级的字符串。
 - 与 P3375 模板的写法不同：模板里"匹配成功之后如何继续"是靠下一轮循环的失配分支顺带完成的，而这里每次匹配成功都要立刻弹栈，所以必须显式写出失配链回退 `while (y && s1[x] != s2[y]) y = next[y];`。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -163,6 +160,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

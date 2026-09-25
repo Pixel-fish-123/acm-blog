@@ -1,8 +1,3 @@
----
-tags: [计数DP, 笛卡尔树, 单调栈]
-difficulty: "CF 2300"
-source: "https://codeforces.com/problemset/problem/1748/E"
----
 # cf1748E Yet Another Array Counting Problem 题解
 
 ## 题意
@@ -38,6 +33,8 @@ source: "https://codeforces.com/problemset/problem/1748/E"
 由"$b_u$ 恰为 $i$ 的方案数"累加即得"$b_u \le i$ 的方案数"：$dp[u][i] = \sum_{v=1}^{i} dp[lson][v-1] \cdot dp[rson][v]$。若对每个 $i$ 重新求和是每结点 $O(m^2)$；代码先算出 `tmp`，再做一遍前缀和 $dp[u][i] = dp[u][i-1] + tmp[i]$，将单个结点的转移降为两遍 $O(m)$ 的线性扫描。DFS 按后序遍历（先算儿子再算父亲），答案即 $dp[root][m]$。
 
 以样例 1（$a = [1, 3, 2]$，$m = 3$）验证：建树得根为下标 $2$（值 $3$），左儿子 $1$、右儿子 $3$；叶子 $dp[1][i] = dp[3][i] = i$，则 $dp[2][3] = 0 \cdot 1 + 1 \cdot 2 + 2 \cdot 3 = 8$，与样例一致。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -159,6 +156,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

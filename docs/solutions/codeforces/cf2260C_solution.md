@@ -1,8 +1,3 @@
----
-tags: [位运算, 构造]
-difficulty: "CF 1300"
-source: "https://codeforces.com/problemset/problem/2260/C"
----
 # cf2260C Maximize XOR, Minimize Operations 题解
 
 ## 题意
@@ -108,6 +103,8 @@ $$k_{\min} = x - a^{*} = (x \bmod 2^{i+1}) - (s \bmod 2^{i}) = 2^{i} + (x \bmod 
 - $(0, 5)$：$x = 0$ 本身就是 $s = 5$ 的子掩码，$a^{*} = 0$，$k = 0$，输出 `5 0`。
 - $(6, 4)$：$s = 10 = (1010)_2$，$x = 6 = (0110)_2$，最高冲突位是 $i = 2$，$a^{*} = 10 \bmod 4 = 2$，$k = 6 - 2 = 4$，输出 `10 4`。此时 $x' = 2 = (010)_2$，$y' = 8 = (1000)_2$，$2 \mathbin{\&} 8 = 0$，确实取到了 $s = 10$。
 
+::: details 点击展开参考代码
+
 ## 参考代码
 
 ```cpp
@@ -194,6 +191,9 @@ int main()
 }
 
 ```
+
+
+:::
 
 ## 复杂度
 

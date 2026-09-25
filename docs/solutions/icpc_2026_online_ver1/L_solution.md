@@ -1,6 +1,3 @@
----
-tags: [Trie, 枚举]
----
 # L Longest Common Prefix 题解
 
 ## 题意
@@ -95,6 +92,8 @@ $$ans\ \mathrel{-}=\ (k-1)\oplus r_k,\qquad ans\ \mathrel{+}=\ k\oplus r_k$$
 - `if (cnt[cur] > r[k]) r[k] ++;` 与 `r[k] = cnt[cur];` 在保留 `if` 的前提下等价：进入分支意味着 `cnt[cur] > r[k]`，而由第三步 `cnt[cur] <= r[k] + 1`，故 `cnt[cur]` 恰为 $r+1$。但这个 `if` 不能去掉——设想深度 $1$ 上 `a` 节点 `cnt=5`、`b` 节点 `cnt=1`（$r_1=5$），此时插入一个 `b` 开头的串，`b` 的 `cnt` 才 $2$，直接赋值会把 $r_1$ 从 $5$ 降到 $2$，破坏「$r$ 是最大值」和单调性。想省掉这个分支，也可以写成 `r[k] = std::max(r[k], cnt[cur]);`。
 - 同一思路并不依赖 Trie：用哈希表维护「每个前缀的出现次数」和 `lcd[j]`（出现次数达到 $j$ 的最长前缀长度，即 $f_{\cdot,j}$ 本身），当前缀出现次数涨到新的 $j$ 时同样做 `ans -= j ^ 旧长度; ans += j ^ 新长度` 的单点修正，内存可降到 $O(\sum|s_i|)$。
 
+::: details 点击展开参考代码
+
 ## 参考代码
 
 ```cpp
@@ -188,6 +187,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

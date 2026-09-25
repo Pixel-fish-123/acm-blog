@@ -1,8 +1,3 @@
----
-tags: [最短路, 枚举]
-difficulty: "普及"
-source: "https://www.luogu.com.cn/problem/P6175"
----
 # P6175 无向图的最小环问题 题解
 
 ## 题意
@@ -21,6 +16,8 @@ source: "https://www.luogu.com.cn/problem/P6175"
 2. 之后再用 $k$ 作为中转点松弛 $dist$，即执行 Floyd 的一轮更新。
 
 由于枚举 $k$ 时，环上其余点的编号都严格小于 $k$，每个简单环都会在它最大编号的顶点被枚举到的那一轮恰好被统计一次，不会重复也不会遗漏。无环时答案为 $+\infty$，输出 `No solution.`。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -121,6 +118,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

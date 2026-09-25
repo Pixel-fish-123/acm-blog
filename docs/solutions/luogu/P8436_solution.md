@@ -1,8 +1,3 @@
----
-tags: [Tarjan]
-difficulty: "普及+/提高-"
-source: "https://www.luogu.com.cn/problem/P8436"
----
 # P8436 【模板】边双连通分量 题解
 
 ## 题意
@@ -25,6 +20,8 @@ source: "https://www.luogu.com.cn/problem/P8436"
 **第二步：删桥 DFS 划分分量**。重新从每个未访问的点出发 DFS，遍历时**跳过桥边**（`bridge[id]`）与已访问点。走不到桥的另一侧，每个 DFS 连通区域恰好就是一个边双连通分量，用 `bel` 记录归属、`ans` 收集成员。
 
 由于输出顺序任意，按 DFS 序输出即可。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -164,6 +161,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

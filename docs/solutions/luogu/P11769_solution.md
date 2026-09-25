@@ -1,8 +1,3 @@
----
-tags: [前缀和, 差分]
-difficulty: "普及+/提高-"
-source: "https://www.luogu.com.cn/problem/P11769"
----
 # P11769 歌唱练习 题解
 
 ## 题意
@@ -33,6 +28,8 @@ $$\mathrm{res}=\sum_{i=1}^{n}\bigl(\mathrm{cap}_i-\mathrm{cap}_{i-1}\bigr)\cdot\
 以样例验证：$t=[3,2,3]$，$w=[2,-1,1]$。$\mathrm{cap}=[2,2,3]$（后缀最小值），$S=[2,0,1]$，$M=[2,1,1]$；$\mathrm{res}=2\times 2+0\times 1+1\times 1=5$，与样例一致（第 $1,2$ 层从第 $1$ 天开始收益各 $2$，第 $3$ 层只能从第 $3$ 天开始收益 $1$）。
 
 答案最大可达约 $10^{18}$ 量级，需用 `long long`。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -118,6 +115,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

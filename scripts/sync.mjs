@@ -1,15 +1,21 @@
-// 同步脚本：从 acm-icpc 仓库的 solutions/ 拷贝题解到博客 docs/solutions/，并生成索引页
+// 同步脚本：编排「收集题解 -> 跑插件 -> 写出结果」
 // 用法：npm run sync
 // 可通过环境变量 ACM_ICPC_ROOT 指定 acm-icpc 仓库路径（默认：博客仓库的上一级目录）
+// 插件登记在 plugins/index.mjs，新增功能优先以插件形式加入
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { collectMd } from './lib/fs-utils.mjs'
+import { h1Of, summaryOf } from './lib/markdown.mjs'
+import { categoryName } from './lib/category.mjs'
+import plugins from './plugins/index.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const blogRoot = path.resolve(__dirname, '..')
 const acmRoot = process.env.ACM_ICPC_ROOT || path.resolve(blogRoot, '..', 'acm-icpc')
 const srcDir = path.join(acmRoot, 'solutions')
 const dstDir = path.join(blogRoot, 'docs', 'solutions')
+const dataDir = path.join(blogRoot, 'docs', '.vitepress')
 
 if (!fs.existsSync(srcDir)) {
   console.error(`找不到题解源目录: ${srcDir}`)
@@ -18,141 +24,112 @@ if (!fs.existsSync(srcDir)) {
   process.exit(1)
 }
 
-function collectMd(dir, base, out) {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name)
-    if (entry.isDirectory()) collectMd(full, base, out)
-    else if (entry.name.endsWith('.md')) out.push(path.relative(base, full))
-  }
-  return out
-}
+const log = (msg) => console.log(msg)
+const warn = (msg) => console.warn(msg)
+const norm = (p) => p.replaceAll('\\', '/')
+const idOf = (rel) => path.basename(rel).replace(/_solution\.md$/, '')
 
-// 读取 markdown 首个 h1 作为链接文本
-function h1Of(file) {
-  try {
-    const raw = fs.readFileSync(file, 'utf8')
-    const m = raw.match(/^#\s+(.+)$/m)
-    if (m) return m[1]
-  } catch { /* fallthrough */ }
-  return path.basename(file, '.md')
-}
-
-// 解析源题解开头的 frontmatter（只取站点需要的三个字段，不引入 YAML 依赖）
-function frontmatterOf(file) {
-  const out = {}
-  try {
-    const raw = fs.readFileSync(file, 'utf8')
-    const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)
-    if (!m) return out
-    const body = m[1]
-    const tags = body.match(/^tags:\s*\[([^\]]*)\]\s*$/m)
-    if (tags) {
-      out.tags = tags[1]
-        .split(',')
-        .map((s) => s.trim())
-        .filter(Boolean)
-    }
-    for (const key of ['difficulty', 'source']) {
-      const kv = body.match(new RegExp(`^${key}:\\s*"([^"]*)"\\s*$`, 'm'))
-      if (kv) out[key] = kv[1]
-    }
-  } catch { /* 无 frontmatter 或读取失败 */ }
-  return out
-}
-
-// 提取纯文本摘要（去掉代码块、公式、markdown 语法）
-function summaryOf(file) {
-  try {
-    let text = fs.readFileSync(file, 'utf8')
-    text = text.replace(/```[\s\S]*?```/g, ' ')
-    text = text.replace(/`[^`]*`/g, ' ')
-    text = text.replace(/\$\$[\s\S]*?\$\$/g, ' ')
-    text = text.replace(/\$([^$\n]*)\$/g, (_m, g) => g.replace(/\\/g, ' ').replace(/[{}]/g, ' '))
-    text = text.replace(/^---[\s\S]*?---$/m, ' ')
-    text = text.replace(/^#.*$/gm, ' ')
-    text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    text = text.replace(/[*_>|#~]/g, ' ')
-    text = text.replace(/\s+/g, ' ').trim()
-    if (!text) return '（暂无摘要）'
-    return text.length > 80 ? text.slice(0, 80) + '...' : text
-  } catch {
-    return ''
-  }
-}
-
-// 分类目录名 → 展示名（洛谷风格中文平台名）
-function categoryName(dir) {
-  if (dir === '专题') return '专题'
-  if (dir === 'greedy_tuition') return '贪心入门'
-  const m = dir.match(/^nowcoder_summer_holiday_competition(\d*)$/)
-  if (m) return '牛客暑期联赛' + (m[1] ? `（第${m[1]}场）` : '')
-  if (dir.startsWith('nowcoder')) return '牛客' + dir.replace(/^nowcoder_?/, '')
-  const mi = dir.match(/^icpc_(\d{4})_online(?:_ver(\d))?$/)
-  if (mi) return `ICPC ${mi[1]} 网络赛` + (mi[2] ? `（第${mi[2]}场）` : '')
-  if (dir.startsWith('codeforces')) return 'Codeforces'
-  if (dir.startsWith('luogu')) return '洛谷'
-  if (dir.startsWith('atcoder')) return 'AtCoder'
-  if (dir.startsWith('leetcode')) return 'LeetCode'
-  return dir
-}
-
-// 1. 清空并重建目标目录
-fs.rmSync(dstDir, { recursive: true, force: true })
-fs.mkdirSync(dstDir, { recursive: true })
-
-// 2. 拷贝所有 markdown（保留子目录结构）
+// 1. 收集源文件
 const files = collectMd(srcDir, srcDir, []).sort()
-for (const rel of files) {
-  const to = path.join(dstDir, rel)
-  fs.mkdirSync(path.dirname(to), { recursive: true })
-  fs.copyFileSync(path.join(srcDir, rel), to)
+const sols = files.map((rel) => {
+  const r = norm(rel)
+  const full = path.join(srcDir, rel)
+  const dir = path.dirname(r) === '.' ? '专题' : path.dirname(r)
+  return { rel: r, dir, full, raw: fs.readFileSync(full, 'utf8'), body: '', meta: {} }
+})
+
+const ctx = { blogRoot, acmRoot, srcDir, dstDir, dataDir, log, warn, solutions: sols }
+
+// 2. 依次执行插件；单个插件抛错只警告，不中断整次 sync
+for (const [plugin, options] of plugins) {
+  if (typeof plugin.onSolution !== 'function') continue
+  const label = plugin.name || 'anonymous'
+  for (const sol of sols) {
+    try {
+      await plugin.onSolution(sol, ctx, options)
+    } catch (e) {
+      warn(`插件 ${label} 处理 ${sol.rel} 失败：${e.message}`)
+    }
+  }
 }
 
-// 3. 生成索引页（docs/solutions/index.md）
+// 3. 写出题解 markdown（body 由插件决定，默认等于源文件原文）
+fs.rmSync(dstDir, { recursive: true, force: true })
+for (const sol of sols) {
+  const to = path.join(dstDir, sol.rel)
+  fs.mkdirSync(path.dirname(to), { recursive: true })
+  fs.writeFileSync(to, sol.body)
+}
+
+// 4. 生成索引页（docs/solutions/index.md）：先按平台分组，再按算法分组
 const groups = new Map()
-for (const rel of files) {
-  const dir = path.dirname(rel) === '.' ? '专题' : path.dirname(rel)
-  if (!groups.has(dir)) groups.set(dir, [])
-  groups.get(dir).push(rel)
+for (const sol of sols) {
+  if (!groups.has(sol.dir)) groups.set(sol.dir, [])
+  groups.get(sol.dir).push(sol)
 }
 let index = '# 题解索引\n\n> 本页由 `npm run sync` 自动生成，请勿手动编辑。\n\n'
 for (const group of [...groups.keys()].sort()) {
   index += `## ${group}\n\n`
-  for (const rel of groups.get(group)) {
-    index += `- [${h1Of(path.join(srcDir, rel))}](./${rel.replaceAll('\\', '/')})\n`
+  for (const sol of groups.get(group)) {
+    index += `- [${h1Of(sol.body)}](./${sol.rel})\n`
   }
   index += '\n'
 }
+
+const tagGroups = new Map()
+for (const sol of sols) {
+  for (const tag of sol.meta.tags || []) {
+    if (!tagGroups.has(tag)) tagGroups.set(tag, [])
+    tagGroups.get(tag).push(sol)
+  }
+}
+if (tagGroups.size) {
+  index += '## 按算法\n\n'
+  for (const tag of [...tagGroups.keys()].sort((a, b) => a.localeCompare(b, 'zh'))) {
+    index += `### ${tag}\n\n`
+    for (const sol of tagGroups.get(tag)) {
+      index += `- [${h1Of(sol.body)}](./${sol.rel})\n`
+    }
+    index += '\n'
+  }
+}
 fs.writeFileSync(path.join(dstDir, 'index.md'), index)
 
-// 4. 生成站点数据文件（首页组件使用）：docs/.vitepress/solutionIndex.json
-const dataDir = path.join(blogRoot, 'docs', '.vitepress')
-fs.mkdirSync(dataDir, { recursive: true })
-const solutionIndex = files.map((rel) => {
-  const dir = path.dirname(rel) === '.' ? '专题' : path.dirname(rel)
-  const full = path.join(srcDir, rel)
-  const fm = frontmatterOf(full)
+// 5. 生成站点数据（docs/.vitepress/solutionIndex.json）
+const indexData = sols.map((sol) => {
   const entry = {
-    title: h1Of(full),
-    category: categoryName(dir),
-    link: '/solutions/' + rel.replace(/\.md$/, '').replaceAll('\\', '/'),
-    summary: summaryOf(full),
-    date: fs.statSync(full).mtime.toISOString().slice(0, 10),
+    title: h1Of(sol.body),
+    id: idOf(sol.rel),
+    category: categoryName(sol.dir),
+    link: '/solutions/' + sol.rel.replace(/\.md$/, ''),
+    summary: summaryOf(sol.body),
+    date: sol.meta.date,
   }
-  // 源文件可选 frontmatter 字段（页面暂不展示，仅供后续筛选功能使用）
-  if (fm.tags) entry.tags = fm.tags
-  if (fm.difficulty) entry.difficulty = fm.difficulty
-  if (fm.source) entry.source = fm.source
+  if (sol.meta.tags && sol.meta.tags.length) entry.tags = sol.meta.tags
+  if (sol.meta.difficulty) entry.difficulty = sol.meta.difficulty
+  if (sol.meta.difficultyColor) entry.difficultyColor = sol.meta.difficultyColor
+  if (sol.meta.source) entry.source = sol.meta.source
   return entry
 })
+
+// 6. 收尾钩子（写缓存、抓洛谷账号数据等）
+for (const [plugin, options] of plugins) {
+  if (typeof plugin.onFinish !== 'function') continue
+  const label = plugin.name || 'anonymous'
+  try {
+    await plugin.onFinish(indexData, ctx, options)
+  } catch (e) {
+    warn(`插件 ${label} 收尾失败：${e.message}`)
+  }
+}
+
 // 组内按标题排序，组间保持原顺序
-solutionIndex.sort((a, b) =>
+indexData.sort((a, b) =>
   a.category === b.category ? a.title.localeCompare(b.title, 'zh') : 0
 )
-fs.writeFileSync(
-  path.join(dataDir, 'solutionIndex.json'),
-  JSON.stringify(solutionIndex, null, 2)
-)
 
-console.log(`同步完成：${files.length} 篇题解 → docs/solutions/`)
-console.log(`站点数据 → docs/.vitepress/solutionIndex.json`)
+fs.mkdirSync(dataDir, { recursive: true })
+fs.writeFileSync(path.join(dataDir, 'solutionIndex.json'), JSON.stringify(indexData, null, 2))
+
+log(`同步完成：${sols.length} 篇题解 → docs/solutions/`)
+log(`站点数据 → docs/.vitepress/solutionIndex.json`)

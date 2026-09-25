@@ -1,8 +1,3 @@
----
-tags: [KMP]
-difficulty: "普及+/提高-"
-source: "https://www.luogu.com.cn/problem/P4391"
----
 # P4391 [BalticOI 2009] Radio Transmission 题解
 
 ## 题意
@@ -51,6 +46,8 @@ $$L-p' > L-p = \mathrm{next}[L]$$
 | $\mathrm{next}[i]$ | $0$ | $0$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ |
 
 $\mathrm{next}[8]=5$（前缀 `cabca` 同时是后缀），故答案为 $8-5=3$。取 $S'=\texttt{cab}$，$\texttt{cabcabca}$ 确实是 $\texttt{cabcabcabcab}\cdots$ 的一段，与样例解释（用 `abc` 重复）长度一致。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -141,6 +138,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

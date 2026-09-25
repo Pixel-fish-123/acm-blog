@@ -1,6 +1,3 @@
----
-tags: [数论, 枚举]
----
 # L Bobo and Modulo 题解
 
 ## 题意
@@ -99,6 +96,8 @@ $$\gcd(c, m) = 1 \ \Longrightarrow\ ac \equiv bc \pmod m \ \Rightarrow\ a \equiv
 
 简记：**加减乘任意，消因子必须保证互素，否则模数要跟着除以最大公因数。**
 
+::: details 点击展开参考代码
+
 ## 参考代码
 
 ```cpp
@@ -171,6 +170,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

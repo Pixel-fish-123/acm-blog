@@ -7,7 +7,7 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
-    "sync": "node scripts/sync.mjs && node scripts/fetch-luogu.mjs",
+    "sync": "node scripts/sync.mjs",
     "luogu": "node scripts/fetch-luogu.mjs"
   },
   "devDependencies": {

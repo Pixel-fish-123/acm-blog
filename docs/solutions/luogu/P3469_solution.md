@@ -1,8 +1,3 @@
----
-tags: [Tarjan, DFS]
-difficulty: "提高"
-source: "https://www.luogu.com.cn/problem/P3469"
----
 # P3469 [POI 2008] BLO-Blockade 题解
 
 ## 题意
@@ -24,6 +19,8 @@ $$N^2-\sum_i c_i^2$$
 **割点判定**：非根点 $v$ 是割点当且仅当存在孩子 $c$ 使 $\mathrm{low}[c]\ge \mathrm{dfn}[v]$；根（DFS 起点 $1$）是割点当且仅当 DFS 孩子数 $\ge 2$（代码中 `now != 1 || flag > 1`）。注意本实现未显式跳过父边，但由于树边使 $\mathrm{low}[c]\le\mathrm{dfn}[v]$ 恒成立，条件 $\mathrm{low}[c]\ge\mathrm{dfn}[v]$ 等价于 $\mathrm{low}[c]=\mathrm{dfn}[v]$，与标准写法判定结果一致。
 
 图连通，一次 `tarjan(1)` 即覆盖全图。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -134,6 +131,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

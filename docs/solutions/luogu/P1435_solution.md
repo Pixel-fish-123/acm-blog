@@ -1,8 +1,3 @@
----
-tags: [区间DP]
-difficulty: "普及"
-source: "https://www.luogu.com.cn/problem/P1435"
----
 # P1435 [IOI 2000] 回文字串 题解
 
 ## 题意
@@ -25,6 +20,8 @@ source: "https://www.luogu.com.cn/problem/P1435"
 实现上按**区间长度**从小到大枚举（`len` 从 $2$ 到 $N$，左端点 `l` 递增），保证转移时更短的区间已经算好。答案为 $dp[0][N-1]$。
 
 从另一个角度看，最少插入数 $=l-\mathrm{LPS}$（串长减去最长回文子序列长度）——两端不同时"舍弃一端"正对应 LPS 的转移，两种视角等价。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -102,6 +99,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

@@ -1,7 +1,3 @@
----
-tags: [二分, 数论]
-source: "https://codeforces.com/gym/101055/problem/C"
----
 # gym101055C It-miha 题解
 
 ## 题意
@@ -35,6 +31,8 @@ $$C(x) = \sum_{n \le x}\ \sum_{d^2 \mid n} \mu(d) = \sum_{d = 1}^{\lfloor \sqrt{
 **第三步：$O(\text{MAXL} \log \text{MAXL})$ 筛莫比乌斯函数。** 仍由 $\sum_{d \mid m} \mu(d) = [m = 1]$ 可得 $\mu(1) = 1$，且 $m > 1$ 时 $\mu(m) = -\sum_{d \mid m,\ d < m} \mu(d)$。代码正是按这个递推实现的：外层枚举 $i$，把 $\mu(i)$ 从所有真倍数 $j = 2i, 3i, \dots$ 中减去。当外层枚举到 $j$ 时，$\mu(j)$ 已被它的全部真因子更新过，恰好等于真正的莫比乌斯函数。
 
 **第四步：单次判定在 $O(\sqrt{x})$ 内完成。** 每次二分时直接按 $C(x) = \sum_d \mu(d)\lfloor x/d^2 \rfloor$ 累加，只需枚举 $d \le \sqrt{x}$。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -127,6 +125,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

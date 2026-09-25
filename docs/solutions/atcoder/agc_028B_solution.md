@@ -1,7 +1,3 @@
----
-tags: [笛卡尔树, 组合数学]
-source: "https://atcoder.jp/contests/agc028/tasks/agc028_b"
----
 # agc_028B Removing Blocks 题解
 
 ## 题意
@@ -167,6 +163,8 @@ $$v_2(n!)=\left\lfloor\frac n2\right\rfloor+\left\lfloor\frac n4\right\rfloor+\l
 
 （即 $n\ge 66$）时 $n!\equiv 0\pmod{2^{64}}$，存进 64 位整数的阶乘会**恰好变成 $0$**，导致答案恒为 $0$。像本代码这样在模意义下边乘边取模才是安全的。
 
+::: details 点击展开参考代码
+
 ## 参考代码
 
 ```cpp
@@ -259,6 +257,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

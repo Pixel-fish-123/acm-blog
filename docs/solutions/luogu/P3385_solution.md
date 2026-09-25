@@ -1,8 +1,3 @@
----
-tags: [最短路]
-difficulty: "普及"
-source: "https://www.luogu.com.cn/problem/P3385"
----
 # P3385 【模板】负环 题解
 
 ## 题意
@@ -23,6 +18,8 @@ source: "https://www.luogu.com.cn/problem/P3385"
 因此一旦某点入队次数超过 $n$（`cnt[next] > N`），即可断定存在从 $1$ 出发可达的负环，立即返回；SPFA 自然结束则说明无负环。由于松弛只发生在从 $1$ 可达的点上，判定范围恰好就是"从顶点 $1$ 出发能到达"的负环，与题意一致。
 
 存在输出 `YES`，否则输出 `NO`。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -119,6 +116,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

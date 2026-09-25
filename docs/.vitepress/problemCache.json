@@ -1,0 +1,146 @@
+{
+  "luogu": {
+    "P1115": {
+      "difficulty": "普及-",
+      "color": "#f39c11"
+    },
+    "P1126": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P11768": {
+      "difficulty": "普及-",
+      "color": "#f39c11"
+    },
+    "P11769": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P1377": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P1395": {
+      "difficulty": "普及",
+      "color": "#ffc116"
+    },
+    "P1435": {
+      "difficulty": "普及",
+      "color": "#ffc116"
+    },
+    "P1525": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P17333": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P2197": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P2252": {
+      "difficulty": "省选/NOI-",
+      "color": "#9d3dcf"
+    },
+    "P3157": {
+      "difficulty": "省选/NOI-",
+      "color": "#9d3dcf"
+    },
+    "P3375": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P3379": {
+      "difficulty": "普及",
+      "color": "#ffc116"
+    },
+    "P3384": {
+      "difficulty": "提高+/省选-",
+      "color": "#3498db"
+    },
+    "P3385": {
+      "difficulty": "普及",
+      "color": "#ffc116"
+    },
+    "P3469": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P3810": {
+      "difficulty": "提高+/省选-",
+      "color": "#3498db"
+    },
+    "P3812": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P4279": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P4391": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P4556": {
+      "difficulty": "提高+/省选-",
+      "color": "#3498db"
+    },
+    "P4782": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P4824": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P5782": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    },
+    "P5854": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P5908": {
+      "difficulty": "普及-",
+      "color": "#f39c11"
+    },
+    "P6175": {
+      "difficulty": "普及",
+      "color": "#ffc116"
+    },
+    "P6453": {
+      "difficulty": "省选/NOI-",
+      "color": "#9d3dcf"
+    },
+    "P6487": {
+      "difficulty": "NOI/NOI+/CTS",
+      "color": "#0e1d69"
+    },
+    "P8435": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "P8436": {
+      "difficulty": "普及+/提高-",
+      "color": "#52c41a"
+    },
+    "SP18185": {
+      "difficulty": "提高",
+      "color": "#00c0c0"
+    }
+  },
+  "cf": {
+    "1748/E": {
+      "rating": 2300,
+      "color": "#f39c12"
+    },
+    "2260/C": {
+      "rating": 1300,
+      "color": "#52c41a"
+    }
+  }
+}

@@ -1,8 +1,3 @@
----
-tags: [LCA, Tarjan, 并查集]
-difficulty: "普及"
-source: "https://www.luogu.com.cn/problem/P3379"
----
 # P3379(tarjan) 【模板】最近公共祖先（LCA）题解（Tarjan 离线做法）
 
 ## 题意
@@ -27,6 +22,8 @@ source: "https://www.luogu.com.cn/problem/P3379"
 两点相同的询问（$x=y$）：访问到 $x$ 时搭档就是自己且已标记访问，`find(x)` 返回 $x$ 自身（`fa[x]=x`），正确处理了 $a\neq b$ 不保证的边界。
 
 全部 DFS 结束后按原顺序输出答案即可。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -121,6 +118,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

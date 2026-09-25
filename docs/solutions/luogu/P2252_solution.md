@@ -1,8 +1,3 @@
----
-tags: [博弈论, 数论]
-difficulty: "省选/NOI-"
-source: "https://www.luogu.com.cn/problem/P2252"
----
 # P2252 【模板】威佐夫博弈 / [SHOI2002] 取石子游戏 题解
 
 ## 题意
@@ -24,6 +19,8 @@ $$\bigl(\lfloor k\varphi\rfloor,\ \lfloor k\varphi\rfloor+k\bigr),\quad k=0,1,2,
 $$a\le k\varphi<a+1\ \Longleftrightarrow\ 2a-k\le k\sqrt5<2a+2-k\ \Longleftrightarrow\ (2a-k)^2\le 5k^2<(2a+2-k)^2$$
 
 三个平方数都用 `long long` 精确计算（$a\le 10^9$ 时最大约 $4\times 10^{18}$，仍在 `long long` 范围内），完全规避 $\sqrt5$ 的精度问题。满足不等式组即处于必败态，输出 $0$；否则输出 $1$。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -95,6 +92,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

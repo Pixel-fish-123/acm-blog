@@ -1,8 +1,3 @@
----
-tags: [线性DP]
-difficulty: "普及-"
-source: "https://www.luogu.com.cn/problem/P1115"
----
 # P1115 最大子段和 题解
 
 ## 题意
@@ -23,6 +18,8 @@ source: "https://www.luogu.com.cn/problem/P1115"
 $$dp[i]=\max(dp[i-1]+a[i],\; a[i])$$
 
 由于最优子段一定以某个位置结尾，答案即为 $\max\limits_{1\le i\le n} dp[i]$。初始化 $dp[1]=a[1]$（子段非空，不能从 $0$ 转移）。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -98,6 +95,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

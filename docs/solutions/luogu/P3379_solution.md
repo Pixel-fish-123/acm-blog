@@ -1,8 +1,3 @@
----
-tags: [LCA, 树上问题]
-difficulty: "普及"
-source: "https://www.luogu.com.cn/problem/P3379"
----
 # P3379 【模板】最近公共祖先（LCA）题解
 
 ## 题意
@@ -26,6 +21,8 @@ $$anc[i][j]=anc\bigl[anc[i][j-1]\bigr][j-1]$$
 3. **同步上跳**：再次从高位到低位，只要 $anc[u][i]\neq anc[v][i]$ 就把两点同时上跳。循环结束后两点恰好位于 LCA 的下一层，答案为 $anc[u][0]$。
 
 从高位枚举是为了用二进制拆分精确凑出任意步数；"跳到不同点才跳"保证了不会越过 LCA。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -133,6 +130,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

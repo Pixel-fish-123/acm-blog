@@ -1,8 +1,3 @@
----
-tags: [分块]
-difficulty: "提高"
-source: "https://www.luogu.com.cn/problem/SP18185"
----
 # SP18185 GIVEAWAY - Give Away 题解
 
 ## 题意
@@ -25,6 +20,8 @@ source: "https://www.luogu.com.cn/problem/SP18185"
 > ⚠️ **一处值得注意的实现细节**：代码中"查询两端点同块"的分支写的是 `for (int i = 1; i <= r; i ++)`——起点是 $1$ 而非 $l$，严格来说统计的是 $[1,r]$ 而非 $[l,r]$，疑似笔误（正确写法应从 `l` 起）。该写法通过了 SPOJ 的评测数据，但复用这段代码时建议改为从 `l` 开始。
 
 洛谷镜像页未给出 $Q$ 的上界，按分块复杂度估算即可。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -187,6 +184,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

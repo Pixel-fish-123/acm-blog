@@ -1,8 +1,3 @@
----
-tags: [CDQ分治, 树状数组]
-difficulty: "省选/NOI-"
-source: "https://www.luogu.com.cn/problem/P3157"
----
 # P3157 [CQOI2011] 动态逆序对 题解
 
 ## 题意
@@ -39,6 +34,8 @@ source: "https://www.luogu.com.cn/problem/P3157"
 $$ans[i]\mathrel{+}=ans[i-1]\quad\Longrightarrow\quad ans[i]=\text{第 }i+1\text{ 次删除前的逆序对数}$$
 
 输出 $ans[0..m-1]$ 即可。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -191,6 +188,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 

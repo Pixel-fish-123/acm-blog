@@ -1,8 +1,3 @@
----
-tags: [笛卡尔树, 树形DP, 组合数学]
-difficulty: "省选/NOI-"
-source: "https://www.luogu.com.cn/problem/P6453"
----
 # P6453 [COCI 2008/2009 #4] PERIODNI 题解
 
 ## 题意
@@ -40,6 +35,8 @@ source: "https://www.luogu.com.cn/problem/P6453"
 $$dp[u][i]=\sum_{p=0}^{i} tmp[p]\cdot C(siz_u-p,\ i-p)\cdot C(h_u-h_{fa},\ i-p)\cdot (i-p)!$$
 
 **组合数预处理。** 预处理阶乘 $fac$ 与阶乘逆元 $inv$：先用费马小定理 $inv[\text{MAXL}]=fac[\text{MAXL}]^{mod-2}$，再线性回推 $inv[i]=inv[i+1]\cdot(i+1)$，即可 $O(1)$ 求 $C(n,k)=fac[n]\cdot inv[k]\cdot inv[n-k]$（$k>n$ 时记为 $0$）。上界 $\text{MAXL}=10^6+5$ 覆盖了 $h_u\le 10^6$ 的取值范围。最终答案即 $dp[root][k]$。
+
+::: details 点击展开参考代码
 
 ## 参考代码
 
@@ -210,6 +207,9 @@ int main()
     return 0;
 }
 ```
+
+
+:::
 
 ## 复杂度
 
