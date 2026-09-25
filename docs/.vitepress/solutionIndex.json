@@ -33,7 +33,7 @@
     "id": "cf2260C",
     "category": "Codeforces",
     "link": "/solutions/codeforces/cf2260C_solution",
-    "summary": "给定两个非负整数 x, y。一次操作同时执行两件事：x leftarrow x - 1，y leftarrow y + 1；当 x = 0 时无法操作。 对每一...",
+    "summary": "给定两个非负整数 x, y。一次操作令 x leftarrow x - 1，同时 y leftarrow y + 1；x = 0 时不能操作。 可以做任意多次（...",
     "date": "2026-09-13",
     "tags": [
       "位运算",
@@ -83,6 +83,18 @@
     "source": "https://codeforces.com/gym/101059/problem/D"
   },
   {
+    "title": "gym101061F Fairness 题解",
+    "id": "gym101061F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym101061F_solution",
+    "summary": "有 n 枚硬币，第 i 枚面值为 a i。按顺序分 n 步，第 i 步把第 i 枚硬币交给 Dwik 或 Samir 之一。 记 x i 为第 i 步之后两人金...",
+    "date": "2026-09-25",
+    "tags": [
+      "线性DP"
+    ],
+    "source": "https://codeforces.com/gym/101061/problem/F"
+  },
+  {
     "title": "gym104518F Vacation 题解",
     "id": "gym104518F",
     "category": "Codeforces",
@@ -106,6 +118,19 @@
       "矩阵"
     ],
     "source": "https://codeforces.com/gym/105109/problem/D"
+  },
+  {
+    "title": "gym106235A Athletes 题解",
+    "id": "gym106235A",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106235A_solution",
+    "summary": "有 n 名运动员，第 i 名的力量为 p i、耐力为 s i。若 p j p i 且 s j s i，则 j 一定能打败 i（称 j 支配 i）；否则两人比赛谁...",
+    "date": "2026-09-25",
+    "tags": [
+      "组合数学",
+      "枚举"
+    ],
+    "source": "https://codeforces.com/gym/106235/problem/A"
   },
   {
     "title": "1 线段重合 题解",
