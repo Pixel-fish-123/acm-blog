@@ -22,6 +22,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '题解索引', link: '/solutions/' },
+      { text: '上传时间线', link: '/stats' },
     ],
     outline: false, // 不渲染目录大纲
     aside: false, // 移除右侧 aside 区域（否则会留下 256px 空白的"无色区域"）
