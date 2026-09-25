@@ -42,22 +42,37 @@ body {
   padding-left: 24px;
 }
 
-/* 文章页：单栏居中阅读（无侧边栏、无右侧大纲），加宽至约 1000px */
+/* 文章页：单栏居中阅读（无侧边栏、无右侧大纲），加宽至约 1180px
+   VitePress 默认给 .VPDoc .container 设了 max-width:992px，是实际瓶颈，必须一并覆盖 */
+.VPDoc .container.container.container {
+  max-width: 1180px;
+}
+
 .VPDoc .content.content.content,
 .VPDoc .content {
-  max-width: 1000px;
+  max-width: 1180px;
 }
 
 .VPDoc .content-container {
   background: #fff;
   border: 1px solid var(--lg-card-border);
   border-radius: 4px;
-  padding: 28px 36px;
-  max-width: 1000px;
+  padding: 28px 40px;
+  max-width: 1180px;
 }
 
 .VPDoc .content-container > h1 {
   margin-top: 0;
+}
+
+/* VitePress 给 .custom-block 设了 14px，嵌在折叠块里的代码会被压到 12px 左右；
+   这里恢复继承正文字号，并统一调大代码字体 */
+.vp-doc .custom-block {
+  font-size: inherit;
+}
+
+:root {
+  --vp-code-font-size: 15px;
 }
 
 /* 行内代码：浅蓝底 */

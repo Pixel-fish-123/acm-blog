@@ -33,6 +33,9 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
 - Homepage profile data lives in the `luogu` constant at the top of `docs/.vitepress/theme/components/HomeLuogu.vue` — auto-refreshed by `npm run sync` via `scripts/fetch-luogu.mjs` (can still be edited manually); list/tags are driven entirely by `solutionIndex.json`.
 - Category labels come from `categoryName()` in `scripts/sync.mjs` — new platform directories must be mapped there.
 - Theme wiring is slot injection in `docs/.vitepress/theme/index.js` (`nav-bar-content-after` → NavLuogu, `doc-before` → ArticleHeader).
+- `docs/solutions/index.md` is only a shell (`layout: page`) mounting `docs/.vitepress/theme/components/SolutionIndexPage.vue`; the grouped list plus the right-hand tag filter live in that component, so the index page body is not covered by local search.
+- Article width is capped by VitePress's `.VPDoc .container { max-width: 992px }`, not by `.content`; `custom.css` overrides `.VPDoc .container.container.container` to 1180px. Code blocks inside `::: details` shrink to 12.25px unless `.custom-block` is reset away from VitePress's 14px `--vp-custom-block-font-size`.
+- `npm run sync` wipes and recreates `docs/solutions/`; with a dev server running that can kill its watcher (dev exits — restart it). `npm run build` writes `docs/.vitepress/dist/` inside the watched root, which makes dev log a `page reload` for every built page (noisy but it survives). Prefer running `sync` and `build` before starting dev.
 - Article "updated" date in `ArticleHeader.vue` is git commit time; dates in `solutionIndex.json` are source-file mtime.
 - MathJax is on (`markdown.math: true`); `$...$` must be balanced or formulas render as source.
 

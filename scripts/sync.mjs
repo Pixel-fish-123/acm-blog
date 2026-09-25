@@ -61,39 +61,22 @@ for (const sol of sols) {
   fs.writeFileSync(to, sol.body)
 }
 
-// 4. 生成索引页（docs/solutions/index.md）：先按平台分组，再按算法分组
-const groups = new Map()
-for (const sol of sols) {
-  if (!groups.has(sol.dir)) groups.set(sol.dir, [])
-  groups.get(sol.dir).push(sol)
-}
-let index = '# 题解索引\n\n> 本页由 `npm run sync` 自动生成，请勿手动编辑。\n\n'
-for (const group of [...groups.keys()].sort()) {
-  index += `## ${group}\n\n`
-  for (const sol of groups.get(group)) {
-    index += `- [${h1Of(sol.body)}](./${sol.rel})\n`
-  }
-  index += '\n'
-}
-
-const tagGroups = new Map()
-for (const sol of sols) {
-  for (const tag of sol.meta.tags || []) {
-    if (!tagGroups.has(tag)) tagGroups.set(tag, [])
-    tagGroups.get(tag).push(sol)
-  }
-}
-if (tagGroups.size) {
-  index += '## 按算法\n\n'
-  for (const tag of [...tagGroups.keys()].sort((a, b) => a.localeCompare(b, 'zh'))) {
-    index += `### ${tag}\n\n`
-    for (const sol of tagGroups.get(tag)) {
-      index += `- [${h1Of(sol.body)}](./${sol.rel})\n`
-    }
-    index += '\n'
-  }
-}
-fs.writeFileSync(path.join(dstDir, 'index.md'), index)
+// 4. 生成索引页（docs/solutions/index.md）
+// 页面本身由 SolutionIndexPage.vue 渲染（左侧按平台分组、右侧算法标签筛选），
+// 这里只产出挂载组件的薄壳，避免把 44 个标签分组铺成一大段静态正文。
+const indexMd = [
+  '---',
+  'layout: page',
+  '---',
+  '',
+  '<script setup>',
+  "import SolutionIndexPage from '../.vitepress/theme/components/SolutionIndexPage.vue'",
+  '</script>',
+  '',
+  '<SolutionIndexPage />',
+  '',
+].join('\n')
+fs.writeFileSync(path.join(dstDir, 'index.md'), indexMd)
 
 // 5. 生成站点数据（docs/.vitepress/solutionIndex.json）
 const indexData = sols.map((sol) => {
