@@ -141,6 +141,38 @@
     "2260/C": {
       "rating": 1300,
       "color": "#52c41a"
+    },
+    "2267/D": {
+      "rating": null,
+      "name": "Backrooms Hill"
+    },
+    "2267/C": {
+      "rating": null,
+      "name": "GCD Treasury"
+    },
+    "2267/B": {
+      "rating": null,
+      "name": "Fashionable Array"
+    },
+    "2267/A": {
+      "rating": null,
+      "name": "Turn Into a Palindrome"
+    },
+    "2266/D": {
+      "rating": null,
+      "name": "Falling Concrete"
+    },
+    "2266/C": {
+      "rating": null,
+      "name": "AND, OR, Sort!"
+    },
+    "2266/B": {
+      "rating": null,
+      "name": "Three Piles"
+    },
+    "2266/A": {
+      "rating": null,
+      "name": "Good Contest"
     }
   }
 }

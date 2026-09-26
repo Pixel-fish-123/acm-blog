@@ -44,6 +44,109 @@
     "source": "https://codeforces.com/problemset/problem/2260/C"
   },
   {
+    "title": "cf2266A Good Contest 题解",
+    "id": "cf2266A",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2266A_solution",
+    "summary": "一场比赛有 3 道题、n 名选手。没有做出全部 3 道题的选手称为「弱选手」。 榜单丢失了，只知道第 i 题有 a i 人做出。在所有与这些信息相符的榜单中，求...",
+    "date": "2026-09-26",
+    "tags": [
+      "贪心"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2266/A"
+  },
+  {
+    "title": "cf2266B Three Piles 题解",
+    "id": "cf2266B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2266B_solution",
+    "summary": "Alice 有 a 颗石子，Bob 有 b 颗，公共堆有 c 颗。两人轮流行动，Alice 先手。每一回合，当前玩家可以从公共堆拿任意颗（可以为 0）放进自己的...",
+    "date": "2026-09-26",
+    "tags": [
+      "博弈论",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2266/B"
+  },
+  {
+    "title": "cf2266C AND, OR, Sort! 题解",
+    "id": "cf2266C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2266C_solution",
+    "summary": "给定长度为 n 的 01 串 s。一次操作选一个下标 i，把 s i 改成 当前 前缀 s 1, s 2, ldots, s i 的按位与或按位或（二选一）。 ...",
+    "date": "2026-09-26",
+    "tags": [
+      "枚举",
+      "前缀和",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2266/C"
+  },
+  {
+    "title": "cf2266D Falling Concrete 题解",
+    "id": "cf2266D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2266D_solution",
+    "summary": "一条路由 n 段组成，第 i 段高度为 a i。一次操作选 i < j，把第 j 段搬到位置 i，途经的每一段各落下一单位混凝土，即 「平坦部分」指高度全部相等...",
+    "date": "2026-09-26",
+    "tags": [
+      "构造",
+      "排序"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2266/D"
+  },
+  {
+    "title": "cf2267A Turn Into a Palindrome 题解",
+    "id": "cf2267A",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2267A_solution",
+    "summary": "给定长度为 n 的小写字母串 s 和一个字母 c。每花 1 枚硬币，可以选一个位置 i，把 s i 改成 c。求把 s 变成回文串所需的最少硬币数。 数据范围：...",
+    "date": "2026-09-26",
+    "tags": [
+      "贪心"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2267/A"
+  },
+  {
+    "title": "cf2267B Fashionable Array 题解",
+    "id": "cf2267B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2267B_solution",
+    "summary": "数组的众数定义为出现次数最多的数；若有多个数出现次数并列最多，取其中最大的。 给定长度为 n 的数组 a，可以任意重排，要求所有前缀的众数之和最大，输出任意一种...",
+    "date": "2026-09-26",
+    "tags": [
+      "构造",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2267/B"
+  },
+  {
+    "title": "cf2267C GCD Treasury 题解",
+    "id": "cf2267C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2267C_solution",
+    "summary": "有 n 堆金币，第 i 堆有 a i 枚。海盗手里有一个数 x，按以下流程偷金币： - 选一个满足 a i 0 且 gcd(a i, x) ne 1 的下标 i...",
+    "date": "2026-09-26",
+    "tags": [
+      "数论",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2267/C"
+  },
+  {
+    "title": "cf2267D Backrooms Hill 题解",
+    "id": "cf2267D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2267D_solution",
+    "summary": "数组 b 称为「山丘」，当且仅当存在 k，使 b 1 < b 2 < cdots < b k 且 b k b k+1 cdots b m。 给定由 1..n 中...",
+    "date": "2026-09-26",
+    "tags": [
+      "贪心",
+      "构造"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2267/D"
+  },
+  {
     "title": "gym101055C It-miha 题解",
     "id": "gym101055C",
     "category": "Codeforces",
@@ -131,6 +234,19 @@
       "枚举"
     ],
     "source": "https://codeforces.com/gym/106235/problem/A"
+  },
+  {
+    "title": "gym106235B Proof of Incorrectness 题解",
+    "id": "gym106235B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106235B_solution",
+    "summary": "交互题。有一个长度为 n、元素两两不同的隐藏数组 a。评测机（Vasya）会向你发出不超过 lceil log 2 (n!) rceil - 1 次询问 ，你需...",
+    "date": "2026-09-26",
+    "tags": [
+      "状压DP",
+      "构造"
+    ],
+    "source": "https://codeforces.com/gym/106235/problem/B"
   },
   {
     "title": "1 线段重合 题解",
