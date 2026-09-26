@@ -158,11 +158,16 @@ export default {
       const key = cfKey(id)
       if (!key) return
       let cached = cache.cf[key]
-      if (!cached && !this._cfLoaded) {
+      // 新比赛出分前 rating 为 null，每次 sync 都要重查，直到拿到 rating
+      if ((!cached || cached.rating == null) && !this._cfLoaded) {
         try {
           const fetched = await fetchCfRatings(this.collectCfKeys(ctx))
-          Object.assign(cache.cf, fetched)
-          this._dirty = true
+          for (const [k, v] of Object.entries(fetched)) {
+            if (cache.cf[k] && cache.cf[k].rating === v.rating) continue
+            cache.cf[k] = v
+            this._dirty = true
+            if (v.rating != null) ctx.log(`  difficulty: CF ${k} -> ${v.rating}`)
+          }
         } catch (e) {
           ctx.warn(`  difficulty: Codeforces 榜单抓取失败（${e.message}），跳过`)
         }

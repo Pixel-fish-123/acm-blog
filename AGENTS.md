@@ -11,7 +11,7 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
     - `source: "https://www.luogu.com.cn/problem/P3384"` — quoted original problem URL.
   - Written rules and the tag vocabulary live in `.cursor/rules/solution-frontmatter.mdc` and `..\acm-icpc\.skill\SKILL.md`; a new tag word must be added there *and* to `scripts/plugins/tag-dict.mjs`. The parser is plain regex (no YAML dependency).
   - These fields are no longer inert metadata: they drive the article header badges, related solutions, the homepage tag/difficulty sidebar and the search index.
-- `docs/.vitepress/problemCache.json` is the committed cache for Luogu difficulty / CF rating lookups (written by the `difficulty` plugin). Delete it to force re-fetching.
+- `docs/.vitepress/problemCache.json` is the committed cache for Luogu difficulty / CF rating lookups (written by the `difficulty` plugin). Delete it to force re-fetching. CF entries with `rating: null` (contest not rated yet) are re-queried on every `sync` until Codeforces publishes a rating; that costs one `problemset.problems` request per sync.
 - `docs/stats.md` is **hand-written** (not generated): a `layout: page` shell mounting `StatsPage.vue`. `docs/index.md` is the same pattern for `HomeLuogu.vue`.
 
 ## Commands (PowerShell)
