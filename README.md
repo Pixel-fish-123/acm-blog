@@ -74,7 +74,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
    # P3384 【模板】重链剖分 / 树链剖分 题解
    ```
 
-   三个字段都可选：`tags` 决定算法标签（词表见 `.cursor/rules/solution-frontmatter.mdc`），`difficulty` 写洛谷难度名或 `"CF 2300"`，`source` 写原题链接。缺失时同步脚本会尽量推断（标签按「算法类型」推断、题号推断原题链接、难度联网抓取）。
+   三个字段都可选：`tags` 决定算法标签（词表只维护在 `acm-icpc/.skill/SKILL.md` 的「标签词表」，同步时读取），`difficulty` 写洛谷难度名或 `"CF 2300"`，`source` 写原题链接。缺失时同步脚本会尽量推断（标签按「算法类型」对词表做最长匹配，再用别名规则；题号推断原题链接；难度联网抓取）。新标签加进技能文件的词表即可，不必改博客代码。
 
 2. **同步到博客**：
 
@@ -122,7 +122,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 | 插件 | 作用 |
 | --- | --- |
 | `frontmatter` | 解析题解开头的 `tags` / `difficulty` / `source`（纯正则，不依赖 YAML 库） |
-| `infer-meta` | 没有 `tags` 时按正文「**算法类型**」推断，且只输出词表内的词 |
+| `infer-meta` | 从 `acm-icpc/.skill/SKILL.md` 读标签词表。已有 `tags` 但不在词表里会警告；没有 `tags` 时按「**算法类型**」最长匹配推断，别名见 `tag-dict.mjs` |
 | `problem-link` | 没有 `source` 时按文件名推断原题链接（洛谷 / CF / AtCoder） |
 | `difficulty` | 没有 `difficulty` 时抓取洛谷难度或 CF rating，结果缓存到 `problemCache.json` |
 | `git-date` | 用 git 首次加入该题的提交日期作为上传日期，失败退回文件修改时间 |

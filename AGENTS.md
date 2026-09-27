@@ -9,7 +9,7 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
     - `tags: [树链剖分, 线段树]` — inline array, 1–4 tags from the skill's 标签词表, main algorithm first.
     - `difficulty: "提高+/省选-"` — quoted; Luogu difficulty name, or `"CF 2300"` for Codeforces. Omit if unknown.
     - `source: "https://www.luogu.com.cn/problem/P3384"` — quoted original problem URL.
-  - Written rules and the tag vocabulary live in `.cursor/rules/solution-frontmatter.mdc` and `..\acm-icpc\.skill\SKILL.md`; a new tag word must be added there *and* to `scripts/plugins/tag-dict.mjs`. The parser is plain regex (no YAML dependency).
+  - The tag vocabulary lives only in `..\acm-icpc\.skill\SKILL.md` under `## 标签词表`. `npm run sync` parses that section (`- 分类：词1、词2`, a trailing `（注释）` is stripped). Add a new tag there and nowhere else. Alias spellings that are not the canonical word (`BIT` → 树状数组) stay in `scripts/plugins/tag-dict.mjs` `ALIAS_RULES`. `.cursor/rules/solution-frontmatter.mdc` points at the skill and does not copy the list. Frontmatter parsing is plain regex (no YAML dependency).
   - These fields are no longer inert metadata: they drive the article header badges, related solutions, the homepage tag/difficulty sidebar and the search index.
 - `docs/.vitepress/problemCache.json` is the committed cache for Luogu difficulty / CF rating lookups (written by the `difficulty` plugin). Delete it to force re-fetching. CF entries with `rating: null` (contest not rated yet) are re-queried on every `sync` until Codeforces publishes a rating; that costs one `problemset.problems` request per sync.
 - `docs/stats.md` is **hand-written** (not generated): a `layout: page` shell mounting `StatsPage.vue`. `docs/index.md` is the same pattern for `HomeLuogu.vue`.
@@ -31,7 +31,7 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
   - `onFinish(index, ctx, options)` — once after all solutions; may mutate `index` (the array about to be written) or persist caches.
   - `sol` = `{ rel, dir, full, raw, body, meta }` (`rel` is relative to `solutions/`); `ctx` = `{ blogRoot, acmRoot, srcDir, dstDir, dataDir, log, warn, solutions }`.
   - A throwing plugin only logs a warning; it never aborts the sync. Network plugins must fall back to existing data.
-- Registered plugins: `frontmatter`, `infer-meta` (tags inferred from `**算法类型**` only when `tags` is missing, output limited to the dictionary), `problem-link` (infers `source` for luogu/cf/agc only), `difficulty` (Luogu 9-level name / CF rating, cached in `problemCache.json`), `git-date`, `collapse-code` (wraps `## 参考代码` in `::: details 点击展开参考代码`), `luogu-user`.
+- Registered plugins: `frontmatter`, `infer-meta` (reads the skill vocabulary; warns when frontmatter tags are outside it; if `tags` is missing, infers from `**算法类型**` by longest vocabulary match then `ALIAS_RULES`), `problem-link` (infers `source` for luogu/cf/agc only), `difficulty` (Luogu 9-level name / CF rating, cached in `problemCache.json`), `git-date`, `collapse-code` (wraps `## 参考代码` in `::: details 点击展开参考代码`), `luogu-user`.
 - `solutionIndex.json` entries carry `title`, `id`, `category`, `link`, `summary`, `date`, `tags`, `difficulty`, `difficultyColor`, `source`; absent values are omitted.
 
 ## WSL2 (Linux) agent notes

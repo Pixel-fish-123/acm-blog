@@ -12,7 +12,7 @@ import luoguUser from './luogu-user.mjs'
 
 export default [
   [frontmatter],
-  [inferMeta, { dict: 'tag-dict.mjs' }],
+  [inferMeta, { skill: '.skill/SKILL.md' }],
   [problemLink],
   [difficulty, { cache: true }],
   [gitDate],
