@@ -8,7 +8,7 @@ export function categoryName(dir) {
   const mi = dir.match(/^icpc_(\d{4})_online(?:_ver(\d))?$/)
   if (mi) return `ICPC ${mi[1]} 网络赛` + (mi[2] ? `（第${mi[2]}场）` : '')
   const mh = dir.match(/^icpc_(\d{4})_henan$/)
-  if (mh) return `${mh[1]}ICPC河南区域赛`
+  if (mh) return `ICPC ${mh[1]} 区域赛（河南）`
   if (dir.startsWith('codeforces')) return 'Codeforces'
   if (dir.startsWith('luogu')) return '洛谷'
   if (dir.startsWith('atcoder')) return 'AtCoder'

@@ -361,7 +361,7 @@
   {
     "title": "B 最大popcount 题解",
     "id": "B",
-    "category": "2025ICPC河南区域赛",
+    "category": "ICPC 2025 区域赛（河南）",
     "link": "/solutions/icpc_2025_henan/B_solution",
     "summary": "text popcount (x) 表示 x 的二进制中 1 的个数。q 次询问，每次给出 n，求 [0, n] 中 text popcount 最大的整数；若...",
     "date": "2026-09-27",
@@ -374,7 +374,7 @@
   {
     "title": "C 点对统计 题解",
     "id": "C",
-    "category": "2025ICPC河南区域赛",
+    "category": "ICPC 2025 区域赛（河南）",
     "link": "/solutions/icpc_2025_henan/C_solution",
     "summary": "小 X 和小 Y 各有一张无向图，点都编号为 1 sim n，分别有 m 1、m 2 条边。统计满足以下条件的点对 [x, y] 个数： - 1 le x < ...",
     "date": "2026-09-27",
@@ -387,7 +387,7 @@
   {
     "title": "L 编辑器 题解",
     "id": "L",
-    "category": "2025ICPC河南区域赛",
+    "category": "ICPC 2025 区域赛（河南）",
     "link": "/solutions/icpc_2025_henan/L_solution",
     "summary": "模拟一个文本编辑器，初始为 1 个空行，光标在行首。输入是一整串连在一起的按键序列，功能键用大写单词表示，输入字符用小写字母或数字表示： - ：切换 SHIFT...",
     "date": "2026-09-27",
