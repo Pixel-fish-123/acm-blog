@@ -4,6 +4,7 @@ import { withBase } from 'vitepress'
 import solutionIndex from '../../solutionIndex.json'
 import SolutionFilter from './SolutionFilter.vue'
 import {
+  badgeTextColor,
   collectTags,
   countBy,
   difficultyStats,
@@ -20,6 +21,8 @@ const total = items.length
 
 // 筛选状态由首页持有，控件（SolutionFilter）、列表和侧栏卡片共用
 const filters = ref(emptyFilters())
+// 窄屏默认收起侧栏，题解列表排在前面；桌面端用 CSS 始终展开
+const sideOpen = ref(false)
 const filtering = computed(() => isFiltering(filters.value))
 const visible = computed(() => sortItems(items.filter((item) => matches(item, filters.value)), filters.value.sort))
 
@@ -102,11 +105,19 @@ const luogu = {
                 <div class="lg-item-title-row">
                   <div class="lg-item-title">{{ item.title }}</div>
                   <span class="lg-tag">{{ item.category }}</span>
+                  <span
+                    v-if="item.difficulty"
+                    class="lg-diff"
+                    :style="{
+                      backgroundColor: item.difficultyColor || '#bfbfbf',
+                      color: badgeTextColor(item.difficultyColor || '#bfbfbf'),
+                    }"
+                  >{{ item.difficulty }}</span>
                 </div>
                 <div class="lg-item-summary">{{ item.summary }}</div>
               </div>
               <div class="lg-item-author">
-                <img class="lg-item-avatar" :src="withBase('/avatar.png')" alt="avatar" />
+                <img class="lg-item-avatar" :src="withBase('/avatar.png')" alt="" />
                 <div class="lg-item-author-name">Pixel_fish</div>
                 <div class="lg-item-author-date">{{ item.date }}</div>
               </div>
@@ -117,10 +128,26 @@ const luogu = {
       </div>
 
       <aside class="lg-side">
+        <button
+          type="button"
+          class="lg-side-toggle"
+          :aria-expanded="sideOpen ? 'true' : 'false'"
+          aria-controls="lg-side-panel"
+          @click="sideOpen = !sideOpen"
+        >
+          {{ sideOpen ? '收起资料与筛选' : '展开资料与筛选' }}
+        </button>
+        <div id="lg-side-panel" class="lg-side-panel" :class="{ 'is-open': sideOpen }">
         <!-- 洛谷用户主页风格信息栏 -->
         <div class="lg-card lg-profile">
-          <a class="lg-avatar-wrap" :href="luogu.home" target="_blank" rel="noopener">
-            <img class="lg-avatar" :src="withBase('/avatar.png')" alt="avatar" />
+          <a
+            class="lg-avatar-wrap"
+            :href="luogu.home"
+            target="_blank"
+            rel="noopener"
+            :aria-label="luogu.name + ' 的洛谷主页'"
+          >
+            <img class="lg-avatar" :src="withBase('/avatar.png')" alt="" />
           </a>
           <div class="lg-name">{{ luogu.name }}</div>
           <div class="lg-slogan">{{ luogu.slogan }}</div>
@@ -170,8 +197,10 @@ const luogu = {
             <button
               v-for="t in tags"
               :key="t.name"
+              type="button"
               class="lg-tagbtn"
               :class="{ 'lg-tagbtn-active': filters.tags.includes(t.name) }"
+              :aria-pressed="filters.tags.includes(t.name) ? 'true' : 'false'"
               @click="toggleTag(t.name)"
             >
               <span>{{ t.name }}</span>
@@ -189,8 +218,10 @@ const luogu = {
             <button
               v-for="d in difficulties"
               :key="d.name"
+              type="button"
               class="lg-diffrow"
               :class="{ 'lg-diffrow-active': filters.diffs.includes(d.name) }"
+              :aria-pressed="filters.diffs.includes(d.name) ? 'true' : 'false'"
               @click="toggleDifficulty(d.name)"
             >
               <span class="lg-diffname">{{ d.name }}</span>
@@ -219,12 +250,14 @@ const luogu = {
               class="lg-cat"
               :class="{ 'lg-cat-active': filters.cat === c.name }"
               :href="withBase('/?cat=' + encodeURIComponent(c.name))"
+              :aria-current="filters.cat === c.name ? 'true' : undefined"
               @click.prevent="setCategory(c.name)"
             >
               <span>{{ c.name }}</span>
               <span class="lg-cat-num">{{ c.count }}</span>
             </a>
           </div>
+        </div>
         </div>
       </aside>
     </div>
@@ -256,7 +289,16 @@ const luogu = {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+}
+
+.lg-side-panel {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+}
+
+.lg-side-toggle {
+  display: none;
 }
 
 .lg-card {
@@ -316,17 +358,19 @@ const luogu = {
 
 .lg-item-title-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 6px 10px;
   min-width: 0;
 }
 
 .lg-item-title {
+  flex: 1 1 10rem;
   font-size: 16px;
   font-weight: 600;
   color: #2d3436;
   line-height: 1.5;
-  min-width: 0;
+  min-width: min(100%, 8rem);
 }
 
 .lg-item:hover .lg-item-title {
@@ -341,6 +385,15 @@ const luogu = {
   font-size: 12px;
   color: #3498db;
   background: #eaf3fb;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.lg-diff {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 1px 8px;
+  font-size: 12px;
   border-radius: 3px;
   white-space: nowrap;
 }
@@ -664,7 +717,31 @@ const luogu = {
 
   .lg-side {
     width: 100%;
-    order: -1;
+  }
+
+  .lg-side-toggle {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #3498db;
+    background: #fff;
+    border: 1px solid #e3e8ef;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .lg-side-toggle:hover {
+    background: #f7fafd;
+  }
+
+  .lg-side-panel {
+    display: none;
+  }
+
+  .lg-side-panel.is-open {
+    display: flex;
+    margin-top: 12px;
   }
 }
 </style>

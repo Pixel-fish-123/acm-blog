@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { collectMd } from './lib/fs-utils.mjs'
 import { h1Of, summaryOf } from './lib/markdown.mjs'
 import { categoryName } from './lib/category.mjs'
+import { formatMetaGaps } from './lib/meta-gaps.mjs'
 import plugins from './plugins/index.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -116,3 +117,4 @@ fs.writeFileSync(path.join(dataDir, 'solutionIndex.json'), JSON.stringify(indexD
 
 log(`同步完成：${sols.length} 篇题解 → docs/solutions/`)
 log(`站点数据 → docs/.vitepress/solutionIndex.json`)
+log(formatMetaGaps(indexData))

@@ -80,7 +80,32 @@ function solutionIndexFor(file) {
 const githubIcon =
   '<svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>'
 
+// 「## 参考代码」整节不进搜索索引。代码 token 会淹没题意关键词。
+// 同步脚本会把这一节包进 ::: details，开标签在标题前一两行，一并去掉。
+function stripReferenceCode(markdown) {
+  const lines = String(markdown).split('\n')
+  const start = lines.findIndex((line) => /^##\s+参考代码\s*$/.test(line))
+  if (start < 0) return String(markdown)
+  let end = lines.length
+  for (let i = start + 1; i < lines.length; i++) {
+    if (/^##\s+\S/.test(lines[i]) && !/^##\s+参考代码\s*$/.test(lines[i])) {
+      end = i
+      break
+    }
+  }
+  let from = start
+  for (let i = start - 1; i >= Math.max(0, start - 5); i--) {
+    if (/^:{3,}\s+details\b/.test(lines[i])) {
+      from = i
+      break
+    }
+    if (lines[i].trim() !== '') break
+  }
+  return lines.slice(0, from).concat(lines.slice(end)).join('\n')
+}
+
 export default defineConfig({
+  lang: 'zh-CN',
   title: 'Pixel_fish 的题解博客',
   description: '算法竞赛刷题与题解记录',
   base,
@@ -102,6 +127,27 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        translations: {
+          button: {
+            buttonText: '搜索',
+            buttonAriaLabel: '搜索',
+          },
+          modal: {
+            displayDetails: '显示详细列表',
+            resetButtonTitle: '重置搜索',
+            backButtonTitle: '关闭搜索',
+            noResultsText: '没有找到结果',
+            footer: {
+              selectText: '选择',
+              selectKeyAriaLabel: '回车',
+              navigateText: '导航',
+              navigateUpKeyAriaLabel: '向上',
+              navigateDownKeyAriaLabel: '向下',
+              closeText: '关闭',
+              closeKeyAriaLabel: 'esc',
+            },
+          },
+        },
         miniSearch: {
           options: {
             // 自定义分词：中文按 bigram 切分，英文数字按单词切分（见文件顶部的 cjkTokenize）
@@ -109,7 +155,8 @@ export default defineConfig({
           },
           searchOptions: {
             prefix: true,
-            fuzzy: 0.2,
+            // 0 在 MiniSearch 里是假值，等于关闭模糊匹配（默认 0.2 会把相近词也算命中）
+            fuzzy: 0,
             // 覆盖 VitePress 默认的 { title: 4, text: 2, titles: 1 }：标题权重拉开，正文降权，
             // 避免正文里的 bigram 命中把标题命中的题解挤下去
             boost: { title: 4, titles: 2 },
@@ -120,9 +167,11 @@ export default defineConfig({
         // 只处理 docs/solutions/**/<name>_solution.md；首页、索引页、时间线页原样返回。
         // 前缀 `_` 让 VitePress 跳过序列化，所以这里可以正常用闭包和 node API。
         _render(src, env, md) {
-          const html = md.render(src, env)
           const rel = env.relativePath || ''
-          if (!rel.startsWith('solutions/') || !rel.endsWith('_solution.md')) return html
+          const isSolution = rel.startsWith('solutions/') && rel.endsWith('_solution.md')
+          const source = isSolution ? stripReferenceCode(src) : src
+          const html = md.render(source, env)
+          if (!isSolution) return html
           const item = solutionIndexFor(env.path).get('/' + rel.replace(/\.md$/, ''))
           const words = [item?.id, ...(item?.tags || [])].filter(Boolean)
           if (!words.length) return html
@@ -134,6 +183,9 @@ export default defineConfig({
         },
       },
     },
+    skipToContentLabel: '跳转到内容',
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
     docFooter: { prev: '上一篇', next: '下一篇' },
     lastUpdated: { text: '更新于', formatOptions: { dateStyle: 'short', timeStyle: 'short' } },
     socialLinks: [

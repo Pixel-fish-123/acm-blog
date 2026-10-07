@@ -50,12 +50,14 @@ function clearAll() {
       <input
         class="sf-input"
         type="search"
+        aria-label="搜索题号、标题或标签"
         placeholder="搜索题号 / 标题 / 标签"
         :value="filters.q"
         @input="patch({ q: $event.target.value })"
       />
       <select
         class="sf-select"
+        aria-label="按平台筛选"
         :value="filters.cat"
         @change="patch({ cat: $event.target.value })"
       >
@@ -66,6 +68,7 @@ function clearAll() {
       </select>
       <select
         class="sf-select"
+        aria-label="排序方式"
         :value="filters.sort"
         @change="patch({ sort: $event.target.value })"
       >
@@ -80,13 +83,15 @@ function clearAll() {
       <button
         v-for="(chip, i) in activeChips"
         :key="chip.kind + '-' + (chip.value || i)"
+        type="button"
         class="sf-chip"
+        :aria-label="'移除' + chip.label"
         @click="removeChip(chip)"
       >
         <span>{{ chip.label }}</span>
         <span class="sf-chip-x">×</span>
       </button>
-      <button class="sf-clear" @click="clearAll">清空</button>
+      <button type="button" class="sf-clear" aria-label="清空筛选条件" @click="clearAll">清空</button>
     </div>
   </section>
 </template>
@@ -114,12 +119,13 @@ function clearAll() {
   background: #fff;
   border: 1px solid #e3e8ef;
   border-radius: 4px;
-  outline: none;
   transition: border-color 0.15s;
 }
 
 .sf-input:focus {
   border-color: #3498db;
+  outline: 2px solid #3498db;
+  outline-offset: 1px;
 }
 
 .sf-input::placeholder {
@@ -135,12 +141,13 @@ function clearAll() {
   background: #fff;
   border: 1px solid #e3e8ef;
   border-radius: 4px;
-  outline: none;
   cursor: pointer;
 }
 
 .sf-select:focus {
   border-color: #3498db;
+  outline: 2px solid #3498db;
+  outline-offset: 1px;
 }
 
 .sf-active {

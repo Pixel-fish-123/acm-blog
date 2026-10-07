@@ -54,9 +54,14 @@ function luoguPid(id) {
   return m ? m[1] : ''
 }
 
+// cf1748E -> 1748/E；gym101061F -> 101061/F
 function cfKey(id) {
-  const m = id.match(/^cf(\d+)([A-Za-z]\d*)$/)
+  const m = String(id || '').match(/^(?:cf|gym)(\d+)([A-Za-z]\d*)$/)
   return m ? `${m[1]}/${m[2].toUpperCase()}` : ''
+}
+
+function isGymId(id) {
+  return /^gym\d/i.test(String(id || ''))
 }
 
 async function fetchLuoguDifficulty(pid) {
@@ -159,7 +164,8 @@ export default {
       if (!key) return
       let cached = cache.cf[key]
       // 新比赛出分前 rating 为 null，每次 sync 都要重查，直到拿到 rating
-      if ((!cached || cached.rating == null) && !this._cfLoaded) {
+      // gym 不在 problemset.problems 里；放进这次批量请求会让缺 rating 的 gym 每次 sync 都重拉整表
+      if (!isGymId(id) && (!cached || cached.rating == null) && !this._cfLoaded) {
         try {
           const fetched = await fetchCfRatings(this.collectCfKeys(ctx))
           for (const [k, v] of Object.entries(fetched)) {
@@ -186,7 +192,9 @@ export default {
     for (const sol of ctx.solutions || []) {
       if (sol.meta.difficulty) continue
       if (!platformOf(sol.dir).startsWith('codeforces')) continue
-      const key = cfKey(idOf(sol.rel))
+      const id = idOf(sol.rel)
+      if (isGymId(id)) continue
+      const key = cfKey(id)
       if (key) keys.push(key)
     }
     return keys

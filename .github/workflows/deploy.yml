@@ -18,7 +18,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # 完整历史：VitePress lastUpdated / 文章头「更新于」用 git 提交时间，浅克隆会全部变成部署当天
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
