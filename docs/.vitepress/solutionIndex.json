@@ -53,6 +53,8 @@
     "tags": [
       "贪心"
     ],
+    "difficulty": "CF 800",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2266/A"
   },
   {
@@ -66,6 +68,8 @@
       "博弈论",
       "贪心"
     ],
+    "difficulty": "CF 800",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2266/B"
   },
   {
@@ -80,6 +84,8 @@
       "前缀和",
       "贪心"
     ],
+    "difficulty": "CF 1000",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2266/C"
   },
   {
@@ -93,6 +99,8 @@
       "构造",
       "排序"
     ],
+    "difficulty": "CF 1400",
+    "difficultyColor": "#00c0c0",
     "source": "https://codeforces.com/problemset/problem/2266/D"
   },
   {
@@ -105,6 +113,8 @@
     "tags": [
       "贪心"
     ],
+    "difficulty": "CF 800",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2267/A"
   },
   {
@@ -118,6 +128,8 @@
       "构造",
       "贪心"
     ],
+    "difficulty": "CF 800",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2267/B"
   },
   {
@@ -131,6 +143,8 @@
       "数论",
       "贪心"
     ],
+    "difficulty": "CF 1200",
+    "difficultyColor": "#52c41a",
     "source": "https://codeforces.com/problemset/problem/2267/C"
   },
   {
@@ -144,7 +158,48 @@
       "贪心",
       "构造"
     ],
+    "difficulty": "CF 1400",
+    "difficultyColor": "#00c0c0",
     "source": "https://codeforces.com/problemset/problem/2267/D"
+  },
+  {
+    "title": "gym100947C Rotate It !! 题解",
+    "id": "gym100947C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym100947C_solution",
+    "summary": "有一个长为 N 的序列 A 1, A 2, dots, A N。Dzy 和 Fox 从左到右轮流取数，Dzy 先取：Dzy 取第 1, 3, 5, dots 个...",
+    "date": "2026-10-07",
+    "tags": [
+      "枚举"
+    ],
+    "source": "https://codeforces.com/gym/100947/problem/C"
+  },
+  {
+    "title": "gym101047F Fighting the Rajasi 题解",
+    "id": "gym101047F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym101047F_solution",
+    "summary": "Nai 初始有 H 点生命，要依次击败 N 个 Rajasi，顺序可以任选。第 i 个 Rajasi 有 x i 点生命和 y i 点恢复值。 - 正常战斗：要...",
+    "date": "2026-10-07",
+    "tags": [
+      "反悔贪心",
+      "排序",
+      "堆"
+    ],
+    "source": "https://codeforces.com/gym/101047/problem/F"
+  },
+  {
+    "title": "gym101047M Removing coins in Kem Kadrãn 题解",
+    "id": "gym101047M",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym101047M_solution",
+    "summary": "一排 N 枚棋子，编号 1 到 N，每枚棋子一面金色（ ）一面白色（ ）。金色朝上的棋子可以拿走；拿走第 i 枚后，第 i - 1 枚和第 i + 1 枚（如果...",
+    "date": "2026-10-07",
+    "tags": [
+      "构造",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/gym/101047/problem/M"
   },
   {
     "title": "gym101055C It-miha 题解",
@@ -196,6 +251,19 @@
       "线性DP"
     ],
     "source": "https://codeforces.com/gym/101061/problem/F"
+  },
+  {
+    "title": "gym101064F Metal detector 题解",
+    "id": "gym101064F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym101064F_solution",
+    "summary": "有 N 个人排队过金属探测器。探测器坏了，会交替报警：第 1 个经过的人不报警，第 2 个报警，第 3 个不报警，第 4 个报警，依此类推，一直交替下去。不报警...",
+    "date": "2026-10-07",
+    "tags": [
+      "约瑟夫问题",
+      "模拟"
+    ],
+    "source": "https://codeforces.com/gym/101064/problem/F"
   },
   {
     "title": "gym104518F Vacation 题解",
@@ -262,6 +330,56 @@
       "双指针"
     ],
     "source": "https://codeforces.com/gym/106722/problem/D"
+  },
+  {
+    "title": "gym106728E Elegant Slabstones Rearrangement 题解",
+    "id": "gym106728E",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106728E_solution",
+    "summary": "n times n 的网格里放着 n^2 块石板，按行优先编号：格子 (i, j) 上的石板编号为 (i - 1) times n + j。现在希望格子 (i,...",
+    "date": "2026-10-07",
+    "tags": [
+      "模拟"
+    ],
+    "source": "https://codeforces.com/gym/106728/problem/E"
+  },
+  {
+    "title": "gym106728F Escape Route 题解",
+    "id": "gym106728F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106728F_solution",
+    "summary": "群岛有 n 个岛和 m 座双向桥。第 i 座桥连接 u i 和 v i，通过需要 t i 分钟，高度为 h i 厘米。 灾难发生后海平面每分钟上涨 1 厘米，第...",
+    "date": "2026-10-07",
+    "tags": [
+      "最短路"
+    ],
+    "source": "https://codeforces.com/gym/106728/problem/F"
+  },
+  {
+    "title": "gym106732C Rating 题解",
+    "id": "gym106732C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106732C_solution",
+    "summary": "一本书接受读者打分，分值为 1 到 n 的整数，任意时刻书的评分是已有打分的算术平均值。共有 m 位读者，第 i 位的类型为 t i，期望评分为 x i： - ...",
+    "date": "2026-10-07",
+    "tags": [
+      "贪心",
+      "排序"
+    ],
+    "source": "https://codeforces.com/gym/106732/problem/C"
+  },
+  {
+    "title": "gym106733F Coffee is Life 题解",
+    "id": "gym106733F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106733F_solution",
+    "summary": "共 n 天，第 i 天最多完成 w i 单位工作，每完成 1 单位工作消耗 1 点能量，每天开始时能量为 0，能量不会留到第二天。 一共有 m 杯咖啡，可以分配...",
+    "date": "2026-10-07",
+    "tags": [
+      "贪心",
+      "二分"
+    ],
+    "source": "https://codeforces.com/gym/106733/problem/F"
   },
   {
     "title": "1 线段重合 题解",
