@@ -85,7 +85,13 @@ const toggle = (date) => {
 
         <div v-if="groups.length" class="st-chart">
           <div v-for="g in groups" :key="g.date" class="st-row">
-            <button class="st-row-btn" @click="toggle(g.date)">
+            <button
+              type="button"
+              class="st-row-btn"
+              :aria-expanded="collapsed[g.date] ? 'false' : 'true'"
+              :aria-controls="'st-day-' + g.date"
+              @click="toggle(g.date)"
+            >
               <span class="st-date-col">
                 <span class="st-date">{{ g.date }}</span>
                 <span v-if="g.date !== UNKNOWN" class="st-weekday">{{ weekday(g.date) }}</span>
@@ -101,7 +107,7 @@ const toggle = (date) => {
               <span class="st-caret">{{ collapsed[g.date] ? '展开' : '收起' }}</span>
             </button>
 
-            <ul v-if="!collapsed[g.date]" class="st-list">
+            <ul v-if="!collapsed[g.date]" :id="'st-day-' + g.date" class="st-list">
               <li v-for="item in g.items" :key="item.link" class="st-item">
                 <a class="st-link" :href="withBase(item.link)">{{ item.title }}</a>
                 <span class="st-cat">{{ item.category }}</span>
@@ -262,7 +268,8 @@ const toggle = (date) => {
 .st-caret {
   flex-shrink: 0;
   font-size: 11px;
-  color: #a0aab6;
+  color: #6b7785;
+  white-space: nowrap;
 }
 
 /* ---- 当天题解列表 ---- */
@@ -320,12 +327,17 @@ const toggle = (date) => {
     flex: 1 1 40%;
   }
 
+  .st-row-btn {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
   .st-date-col {
-    width: 96px;
+    width: auto;
   }
 
   .st-caret {
-    display: none;
+    margin-left: auto;
   }
 
   .st-list {

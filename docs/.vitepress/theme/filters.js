@@ -150,3 +150,20 @@ export function difficultyStats(items) {
   if (counted.has(UNKNOWN_DIFFICULTY)) names.push(UNKNOWN_DIFFICULTY)
   return names.map((name) => ({ name, count: counted.get(name), color: colorOf(name) }))
 }
+
+// 浅色难度底（新手灰、普及黄、青绿等）上白字对比度不够，改用深色字
+export function badgeTextColor(background) {
+  const hex = String(background || '').trim()
+  const m = hex.match(/^#([0-9a-f]{6})$/i)
+  if (!m) return '#fff'
+  const n = parseInt(m[1], 16)
+  const r = (n >> 16) & 255
+  const g = (n >> 8) & 255
+  const b = n & 255
+  const lin = (c) => {
+    const s = c / 255
+    return s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4
+  }
+  const L = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b)
+  return L > 0.35 ? '#2d3436' : '#fff'
+}

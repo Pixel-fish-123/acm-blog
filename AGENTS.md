@@ -31,7 +31,8 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
   - `onFinish(index, ctx, options)` — once after all solutions; may mutate `index` (the array about to be written) or persist caches.
   - `sol` = `{ rel, dir, full, raw, body, meta }` (`rel` is relative to `solutions/`); `ctx` = `{ blogRoot, acmRoot, srcDir, dstDir, dataDir, log, warn, solutions }`.
   - A throwing plugin only logs a warning; it never aborts the sync. Network plugins must fall back to existing data.
-- Registered plugins: `frontmatter`, `infer-meta` (reads the skill vocabulary; warns when frontmatter tags are outside it; if `tags` is missing, infers from `**算法类型**` by longest vocabulary match then `ALIAS_RULES`), `problem-link` (infers `source` for luogu/cf/agc only), `difficulty` (Luogu 9-level name / CF rating, cached in `problemCache.json`), `git-date`, `collapse-code` (wraps `## 参考代码` in `::: details 点击展开参考代码`), `luogu-user`.
+- Registered plugins: `frontmatter`, `infer-meta` (reads the skill vocabulary; warns when frontmatter tags are outside it; if `tags` is missing, infers from `**算法类型**` by longest vocabulary match then `ALIAS_RULES`), `problem-link` (infers `source` for luogu / Codeforces including `gym{contest}{index}` → `https://codeforces.com/gym/{contest}/problem/{index}` / atcoder), `difficulty` (Luogu 9-level name / CF rating, cached in `problemCache.json`; gym ids share `cfKey` but are not polled via `problemset.problems`), `git-date`, `collapse-code` (wraps `## 参考代码` in `::: details 点击展开参考代码`), `luogu-user`.
+- End of `sync` prints how many solutions are missing `difficulty` and/or `source` (`scripts/lib/meta-gaps.mjs`; `node scripts/lib/meta-gaps.mjs` reads the current `solutionIndex.json` without `acm-icpc`).
 - `solutionIndex.json` entries carry `title`, `id`, `category`, `link`, `summary`, `date`, `tags`, `difficulty`, `difficultyColor`, `source`; absent values are omitted.
 
 ## WSL2 (Linux) agent notes
@@ -65,7 +66,9 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
 - VitePress serializes functions in site data (`serializeFunctions` → `_vp-fn_…` → `new Function` on the client), so `tokenize` survives — **but only if it is self-contained**: no closure variables, imports or `this`, or the client-side copy breaks while the build still succeeds.
 - Keys starting with `_` are skipped by that serializer. `_render` relies on this: it is build-time only and may use Node APIs (`fs`, `path`).
 - `_render` receives markdown that `processIncludes` has **already stripped the frontmatter from** — `env.frontmatter` is empty. Tags therefore come from `solutionIndex.json` (found by walking up from `env.path`), which also covers tags inferred by `infer-meta` instead of written in frontmatter.
+- `_render` drops the `## 参考代码` section (and its surrounding `::: details` fence) before indexing. `miniSearch.searchOptions.fuzzy` is `0` (MiniSearch treats `0` as off).
 - `_render`'s return value feeds only `splitPageIntoSections`; it is never written into page HTML (the injected `<p hidden id + tags>` is index-only, so it cannot show up on a page).
+- `lang: 'zh-CN'` is top-level. This VitePress version does not ship a locale pack that `lang` alone activates, so search modal strings and `skipToContentLabel` / `returnToTopLabel` are set in `themeConfig`.
 - `npm run dev` does not serve the production search index; verify search with `npm run build` + `npm run preview`.
 
 ## Conventions

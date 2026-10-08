@@ -14,7 +14,9 @@ export function summaryOf(raw, limit = 80) {
   text = text.replace(/```[\s\S]*?```/g, ' ')
   text = text.replace(/`[^`]*`/g, ' ')
   text = text.replace(/\$\$[\s\S]*?\$\$/g, ' ')
-  text = text.replace(/\$([^$\n]*)\$/g, (_m, g) => g.replace(/\\/g, ' ').replace(/[{}]/g, ' '))
+  // 含 LaTeX 命令的行内公式整段换成空格。只删反斜杠会把 \le、\leftarrow 剩成 le / leftarrow。
+  // 不含命令的 $n$、$x_i$ 仍留下标识符，避免摘要变成「有 块砖」。
+  text = text.replace(/\$([^$\n]*)\$/g, (_m, g) => (/\\/.test(g) ? ' ' : g.replace(/[{}]/g, ' ')))
   text = text.replace(/^\s*:::.*$/gm, ' ') // VitePress 容器语法（含 ::: details 标题行）
   text = text.replace(/^#.*$/gm, ' ')
   text = text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')

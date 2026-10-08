@@ -58,7 +58,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
   - 筛选状态会写进地址栏（`?q=&cat=&tag=a,b&diff=&sort=`），复制链接给别人或刷新都能还原。
 - **题解页**：标题下方显示平台标签、难度徽章、算法标签和「原题」链接；点算法标签会跳回首页并只显示带该标签的题解；页面底部列出相关题解。
 - **上传时间线 `/stats`**：按日期升序的条状图，显示每天上传了几篇，展开可以看到当天的题解标题。
-- **全站搜索**：右上角搜索框支持中文关键词（「剖分」「博弈」「线段树」）与题号，中文按两字一组建立索引，无需输入完整词语。
+- **全站搜索**：右上角搜索框支持中文关键词（「剖分」「博弈」「线段树」）与题号，中文按两字一组建立索引，无需输入完整词语。参考代码不进入索引；关闭模糊匹配（`fuzzy: 0`），避免把相近词算成命中。
 
 ## 如何添加一篇题解（核心流程）
 
@@ -88,6 +88,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
    - 生成题解索引页 `docs/solutions/index.md`
    - 生成数据文件 `docs/.vitepress/solutionIndex.json`（标题、摘要、分类、**算法标签**、难度、原题链接、**首次上传日期**）
    - 刷新首页个人数据（洛谷昵称、等级颜色、通过数等）
+   - 打印缺难度、缺原题链接的篇数（不依赖重新抓取；已有索引也可 `node scripts/lib/meta-gaps.mjs`）
 
 3. **本地验证**：
 
@@ -123,7 +124,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 | --- | --- |
 | `frontmatter` | 解析题解开头的 `tags` / `difficulty` / `source`（纯正则，不依赖 YAML 库） |
 | `infer-meta` | 从 `acm-icpc/.skill/SKILL.md` 读标签词表。已有 `tags` 但不在词表里会警告；没有 `tags` 时按「**算法类型**」最长匹配推断，别名见 `tag-dict.mjs` |
-| `problem-link` | 没有 `source` 时按文件名推断原题链接（洛谷 / CF / AtCoder） |
+| `problem-link` | 没有 `source` 时按文件名推断原题链接（洛谷 / CF / Gym / AtCoder）。Gym 形如 `https://codeforces.com/gym/{contest}/problem/{index}` |
 | `difficulty` | 没有 `difficulty` 时抓取洛谷难度或 CF rating，结果缓存到 `problemCache.json` |
 | `git-date` | 用 git 首次加入该题的提交日期作为上传日期，失败退回文件修改时间 |
 | `collapse-code` | 把「参考代码」一节包进可折叠块 |
@@ -133,7 +134,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 
 ### 首页（HomeLuogu.vue）
 
-- 布局：左侧题解列表（标题 + 平台标签 + 摘要 + 难度，右侧作者头像/名字/日期）；右侧个人栏（头像、等级色用户名、做题数据、洛谷/GitHub 按钮）+「算法标签」「难度分布」「分类」三张可从侧栏筛选的卡片。
+- 布局：左侧题解列表（标题 + 平台标签 + 难度徽章 + 摘要，右侧作者头像/名字/日期）。浅色难度底（普及黄、新手灰、青绿等）用深色字。右侧个人栏（头像、等级色用户名、做题数据、洛谷/GitHub 按钮）+「算法标签」「难度分布」「分类」三张可从侧栏筛选的卡片。窄屏下列表在前，侧栏默认收起，点「展开资料与筛选」才打开。
 - **个人信息在组件顶部 `luogu` 常量中硬编码**，由 `npm run sync` 自动刷新（也可手动改）。
 - **列表与标签完全由 `solutionIndex.json` 驱动**，加文章只需执行 `npm run sync`，无需改组件。
 - 筛选逻辑集中在 `theme/filters.js`（纯函数），筛选条 UI 在 `theme/components/SolutionFilter.vue`。
@@ -141,11 +142,11 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 ### 索引页 / 时间线页
 
 - `/solutions/`：外壳是 `docs/solutions/index.md`（由 `sync` 生成），列表和右侧标签筛选框都在 `SolutionIndexPage.vue` 里。
-- `/stats/`：外壳是手写的 `docs/stats.md`，内容在 `StatsPage.vue`（纯 CSS 条状图，不引入图表库）。日期取自 `solutionIndex.json` 的 `date`，即**首次上传**日期。
+- `/stats/`：外壳是手写的 `docs/stats.md`，内容在 `StatsPage.vue`（纯 CSS 条状图，不引入图表库）。日期取自 `solutionIndex.json` 的 `date`，即**首次上传**日期。窄屏仍显示「展开 / 收起」。
 
 ### 全站搜索
 
-- 配置在 `config.mjs` 的 `themeConfig.search.options`：自定义分词把中文切成两字一组（bigram），所以搜「剖分」能命中「树链剖分」；`_render` 还会把题号和算法标签补进索引文本。
+- 配置在 `config.mjs` 的 `themeConfig.search.options`：自定义分词把中文切成两字一组（bigram），所以搜「剖分」能命中「树链剖分」；`_render` 还会把题号和算法标签补进索引文本，并去掉「参考代码」整节。`fuzzy` 为 `0`（关闭模糊匹配）。页面语言是 `zh-CN`。
 - `tokenize` 函数会被 VitePress 序列化成源码字符串发给浏览器，因此必须**自包含**（不能引用外部变量），否则构建能过、但浏览器里搜不到。
 - 搜索索引只在构建产物里生成，验证请用 `npm run build` + `npm run preview`（`npm run dev` 不提供生产搜索索引）。
 
@@ -167,7 +168,7 @@ acm-icpc/solutions/*.md  ──npm run sync──►  docs/solutions/*.md
 
 ## 部署
 
-已配置 GitHub Actions（`.github/workflows/deploy.yml`），push 到 `main` 自动构建并部署。
+已配置 GitHub Actions（`.github/workflows/deploy.yml`），push 到 `main` 自动构建并部署。checkout 使用 `fetch-depth: 0`，文章头「更新于」才是真实的 git 提交日期，而不是部署当天。
 
 首次配置（一次性）：仓库 Settings → Pages → Source 选择 **GitHub Actions**。
 站点地址：`https://<用户名>.github.io/acm-blog/`（与仓库名一致时无需改配置）。

@@ -1,5 +1,5 @@
 // 插件：frontmatter 缺 source 时按文件名推断原题链接
-// 只推断洛谷 / Codeforces / AtCoder 三种，其余平台不猜（与 solution-frontmatter.mdc 一致）
+// 只推断洛谷 / Codeforces（含 Gym）/ AtCoder，其余平台不猜（与 solution-frontmatter.mdc 一致）
 import path from 'node:path'
 
 function platformOf(dir) {
@@ -18,7 +18,10 @@ function luoguSource(id) {
 }
 
 // codeforces/cf1748E -> https://codeforces.com/problemset/problem/1748/E
+// codeforces/gym101061F -> https://codeforces.com/gym/101061/problem/F
 function codeforcesSource(id) {
+  const gym = id.match(/^gym(\d+)([A-Za-z]\d*)$/)
+  if (gym) return `https://codeforces.com/gym/${gym[1]}/problem/${gym[2].toUpperCase()}`
   const m = id.match(/^cf(\d+)([A-Za-z]\d*)$/)
   return m ? `https://codeforces.com/problemset/problem/${m[1]}/${m[2].toUpperCase()}` : ''
 }

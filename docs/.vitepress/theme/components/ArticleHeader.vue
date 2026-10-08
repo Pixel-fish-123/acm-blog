@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { withBase, useData } from 'vitepress'
 import { useCurrentSolution } from '../solution.js'
+import { badgeTextColor } from '../filters.js'
 
 // 文章页抬头：作者 + 修改日期；若当前页是题解，再补平台 / 难度 / 标签 / 原题
 const { page } = useData()
@@ -26,11 +27,16 @@ const tags = computed(() => solution.value?.tags || [])
 
 // 标签点击后回到首页并带上筛选参数（首页筛选见优化方案第 4 节）
 const tagLink = (tag) => withBase('/?tag=' + encodeURIComponent(tag))
+
+function diffStyle(item) {
+  const backgroundColor = item.difficultyColor || '#bfbfbf'
+  return { backgroundColor, color: badgeTextColor(backgroundColor) }
+}
 </script>
 
 <template>
   <div class="article-header">
-    <img class="ah-avatar" :src="withBase('/avatar.png')" alt="avatar" />
+    <img class="ah-avatar" :src="withBase('/avatar.png')" alt="" />
     <a class="ah-name" :href="luoguHome" target="_blank" rel="noopener">Pixel_fish</a>
     <span v-if="date" class="ah-date">更新于 {{ date }}</span>
 
@@ -40,7 +46,7 @@ const tagLink = (tag) => withBase('/?tag=' + encodeURIComponent(tag))
       <span
         v-if="solution.difficulty"
         class="ah-diff"
-        :style="{ backgroundColor: solution.difficultyColor || '#bfbfbf' }"
+        :style="diffStyle(solution)"
       >{{ solution.difficulty }}</span>
       <a
         v-for="tag in tags"
@@ -109,7 +115,7 @@ const tagLink = (tag) => withBase('/?tag=' + encodeURIComponent(tag))
   white-space: nowrap;
 }
 
-/* 难度徽章：背景色取难度色，白字 */
+/* 难度徽章：背景色取难度色；浅底用深色字（见 badgeTextColor） */
 .ah-diff {
   padding: 1px 8px;
   font-size: 12px;

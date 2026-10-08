@@ -80,7 +80,7 @@ function toggle(tag) {
         <div class="si-card si-tagcard">
           <header class="si-card-head">
             <h2 class="si-card-title">算法标签</h2>
-            <button v-if="selected.length" class="si-clear" @click="selected = []">
+            <button v-if="selected.length" type="button" class="si-clear" @click="selected = []">
               清空
             </button>
           </header>
@@ -91,8 +91,10 @@ function toggle(tag) {
             <button
               v-for="[tag, count] in allTags"
               :key="tag"
+              type="button"
               class="si-tag"
               :class="{ 'si-tag-active': selected.includes(tag) }"
+              :aria-pressed="selected.includes(tag) ? 'true' : 'false'"
               @click="toggle(tag)"
             >
               <span>{{ tag }}</span>
@@ -200,8 +202,9 @@ function toggle(tag) {
 
 .si-item {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 6px 10px;
   margin: 0;
   padding: 9px 20px;
   border-bottom: 1px solid #f2f4f8;
@@ -216,8 +219,8 @@ function toggle(tag) {
 }
 
 .si-link {
-  flex: 1;
-  min-width: 0;
+  flex: 1 1 12rem;
+  min-width: min(100%, 12rem);
   font-size: 14px;
   color: #2d3436;
   text-decoration: none;
@@ -236,6 +239,7 @@ function toggle(tag) {
 .si-item-tags {
   flex-shrink: 0;
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 

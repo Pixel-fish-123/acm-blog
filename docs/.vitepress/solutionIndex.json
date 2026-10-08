@@ -17,7 +17,7 @@
     "id": "cf1748E",
     "category": "Codeforces",
     "link": "/solutions/codeforces/cf1748E_solution",
-    "summary": "定义序列 x 在子段 [l, r] 上的 最左最大值位置 为最小的 i（l le i le r）使得 x i = max(x l, x l+1 , dots, ...",
+    "summary": "定义序列 x 在子段 [l, r] 上的 最左最大值位置 为最小的 i（ ）使得 。 给定长度为 n 的数组 a，求数组 b 的数量，满足： - ； - 对所有...",
     "date": "2026-09-02",
     "tags": [
       "计数DP",
@@ -33,7 +33,7 @@
     "id": "cf2260C",
     "category": "Codeforces",
     "link": "/solutions/codeforces/cf2260C_solution",
-    "summary": "给定两个非负整数 x, y。一次操作令 x leftarrow x - 1，同时 y leftarrow y + 1；x = 0 时不能操作。 可以做任意多次（...",
+    "summary": "给定两个非负整数 x, y。一次操作令 ，同时 ；x = 0 时不能操作。 可以做任意多次（含 0 次）操作。要求先让 尽可能大，在此前提下让操作次数尽可能少。...",
     "date": "2026-09-13",
     "tags": [
       "位运算",
@@ -77,7 +77,7 @@
     "id": "cf2266C",
     "category": "Codeforces",
     "link": "/solutions/codeforces/cf2266C_solution",
-    "summary": "给定长度为 n 的 01 串 s。一次操作选一个下标 i，把 s i 改成 当前 前缀 s 1, s 2, ldots, s i 的按位与或按位或（二选一）。 ...",
+    "summary": "给定长度为 n 的 01 串 s。一次操作选一个下标 i，把 s i 改成 当前 前缀 的按位与或按位或（二选一）。 求把 s 变成非降序（形如 ）所需的最少操...",
     "date": "2026-09-26",
     "tags": [
       "枚举",
@@ -137,7 +137,7 @@
     "id": "cf2267C",
     "category": "Codeforces",
     "link": "/solutions/codeforces/cf2267C_solution",
-    "summary": "有 n 堆金币，第 i 堆有 a i 枚。海盗手里有一个数 x，按以下流程偷金币： - 选一个满足 a i 0 且 gcd(a i, x) ne 1 的下标 i...",
+    "summary": "有 n 堆金币，第 i 堆有 a i 枚。海盗手里有一个数 x，按以下流程偷金币： - 选一个满足 a i 0 且 的下标 i；没有这样的下标就停止。 - 记 ...",
     "date": "2026-09-26",
     "tags": [
       "数论",
@@ -152,7 +152,7 @@
     "id": "cf2267D",
     "category": "Codeforces",
     "link": "/solutions/codeforces/cf2267D_solution",
-    "summary": "数组 b 称为「山丘」，当且仅当存在 k，使 b 1 < b 2 < cdots < b k 且 b k b k+1 cdots b m。 给定由 1..n 中...",
+    "summary": "数组 b 称为「山丘」，当且仅当存在 k，使 且 。 给定由 1..n 中互不相同的整数组成的数组 a（即一个排列），每次操作可以交换 a i 与 a i+2 ...",
     "date": "2026-09-26",
     "tags": [
       "贪心",
@@ -167,7 +167,7 @@
     "id": "gym100947C",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym100947C_solution",
-    "summary": "有一个长为 N 的序列 A 1, A 2, dots, A N。Dzy 和 Fox 从左到右轮流取数，Dzy 先取：Dzy 取第 1, 3, 5, dots 个...",
+    "summary": "有一个长为 N 的序列 。Dzy 和 Fox 从左到右轮流取数，Dzy 先取：Dzy 取第 个数，Fox 取第 个数。 在开始取数之前，可以把序列旋转任意次（一...",
     "date": "2026-10-07",
     "tags": [
       "枚举"
@@ -232,7 +232,7 @@
     "id": "gym101059D",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym101059D_solution",
-    "summary": "给定两个长度为 N 的数组 A 和 B。有 Q 个询问，每个询问给出 i, j, k，要求输出多重集 的大小（按重数计，即满足 i le p le j、i le...",
+    "summary": "给定两个长度为 N 的数组 A 和 B。有 Q 个询问，每个询问给出 i, j, k，要求输出多重集 的大小（按重数计，即满足 、 且 的有序下标对 (p, q...",
     "date": "2026-09-25",
     "tags": [
       "分块",
@@ -270,7 +270,7 @@
     "id": "gym104518F",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym104518F_solution",
-    "summary": "有 N 个城市（编号 1 sim N，1 号是家乡）和 M 条 无向 道路，第 i 条连接 a i, b i，花费为 c i，保证图连通。需要给出一份旅行计划：...",
+    "summary": "有 N 个城市（编号 ，1 号是家乡）和 M 条 无向 道路，第 i 条连接 a i, b i，花费为 c i，保证图连通。需要给出一份旅行计划：从 1 号城市...",
     "date": "2026-09-25",
     "tags": [
       "最小生成树",
@@ -283,7 +283,7 @@
     "id": "gym105109D",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym105109D_solution",
-    "summary": "Michael 已知歌手前 n 天每天发布的唱片数 f(1), dots, f(n)，并用 来估计第 x 天的唱片数。给定 n, k 与 f(1), dots,...",
+    "summary": "Michael 已知歌手前 n 天每天发布的唱片数 ，并用 来估计第 x 天的唱片数。给定 n, k 与 ，求 。 数据范围： ， ， 。 第一步：把乘方递推取...",
     "date": "2026-09-25",
     "tags": [
       "矩阵"
@@ -308,7 +308,7 @@
     "id": "gym106235B",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym106235B_solution",
-    "summary": "交互题。有一个长度为 n、元素两两不同的隐藏数组 a。评测机（Vasya）会向你发出不超过 lceil log 2 (n!) rceil - 1 次询问 ，你需...",
+    "summary": "交互题。有一个长度为 n、元素两两不同的隐藏数组 a。评测机（Vasya）会向你发出不超过 次询问 ，你需要回答 （表示 a i < a j）或 。答案由你决定...",
     "date": "2026-09-26",
     "tags": [
       "交互",
@@ -322,7 +322,7 @@
     "id": "gym106722D",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym106722D_solution",
-    "summary": "交互题。有一张 n 个点的连通函数图：每个点恰有一条出边，忽略方向后连通，所以恰好有一个有向环。 每次可以询问 （1 le u, k le n）：从 u 出发沿...",
+    "summary": "交互题。有一张 n 个点的连通函数图：每个点恰有一条出边，忽略方向后连通，所以恰好有一个有向环。 每次可以询问 （ ）：从 u 出发沿出边走 k 步，得到 u ...",
     "date": "2026-09-27",
     "tags": [
       "交互",
@@ -336,7 +336,7 @@
     "id": "gym106728E",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym106728E_solution",
-    "summary": "n times n 的网格里放着 n^2 块石板，按行优先编号：格子 (i, j) 上的石板编号为 (i - 1) times n + j。现在希望格子 (i,...",
+    "summary": "的网格里放着 n^2 块石板，按行优先编号：格子 (i, j) 上的石板编号为 。现在希望格子 (i, j) 上的石板变成 a ij 。重排过程如下： 1. 把...",
     "date": "2026-10-07",
     "tags": [
       "模拟"
@@ -410,7 +410,7 @@
     "id": "3",
     "category": "贪心入门",
     "link": "/solutions/greedy_tuition/3_solution",
-    "summary": "与 P1090 完全一致：果园里有 n 堆果子，每次合并两堆，消耗体力等于两堆重量之和，经过 n-1 次合并后合成一堆，求最小总消耗体力。 数据范围：1 le ...",
+    "summary": "与 P1090 完全一致：果园里有 n 堆果子，每次合并两堆，消耗体力等于两堆重量之和，经过 n-1 次合并后合成一堆，求最小总消耗体力。 数据范围： ， 。n...",
     "date": "2026-08-14",
     "tags": [
       "贪心",
@@ -434,7 +434,7 @@
     "id": "5",
     "category": "贪心入门",
     "link": "/solutions/greedy_tuition/5_solution",
-    "summary": "设有 n 个正整数 a 1, dots, a n，将它们连接成一排，相邻数字首尾相接，组成一个最大的整数，输出这个整数。 数据范围：1 le n le 20，1...",
+    "summary": "设有 n 个正整数 ，将它们连接成一排，相邻数字首尾相接，组成一个最大的整数，输出这个整数。 数据范围： ， 。 贪心 + 自定义排序（邻项交换法）。 问题的关...",
     "date": "2026-08-14",
     "tags": [
       "贪心",
@@ -458,7 +458,7 @@
     "id": "7",
     "category": "贪心入门",
     "link": "/solutions/greedy_tuition/7_solution",
-    "summary": "有 n 组学生，给出初始时每组的学生数，再给出每组学生数的上界 R 和下界 L（L le R）。每次操作可以在某组中选出一名学生，把他安排到另外一组中。问最少需...",
+    "summary": "有 n 组学生，给出初始时每组的学生数，再给出每组学生数的上界 R 和下界 L（ ）。每次操作可以在某组中选出一名学生，把他安排到另外一组中。问最少需要多少次操...",
     "date": "2026-08-14",
     "tags": [
       "贪心"
@@ -469,7 +469,7 @@
     "id": "I",
     "category": "ICPC 2024 网络赛（第2场）",
     "link": "/solutions/icpc_2024_online_ver2/I_solution",
-    "summary": "通常的二进制分解写作 n= overline a 31 a 30 dots a 0 ，其中每个 a i in 0,1 。本题把系数集合放松成 -1,0,1 ，但...",
+    "summary": "通常的二进制分解写作 ，其中每个 。本题把系数集合放松成 ，但要求相邻两位不能同时为 0。具体地，一个数组 是 n 的 奇怪二进制分解 ，当且仅当 给定非负整数...",
     "date": "2026-09-13",
     "tags": [
       "构造",
@@ -481,7 +481,7 @@
     "id": "B",
     "category": "ICPC 2025 区域赛（河南）",
     "link": "/solutions/icpc_2025_henan/B_solution",
-    "summary": "text popcount (x) 表示 x 的二进制中 1 的个数。q 次询问，每次给出 n，求 [0, n] 中 text popcount 最大的整数；若...",
+    "summary": "表示 x 的二进制中 1 的个数。q 次询问，每次给出 n，求 [0, n] 中 最大的整数；若有多个，输出最小的那个。 数据范围： ， 。 算法类型 ：位运算...",
     "date": "2026-09-27",
     "tags": [
       "位运算",
@@ -494,7 +494,7 @@
     "id": "C",
     "category": "ICPC 2025 区域赛（河南）",
     "link": "/solutions/icpc_2025_henan/C_solution",
-    "summary": "小 X 和小 Y 各有一张无向图，点都编号为 1 sim n，分别有 m 1、m 2 条边。统计满足以下条件的点对 [x, y] 个数： - 1 le x < ...",
+    "summary": "小 X 和小 Y 各有一张无向图，点都编号为 ，分别有 m 1、m 2 条边。统计满足以下条件的点对 [x, y] 个数： - ； - 在小 X 的图中 x, ...",
     "date": "2026-09-27",
     "tags": [
       "并查集",
@@ -543,7 +543,7 @@
     "id": "C",
     "category": "ICPC 2026 网络赛（第1场）",
     "link": "/solutions/icpc_2026_online_ver1/C_solution",
-    "summary": "有一个未知的排列 p=(p 1,p 2, dots,p n)（1 sim n 的排列），并给出 m 条信息。第 i 条信息给出一个区间 [l i,r i] 和该...",
+    "summary": "有一个未知的排列 （ 的排列），并给出 m 条信息。第 i 条信息给出一个区间 [l i,r i] 和该区间内下标的一个排列 ，含义是 （ 恰好是 的一个排列。...",
     "date": "2026-09-10",
     "tags": [
       "拓扑排序",
@@ -555,7 +555,7 @@
     "id": "L",
     "category": "ICPC 2026 网络赛（第1场）",
     "link": "/solutions/icpc_2026_online_ver1/L_solution",
-    "summary": "给定 n 个字符串 s 1,s 2, dots,s n，按顺序处理。对每个 1 le i le n 和每个 1 le j le i，从下标集合 1,2, dot...",
+    "summary": "给定 n 个字符串 ，按顺序处理。对每个 和每个 ，从下标集合 中选出 恰好 j 个 字符串组成集合 T，记 为 T 中所有字符串的最长公共前缀长度，令 要求对...",
     "date": "2026-09-10",
     "tags": [
       "Trie",
@@ -567,7 +567,7 @@
     "id": "K",
     "category": "ICPC 2026 网络赛（第2场）",
     "link": "/solutions/icpc_2026_online_ver2/K_solution",
-    "summary": "给定长度为 n 的数组 a，其中 0 le a i le 10^9。 mathrm mex (a) 定义为最小的 不出现 在 a 中的非负整数，例如 mathr...",
+    "summary": "给定长度为 n 的数组 a，其中 。 定义为最小的 不出现 在 a 中的非负整数，例如 。 固定一个参数 k，一次 k-transformation 指：对每个...",
     "date": "2026-09-13",
     "tags": [
       "枚举",
@@ -579,7 +579,7 @@
     "id": "leetcode421",
     "category": "LeetCode",
     "link": "/solutions/leetcode/leetcode421_solution",
-    "summary": "给定一个整数数组 textit nums ，返回 其中 n= textit nums.length ，1 le n le 2 times 10^ 5 ，0 le...",
+    "summary": "给定一个整数数组 ，返回 其中 ， ， （即元素非负且可用 31 位二进制表示）。 要求线性时间，进阶目标为 O(n)。 需要注意下标的约束是 而不是 i<j：...",
     "date": "2026-09-13",
     "tags": [
       "Trie",
@@ -604,7 +604,7 @@
     "id": "P1115",
     "category": "洛谷",
     "link": "/solutions/luogu/P1115_solution",
-    "summary": "给出一个长度为 n 的序列 a，选出其中 连续且非空 的一段使得这段和最大（1 le n le 2 times 10^5，-10^4 le a i le 10^...",
+    "summary": "给出一个长度为 n 的序列 a，选出其中 连续且非空 的一段使得这段和最大（ ， ）。 线性 DP（Kadane 算法）。 设 dp[i] 表示 以第 i 个元...",
     "date": "2026-09-02",
     "tags": [
       "线性DP"
@@ -618,7 +618,7 @@
     "id": "P1126",
     "category": "洛谷",
     "link": "/solutions/luogu/P1126_solution",
-    "summary": "储藏室是 N times M 的网格（1 le N,M le 50），部分格子有障碍。机器人是直径 1.6 米的球，中心在格点上，需从起点格走到终点格。五种指令...",
+    "summary": "储藏室是 的网格（ ），部分格子有障碍。机器人是直径 1.6 米的球，中心在格点上，需从起点格走到终点格。五种指令： 前进 1 步、 前进 2 步、 前进 3 ...",
     "date": "2026-09-02",
     "tags": [
       "BFS"
@@ -632,7 +632,7 @@
     "id": "P11768",
     "category": "洛谷",
     "link": "/solutions/luogu/P11768_solution",
-    "summary": "从 (0,0) 出发到 (a,b)。每分钟可向上下左右移动一格；骑破自行车可从 (x,y) 瞬间冲到 (x pm l,y) 或 (x,y pm l)，不耗时，最...",
+    "summary": "从 (0,0) 出发到 (a,b)。每分钟可向上下左右移动一格；骑破自行车可从 (x,y) 瞬间冲到 或 ，不耗时，最多用 k 次。求最短时间（ ， ）。 算法...",
     "date": "2026-09-02",
     "tags": [
       "贪心",
@@ -662,7 +662,7 @@
     "id": "P1377",
     "category": "洛谷",
     "link": "/solutions/luogu/P1377_solution",
-    "summary": "按题目给定的规则，把 k 1,k 2, dots,k n 依次插入一棵初始为空的二叉查找树：插入 k 时，若 k 小于当前子树根的键值就进入左子树，否则进入右子...",
+    "summary": "按题目给定的规则，把 依次插入一棵初始为空的二叉查找树：插入 k 时，若 k 小于当前子树根的键值就进入左子树，否则进入右子树，直到走到空位置成为新叶子。 能生...",
     "date": "2026-09-02",
     "tags": [
       "笛卡尔树",
@@ -692,7 +692,7 @@
     "id": "P1435",
     "category": "洛谷",
     "link": "/solutions/luogu/P1435_solution",
-    "summary": "给定一个字符串（长度 0<l le 1000，区分大小写），求通过插入字符把它变成回文串所需的最少插入字符数。 算法类型 ：区间动态规划。 设 dp[l][r]...",
+    "summary": "给定一个字符串（长度 ，区分大小写），求通过插入字符把它变成回文串所需的最少插入字符数。 算法类型 ：区间动态规划。 设 dp[l][r] 表示把子串 s[l....",
     "date": "2026-09-02",
     "tags": [
       "区间DP"
@@ -722,7 +722,7 @@
     "id": "P17333",
     "category": "洛谷",
     "link": "/solutions/luogu/P17333_solution",
-    "summary": "构造长度为 n 的数组 a，满足 1 le a i le 10^9，并且 把同一个下标 j 被计入的次数合并，令 条件就等价于简洁的加权形式 sum j=1 ^...",
+    "summary": "构造长度为 n 的数组 a，满足 ，并且 把同一个下标 j 被计入的次数合并，令 条件就等价于简洁的加权形式 ：位置 j 的值会被\"它前面所有比它小的位置\"各数...",
     "date": "2026-09-13",
     "tags": [
       "二分",
@@ -752,7 +752,7 @@
     "id": "P2252",
     "category": "洛谷",
     "link": "/solutions/luogu/P2252_solution",
-    "summary": "有两堆石子。两人轮流取，每次要么在任意一堆中取走任意多颗，要么在两堆中同时取走相同数量的石子，取完全部石子者胜。给定初始两堆数目 a,b（a,b le 10^9...",
+    "summary": "有两堆石子。两人轮流取，每次要么在任意一堆中取走任意多颗，要么在两堆中同时取走相同数量的石子，取完全部石子者胜。给定初始两堆数目 a,b（ ），你先手且双方采取...",
     "date": "2026-09-02",
     "tags": [
       "博弈论",
@@ -767,7 +767,7 @@
     "id": "P3157",
     "category": "洛谷",
     "link": "/solutions/luogu/P3157_solution",
-    "summary": "给定 1 sim n 的一个排列，按给定顺序依次删除 m 个元素，在 每次删除之前 统计当前整个序列的逆序对数（1 le n le 10^5，1 le m le...",
+    "summary": "给定 的一个排列，按给定顺序依次删除 m 个元素，在 每次删除之前 统计当前整个序列的逆序对数（ ， ）。 算法类型 ：CDQ 分治 + 树状数组（带权BIT）...",
     "date": "2026-09-02",
     "tags": [
       "CDQ分治",
@@ -782,7 +782,7 @@
     "id": "P3375",
     "category": "洛谷",
     "link": "/solutions/luogu/P3375_solution",
-    "summary": "给出两个只含大写英文字母的字符串 s 1,s 2（1 le s 1 , s 2 le 10^6）： - 求出 s 2 在 s 1 中所有出现的位置（位置即子串左...",
+    "summary": "给出两个只含大写英文字母的字符串 s 1,s 2（ ）： - 求出 s 2 在 s 1 中所有出现的位置（位置即子串左端点，1 起标号）， 按从小到大 每行输出...",
     "date": "2026-09-19",
     "tags": [
       "KMP"
@@ -796,7 +796,7 @@
     "id": "P3379",
     "category": "洛谷",
     "link": "/solutions/luogu/P3379_solution",
-    "summary": "给定一棵有根多叉树（1 le N,M le 5 times 10^5，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 a neq b。 算法类型 ...",
+    "summary": "给定一棵有根多叉树（ ，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 。 算法类型 ：倍增求 LCA（在线算法）。 预处理 ：从根出发一次 DF...",
     "date": "2026-09-02",
     "tags": [
       "LCA",
@@ -811,7 +811,7 @@
     "id": "P3379(tarjan)",
     "category": "洛谷",
     "link": "/solutions/luogu/P3379(tarjan)_solution",
-    "summary": "给定一棵有根多叉树（1 le N,M le 5 times 10^5，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 a neq b。 算法类型 ...",
+    "summary": "给定一棵有根多叉树（ ，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 。 算法类型 ：Tarjan 离线 LCA（DFS 后序 + 并查集）。 ...",
     "date": "2026-09-02",
     "tags": [
       "LCA",
@@ -827,7 +827,7 @@
     "id": "P3384",
     "category": "洛谷",
     "link": "/solutions/luogu/P3384_solution",
-    "summary": "给定一棵 N 个结点的树（1 le N,M le 10^5，根为 R，模数 P），点带权值，支持四种操作： 路径加、 路径求和、 子树加、 子树求和，所有输出对...",
+    "summary": "给定一棵 N 个结点的树（ ，根为 R，模数 P），点带权值，支持四种操作： 路径加、 路径求和、 子树加、 子树求和，所有输出对 P 取模。 算法类型 ：重链...",
     "date": "2026-09-02",
     "tags": [
       "树链剖分",
@@ -842,7 +842,7 @@
     "id": "P3385",
     "category": "洛谷",
     "link": "/solutions/luogu/P3385_solution",
-    "summary": "给定一个 n 个点的有向图（1 le n le 2 times 10^3，1 le m le 3 times 10^3，1 le T le 10 组数据），判断...",
+    "summary": "给定一个 n 个点的有向图（ ， ， 组数据），判断图中是否存在 从顶点 1 出发能到达 的负环（边权之和为负数的回路）。每行边信息 u,v,w： 时同时存在 ...",
     "date": "2026-09-02",
     "tags": [
       "最短路"
@@ -856,7 +856,7 @@
     "id": "P3469",
     "category": "洛谷",
     "link": "/solutions/luogu/P3469_solution",
-    "summary": "n 个城镇、m 条双向道路构成连通无向图（无重边自环，n le 10^5，m le 5 times 10^5）。对每个节点 i，去掉与 i 关联的所有边（ 保留...",
+    "summary": "n 个城镇、m 条双向道路构成连通无向图（无重边自环， ， ）。对每个节点 i，去掉与 i 关联的所有边（ 保留节点 i 本身 ）后，求有多少个有序点对 (x,...",
     "date": "2026-09-02",
     "tags": [
       "Tarjan",
@@ -871,7 +871,7 @@
     "id": "P3810",
     "category": "洛谷",
     "link": "/solutions/luogu/P3810_solution",
-    "summary": "有 n 个元素（1 le n le 10^5，1 le a i,b i,c i le k le 2 times 10^5），设 f(i) 表示满足 a j le...",
+    "summary": "有 n 个元素（ ， ），设 f(i) 表示满足 、 、 且 的元素个数。对每个 ，求 f(i)=d 的元素数量。 算法类型 ：CDQ 分治 + 树状数组（经典...",
     "date": "2026-09-02",
     "tags": [
       "CDQ分治",
@@ -886,7 +886,7 @@
     "id": "P3812",
     "category": "洛谷",
     "link": "/solutions/luogu/P3812_solution",
-    "summary": "给定 n 个整数（数字可能重复），从中选取任意个，求最大异或和（1 le n le 50，0 le S i<2^ 50 ）。 算法类型 ：线性基（异或空间的高斯...",
+    "summary": "给定 n 个整数（数字可能重复），从中选取任意个，求最大异或和（ ， ）。 算法类型 ：线性基（异或空间的高斯消元）。 线性基的结构 ：维护数组 p[0..62...",
     "date": "2026-09-02",
     "tags": [
       "线性基"
@@ -900,7 +900,7 @@
     "id": "P4279",
     "category": "洛谷",
     "link": "/solutions/luogu/P4279_solution",
-    "summary": "桌子上有 n 堆石子（1 le N le 50，每堆 le 5000，1 le T le 500 组数据），两人轮流取石子：每次任选一堆取走任意多颗，但不能不取...",
+    "summary": "桌子上有 n 堆石子（ ，每堆 ， 组数据），两人轮流取石子：每次任选一堆取走任意多颗，但不能不取， 取到最后一颗石子的人输 。小约翰先手且哥哥从不出错，预测谁...",
     "date": "2026-09-02",
     "tags": [
       "博弈论"
@@ -914,7 +914,7 @@
     "id": "P4391",
     "category": "洛谷",
     "link": "/solutions/luogu/P4391_solution",
-    "summary": "给出长度为 L（1 le L le 10^6）的小写字母串 S。已知 S 是某个字符串 S' 无限重复 S'+S'+S'+ cdots 的一个子串，且 S ge...",
+    "summary": "给出长度为 L（ ）的小写字母串 S。已知 S 是某个字符串 S' 无限重复 的一个子串，且 。求满足条件的 最小 S' 。 换个说法：求 S 的 最小周期 p...",
     "date": "2026-09-19",
     "tags": [
       "KMP"
@@ -928,7 +928,7 @@
     "id": "P4556",
     "category": "洛谷",
     "link": "/solutions/luogu/P4556_solution",
-    "summary": "村落中 n 座房屋构成一棵树（1 le n,m le 10^5）。m 次发放：每次沿 (x,y) 路径（含两端）为每座房屋发放一袋 z 类型救济粮。结束后对每座...",
+    "summary": "村落中 n 座房屋构成一棵树（ ）。m 次发放：每次沿 (x,y) 路径（含两端）为每座房屋发放一袋 z 类型救济粮。结束后对每座房屋输出数量最多的救济粮类型（...",
     "date": "2026-09-02",
     "tags": [
       "线段树合并",
@@ -944,7 +944,7 @@
     "id": "P4782",
     "category": "洛谷",
     "link": "/solutions/luogu/P4782_solution",
-    "summary": "有 n 个布尔变量 x 1 sim x n（1 le n,m le 10^6）与 m 个条件，每个条件形如「x i 为 a 或 x j 为 b」（a,b in ...",
+    "summary": "有 n 个布尔变量 （ ）与 m 个条件，每个条件形如「x i 为 a 或 x j 为 b」（ ）。求一组赋值使所有条件成立：无解输出 ，有解输出 及一组合法的...",
     "date": "2026-09-02",
     "tags": [
       "2-SAT",
@@ -959,7 +959,7 @@
     "id": "P4824",
     "category": "洛谷",
     "link": "/solutions/luogu/P4824_solution",
-    "summary": "给出两个只含小写字母的字符串 S 与 T，其中 S le 10^6， T le S 。反复执行下面的操作：在当前 S 中找到 第一个 出现的子串 T 并把它删除...",
+    "summary": "给出两个只含小写字母的字符串 S 与 T，其中 ， 。反复执行下面的操作：在当前 S 中找到 第一个 出现的子串 T 并把它删除，直到 S 中不再含有 T。注意...",
     "date": "2026-09-19",
     "tags": [
       "KMP",
@@ -974,7 +974,7 @@
     "id": "P5782",
     "category": "洛谷",
     "link": "/solutions/luogu/P5782_solution",
-    "summary": "议会有 n 个党派（1 le n le 8000，0 le m le 2 times 10^4），第 i 个党派有 2 名代表，编号 2i-1 与 2i。委员会...",
+    "summary": "议会有 n 个党派（ ， ），第 i 个党派有 2 名代表，编号 2i-1 与 2i。委员会要求每个党派恰有 1 名代表入选，且互相厌恶的两名代表不能同时入选。...",
     "date": "2026-09-02",
     "tags": [
       "2-SAT",
@@ -989,7 +989,7 @@
     "id": "P5854",
     "category": "洛谷",
     "link": "/solutions/luogu/P5854_solution",
-    "summary": "给定一个长度为 n 的排列 p，要求构建这组 (下标, 值) 二元组的笛卡尔树：树的中序遍历恰好是下标 1, 2, dots, n（即对下标是一棵二叉搜索树），...",
+    "summary": "给定一个长度为 n 的排列 p，要求构建这组 (下标, 值) 二元组的笛卡尔树：树的中序遍历恰好是下标 （即对下标是一棵二叉搜索树），同时每个节点的权值都小于其...",
     "date": "2026-09-02",
     "tags": [
       "笛卡尔树",
@@ -1004,7 +1004,7 @@
     "id": "P5908",
     "category": "洛谷",
     "link": "/solutions/luogu/P5908_solution",
-    "summary": "n 个居住区构成一棵树（1 le n,d le 10^5），边长均为 1。除 1 号居住区外每个居住区住着一只小企鹅。猫猫从 1 号居住区出发，只愿意拜访与它距...",
+    "summary": "n 个居住区构成一棵树（ ），边长均为 1。除 1 号居住区外每个居住区住着一只小企鹅。猫猫从 1 号居住区出发，只愿意拜访与它距离不大于 d 的小企鹅，求能拜...",
     "date": "2026-09-02",
     "tags": [
       "DFS",
@@ -1019,7 +1019,7 @@
     "id": "P6175",
     "category": "洛谷",
     "link": "/solutions/luogu/P6175_solution",
-    "summary": "给定一张 n 个点、m 条边的无向带权图，求图中一个至少包含 3 个点、节点不重复的环，使得环上边权之和最小。输出最小环的边权和；若无环，输出 。 数据范围：1...",
+    "summary": "给定一张 n 个点、m 条边的无向带权图，求图中一个至少包含 3 个点、节点不重复的环，使得环上边权之和最小。输出最小环的边权和；若无环，输出 。 数据范围： ...",
     "date": "2026-08-09",
     "tags": [
       "最短路",
@@ -1050,7 +1050,7 @@
     "id": "P6487",
     "category": "洛谷",
     "link": "/solutions/luogu/P6487_solution",
-    "summary": "有 n 枚石子（2 le n le 10^ 15 ）。Mirko 先取，第一次可以取走任意多个；之后每次至少取 1 个、至多取上一次取数的 2 倍且不超过剩余数...",
+    "summary": "有 n 枚石子（ ）。Mirko 先取，第一次可以取走任意多个；之后每次至少取 1 个、至多取上一次取数的 2 倍且不超过剩余数，取走最后一枚者胜。双方最优策略...",
     "date": "2026-09-02",
     "tags": [
       "博弈论",
@@ -1065,7 +1065,7 @@
     "id": "P8435",
     "category": "洛谷",
     "link": "/solutions/luogu/P8435_solution",
-    "summary": "给定 n 个节点 m 条无向边的图（1 le n le 5 times 10^5，1 le m le 2 times 10^6，本题采用\"不存在割点的图\"作为点...",
+    "summary": "给定 n 个节点 m 条无向边的图（ ， ，本题采用\"不存在割点的图\"作为点双连通的定义），输出点双连通分量的个数，并输出每个分量（第一行分量数 x；接下来 x...",
     "date": "2026-09-02",
     "tags": [
       "Tarjan"
@@ -1079,7 +1079,7 @@
     "id": "P8436",
     "category": "洛谷",
     "link": "/solutions/luogu/P8436_solution",
-    "summary": "给定 n 个节点 m 条无向边的图（1 le n le 5 times 10^5，1 le m le 2 times 10^6， 不保证简单图，可能有重边和自环...",
+    "summary": "给定 n 个节点 m 条无向边的图（ ， ， 不保证简单图，可能有重边和自环 ），输出边双连通分量的个数，并输出每个分量（第一行分量数 x；接下来 x 行，每行...",
     "date": "2026-09-02",
     "tags": [
       "Tarjan"
@@ -1093,7 +1093,7 @@
     "id": "SP18185",
     "category": "洛谷",
     "link": "/solutions/luogu/SP18185_solution",
-    "summary": "给定一个 1 下标、长度为 N 的数组 X（N le 5 times 10^5），Q 个询问： 查询区间 [a,b] 中值 ge c 的元素个数； 把第 a 个...",
+    "summary": "给定一个 1 下标、长度为 N 的数组 X（ ），Q 个询问： 查询区间 [a,b] 中值 的元素个数； 把第 a 个元素改为 b。 算法类型 ：值域分块（每块...",
     "date": "2026-09-02",
     "tags": [
       "分块"
@@ -1107,7 +1107,7 @@
     "id": "nowcoder_pt1",
     "category": "牛客",
     "link": "/solutions/nowcoder/nowcoder_pt1_solution",
-    "summary": "牛牛和朋友们约定了一套接头密匙系统，用于确认彼此身份。一个密匙用一组数字序列表示，两个密匙被认为一致，当且仅当下面两条同时成立： 1. b le a ，即 b ...",
+    "summary": "牛牛和朋友们约定了一套接头密匙系统，用于确认彼此身份。一个密匙用一组数字序列表示，两个密匙被认为一致，当且仅当下面两条同时成立： 1. ，即 b 的长度不超过 ...",
     "date": "2026-09-13",
     "tags": [
       "Trie"
@@ -1118,7 +1118,7 @@
     "id": "G",
     "category": "2026牛客暑假多校联赛（第3场）",
     "link": "/solutions/nowcoder_summer_holiday_competition3/G_solution",
-    "summary": "给定一个 n times m 的网格，每个格子有一个正整数。 若存在两个格子 (r 1, c 1) 和 (r 2, c 2) 满足 r 1 < r 2 且 c ...",
+    "summary": "给定一个 的网格，每个格子有一个正整数。 若存在两个格子 (r 1, c 1) 和 (r 2, c 2) 满足 r 1 < r 2 且 c 1 < c 2，并且...",
     "date": "2026-08-03",
     "tags": [
       "差分",
@@ -1130,7 +1130,7 @@
     "id": "B",
     "category": "2026牛客暑假多校联赛（第4场）",
     "link": "/solutions/nowcoder_summer_holiday_competition4/B_solution",
-    "summary": "多组数据（T le 10^4），每组给定一个整数 p（2 le p le 10^9）。要求构造三个正整数 x 1、x 2、q，满足： - 1 le x 1 < ...",
+    "summary": "多组数据（ ），每组给定一个整数 p（ ）。要求构造三个正整数 x 1、x 2、q，满足： - ， ； - ； - ； 其中 q 还需满足 。若存在，输出 x ...",
     "date": "2026-08-09",
     "tags": [
       "构造",
@@ -1154,7 +1154,7 @@
     "id": "A",
     "category": "2026牛客暑假多校联赛（第7场）",
     "link": "/solutions/nowcoder_summer_holiday_competition7/A_solution",
-    "summary": "给定长度为 n 的非负整数数组 a = (a 1, a 2, ldots, a n)（数值按 31 位二进制处理，即 0 le a i < 2^ 31 ）。一次...",
+    "summary": "给定长度为 n 的非负整数数组 （数值按 31 位二进制处理，即 ）。一次操作：选择一个非负整数 k，花费 k 单位时间，再选择一个下标集合 ，把所有 的 a ...",
     "date": "2026-08-26",
     "tags": [
       "位运算",
@@ -1166,7 +1166,7 @@
     "id": "K",
     "category": "2026牛客暑假多校联赛（第7场）",
     "link": "/solutions/nowcoder_summer_holiday_competition7/K_solution",
-    "summary": "有 n（1 le n le 20）所研究机构，每所机构的名字由 1 sim 20 个单词组成，单词之间以单个空格分隔；每个单词含 1 sim 20 个英文字母，...",
+    "summary": "有 n（ ）所研究机构，每所机构的名字由 个单词组成，单词之间以单个空格分隔；每个单词含 个英文字母，首字母大写、其余小写。保证所有机构名两两不同。 初始时，每...",
     "date": "2026-08-09",
     "tags": [
       "模拟"
@@ -1177,7 +1177,7 @@
     "id": "L",
     "category": "2026牛客暑假多校联赛（第7场）",
     "link": "/solutions/nowcoder_summer_holiday_competition7/L_solution",
-    "summary": "对 1 le a,b le n 的有序对计数，满足： 其中 n le 10^ 12 ，答案可能很大（需 64 位整数）。 算法类型 ：数论（中国剩余定理）+ 按...",
+    "summary": "对 的有序对计数，满足： 其中 ，答案可能很大（需 64 位整数）。 算法类型 ：数论（中国剩余定理）+ 按 b 枚举。 若 a < b，则 ，且 ，等式变为 ...",
     "date": "2026-08-09",
     "tags": [
       "数论",
