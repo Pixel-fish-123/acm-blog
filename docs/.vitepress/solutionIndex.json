@@ -266,6 +266,32 @@
     "source": "https://codeforces.com/gym/101064/problem/F"
   },
   {
+    "title": "gym102307C Common Subsequence 题解",
+    "id": "gym102307C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym102307C_solution",
+    "summary": "给定两个长度均为 n 的 DNA 串 A、B（ ，只含 、 、 、 ）。若 A 和 B 存在长度不小于 的公共子序列，输出 ，否则输出 。 时间限制 4 秒，空...",
+    "date": "2026-10-09",
+    "tags": [
+      "位运算",
+      "线性DP"
+    ],
+    "source": "https://codeforces.com/gym/102307/problem/C"
+  },
+  {
+    "title": "gym102319E Enegue's Enigmatic Lanterns 题解",
+    "id": "gym102319E",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym102319E_solution",
+    "summary": "交互题。一排 n 盏灯，其中恰好 k 盏亮着，要找出是哪 k 盏。 每次询问输出 ，S 是长度为 n 的 01 串，表示选中的灯集合。设 S 中亮着的灯有 x ...",
+    "date": "2026-10-09",
+    "tags": [
+      "交互",
+      "数论"
+    ],
+    "source": "https://codeforces.com/gym/102319/problem/E"
+  },
+  {
     "title": "gym104518F Vacation 题解",
     "id": "gym104518F",
     "category": "Codeforces",
@@ -380,6 +406,19 @@
       "二分"
     ],
     "source": "https://codeforces.com/gym/106733/problem/F"
+  },
+  {
+    "title": "gym106744G Uniform Change 题解",
+    "id": "gym106744G",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106744G_solution",
+    "summary": "有面额为 的纸币各无限张。要找零 N，即选出非负整数 使 ，并让 尽量小。输出任意一组最优的 （要求 ）。 数据范围： ， 。 算法类型 ：构造 + 贪心。记 ...",
+    "date": "2026-10-09",
+    "tags": [
+      "构造",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/gym/106744/problem/G"
   },
   {
     "title": "1 线段重合 题解",
