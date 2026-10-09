@@ -175,6 +175,20 @@
     "source": "https://codeforces.com/gym/100947/problem/C"
   },
   {
+    "title": "gym101047D Random walks in Thailand 题解",
+    "id": "gym101047D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym101047D_solution",
+    "summary": "有 N 个岛，编号 1 到 N，岛之间有 M 条无向船线，第 i 条连接 A i 与 B i，花费 C i。每一步有两种走法： - 坐船：沿一条船线走到相邻的岛...",
+    "date": "2026-10-09",
+    "tags": [
+      "最短路",
+      "概率期望",
+      "排序"
+    ],
+    "source": "https://codeforces.com/gym/101047/problem/D"
+  },
+  {
     "title": "gym101047F Fighting the Rajasi 题解",
     "id": "gym101047F",
     "category": "Codeforces",
