@@ -180,7 +180,7 @@
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym101047D_solution",
     "summary": "有 N 个岛，编号 1 到 N，岛之间有 M 条无向船线，第 i 条连接 A i 与 B i，花费 C i。每一步有两种走法： - 坐船：沿一条船线走到相邻的岛...",
-    "date": "2026-10-09",
+    "date": "2026-10-10",
     "tags": [
       "最短路",
       "概率期望",
@@ -280,6 +280,19 @@
     "source": "https://codeforces.com/gym/101064/problem/F"
   },
   {
+    "title": "gym101879C Promenade by the lake 题解",
+    "id": "gym101879C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym101879C_solution",
+    "summary": "湖中有 N 座岛，已建好 M 座桥，图连通（可能有重边）。另有 K 座可选桥，可任选其中若干座加入。 问能否加入若干可选桥（也可不加入），使得游客能从湖外出发、...",
+    "date": "2026-10-13",
+    "tags": [
+      "构造",
+      "DFS"
+    ],
+    "source": "https://codeforces.com/gym/101879/problem/C"
+  },
+  {
     "title": "gym102307C Common Subsequence 题解",
     "id": "gym102307C",
     "category": "Codeforces",
@@ -293,6 +306,19 @@
     "source": "https://codeforces.com/gym/102307/problem/C"
   },
   {
+    "title": "gym102307K Kernel Of Love 题解",
+    "id": "gym102307K",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym102307K_solution",
+    "summary": "斐波那契数列满足 F 1 = F 2 = 1，F k+2 = F k+1 + F k。 称无序对 （对应前 n 个斐波那契数中两个不同下标）为完美情侣，当且仅当...",
+    "date": "2026-10-13",
+    "tags": [
+      "数论",
+      "枚举"
+    ],
+    "source": "https://codeforces.com/gym/102307/problem/K"
+  },
+  {
     "title": "gym102319E Enegue's Enigmatic Lanterns 题解",
     "id": "gym102319E",
     "category": "Codeforces",
@@ -304,6 +330,20 @@
       "数论"
     ],
     "source": "https://codeforces.com/gym/102319/problem/E"
+  },
+  {
+    "title": "gym102365C Unjob Search 题解",
+    "id": "gym102365C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym102365C_solution",
+    "summary": "这是一道交互题。给定一棵 N 个结点的树（ ），结点编号 。终端城市指度为 1 的叶子。你最多询问 N 次： - ：询问结点 b 是否在 a 到 c 的唯一简单...",
+    "date": "2026-10-13",
+    "tags": [
+      "交互",
+      "树上问题",
+      "枚举"
+    ],
+    "source": "https://codeforces.com/gym/102365/problem/C"
   },
   {
     "title": "gym104518F Vacation 题解",
@@ -356,6 +396,32 @@
       "构造"
     ],
     "source": "https://codeforces.com/gym/106235/problem/B"
+  },
+  {
+    "title": "gym106565B 排考场 题解",
+    "id": "gym106565B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106565B_solution",
+    "summary": "要安排 N 名学生。有 M 间教室，第 i 间为 R i 行 C i 列的矩形座位（每座至多一人）。 每间教室内，学生只能坐在若干整列上（一列可坐满 R i 人...",
+    "date": "2026-10-13",
+    "tags": [
+      "二分",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/gym/106565/problem/B"
+  },
+  {
+    "title": "gym106565D 哦 搞错了 题解",
+    "id": "gym106565D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106565D_solution",
+    "summary": "给定长度为 n 的 01 串 S，构造长度为 n 的正整数数组 A，满足： - 0 < A i < 2^ 60 ，且两两互异； - 记全局异或 ，再定义 W i...",
+    "date": "2026-10-13",
+    "tags": [
+      "构造",
+      "位运算"
+    ],
+    "source": "https://codeforces.com/gym/106565/problem/D"
   },
   {
     "title": "gym106722D Domain Expansion Abraham échate un hint 题解",
@@ -433,6 +499,19 @@
       "贪心"
     ],
     "source": "https://codeforces.com/gym/106744/problem/G"
+  },
+  {
+    "title": "gym106760D Arena Paths 题解",
+    "id": "gym106760D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106760D_solution",
+    "summary": "多组数据。给定 N 个点、M 条双向边的无向图（不保证连通）。构造一张与原图同顶点集的新图 H，边数尽量少，使得对任意两点 u, v，若它们在原图中的最短路长度...",
+    "date": "2026-10-13",
+    "tags": [
+      "构造",
+      "DFS"
+    ],
+    "source": "https://codeforces.com/gym/106760/problem/D"
   },
   {
     "title": "1 线段重合 题解",
