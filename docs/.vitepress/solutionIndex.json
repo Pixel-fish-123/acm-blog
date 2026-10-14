@@ -293,6 +293,21 @@
     "source": "https://codeforces.com/gym/101879/problem/C"
   },
   {
+    "title": "gym101915G Robots 题解",
+    "id": "gym101915G",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym101915G_solution",
+    "summary": "给一棵 n 个点的树，根为 1，边权两两不同。有 q 个机器人，第 i 个带参数 x i，从根出发，每一步在当前点到儿子的所有边中，选 权值小于 x i 的最大...",
+    "date": "2026-10-14",
+    "tags": [
+      "DFS",
+      "树上问题",
+      "排序",
+      "双指针"
+    ],
+    "source": "https://codeforces.com/gym/101915/problem/G"
+  },
+  {
     "title": "gym102307C Common Subsequence 题解",
     "id": "gym102307C",
     "category": "Codeforces",
@@ -344,6 +359,20 @@
       "枚举"
     ],
     "source": "https://codeforces.com/gym/102365/problem/C"
+  },
+  {
+    "title": "gym103414B Guess the Array 题解",
+    "id": "gym103414B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym103414B_solution",
+    "summary": "交互题。有一个长度为 n 的隐藏数组（ ， ）。每次可询问 得到区间和 s，同时交互器给出一个新的封锁区间 [l b, r b]，此后不能再询问被封锁的区间。至...",
+    "date": "2026-10-14",
+    "tags": [
+      "交互",
+      "构造",
+      "前缀和"
+    ],
+    "source": "https://codeforces.com/gym/103414/problem/B"
   },
   {
     "title": "gym104518F Vacation 题解",
