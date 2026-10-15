@@ -375,6 +375,19 @@
     "source": "https://codeforces.com/gym/103414/problem/B"
   },
   {
+    "title": "gym104012E Easily Distinguishable Triangles 题解",
+    "id": "gym104012E",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym104012E_solution",
+    "summary": "有一个 的画布（ ），每个格子是白色 、黑色 或空格 。要在每个空格里画一个面积为 的黑色直角三角形（直角边与格子边重合，共 4 种画法）。要求任意两个黑三角形...",
+    "date": "2026-10-15",
+    "tags": [
+      "组合数学",
+      "模拟"
+    ],
+    "source": "https://codeforces.com/gym/104012/problem/E"
+  },
+  {
     "title": "gym104518F Vacation 题解",
     "id": "gym104518F",
     "category": "Codeforces",
