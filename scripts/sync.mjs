@@ -15,6 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const blogRoot = path.resolve(__dirname, '..')
 const acmRoot = process.env.ACM_ICPC_ROOT || path.resolve(blogRoot, '..', 'acm-icpc')
 const srcDir = path.join(acmRoot, 'solutions')
+const extraDirs = ['useful_maths_conclusions']
 const dstDir = path.join(blogRoot, 'docs', 'solutions')
 const dataDir = path.join(blogRoot, 'docs', '.vitepress')
 
@@ -28,13 +29,18 @@ if (!fs.existsSync(srcDir)) {
 const log = (msg) => console.log(msg)
 const warn = (msg) => console.warn(msg)
 const norm = (p) => p.replaceAll('\\', '/')
-const idOf = (rel) => path.basename(rel).replace(/_solution\.md$/, '')
+const idOf = (rel) => path.basename(rel).replace(/(_solution)?\.md$/, '')
 
 // 1. 收集源文件
-const files = collectMd(srcDir, srcDir, []).sort()
-const sols = files.map((rel) => {
+const files = collectMd(srcDir, srcDir, []).map((rel) => [rel, path.join(srcDir, rel)])
+for (const name of extraDirs) {
+  const dir = path.join(acmRoot, name)
+  if (!fs.existsSync(dir)) continue
+  for (const rel of collectMd(dir, dir, [])) files.push([path.join(name, rel), path.join(dir, rel)])
+}
+files.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
+const sols = files.map(([rel, full]) => {
   const r = norm(rel)
-  const full = path.join(srcDir, rel)
   const dir = path.dirname(r) === '.' ? '专题' : path.dirname(r)
   return { rel: r, dir, full, raw: fs.readFileSync(full, 'utf8'), body: '', meta: {} }
 })

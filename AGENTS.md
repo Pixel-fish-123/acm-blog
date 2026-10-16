@@ -17,6 +17,7 @@ VitePress blog for ACM solutions. Authored content lives in the sibling git repo
 ## Commands (PowerShell)
 - `npm run dev` — local preview; open `http://localhost:5173/acm-blog/` (site base is `/acm-blog/`)
 - `npm run sync` — `node scripts/sync.mjs`: copies `..\acm-icpc\solutions\*.md` into `docs/solutions/`, runs the plugin pipeline (see below), then writes `docs/solutions/index.md` and `docs/.vitepress/solutionIndex.json`. Override source dir: `$env:ACM_ICPC_ROOT = "D:\code\acm-icpc"; npm run sync`
+  - Besides `solutions/`, `sync` also copies every `.md` under the directories listed in `extraDirs` (currently `..\acm-icpc\useful_maths_conclusions`) to `docs/solutions/<dir>/`. `categoryName` shows it as 「好用的数学结论」. These notes are not solutions: no frontmatter or `<name>_solution.md` naming is needed, the id is the filename without `.md`, and the search `_render` hook does not add id/tags for them. To add another such folder, append it to `extraDirs` and give it a label in `scripts/lib/category.mjs`.
   - `sync` no longer shells out to `fetch-luogu.mjs`: Luogu account stats are the `luogu-user` plugin, so one `sync` refreshes `HomeLuogu.vue`/`ArticleHeader.vue` too.
 - `npm run luogu` — Luogu stats only, no solution sync (thin wrapper over the same plugin). Luogu requires a cookie round-trip (first 302 sets `C3VK`); the script handles it, and warns + keeps existing data if the fetch fails.
 - `npm run build` — the only verification step (no lint/typecheck/tests). CI (`npm ci && npm run build`) runs on push to `main` and deploys to GitHub Pages.

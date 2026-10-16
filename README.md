@@ -85,6 +85,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 
    `sync` 会完成：
    - 拷贝 `acm-icpc/solutions/` 下所有 `.md` 到 `docs/solutions/`（并把「参考代码」折叠起来）
+   - 拷贝 `acm-icpc/useful_maths_conclusions/` 下的 `.md` 到 `docs/solutions/useful_maths_conclusions/`，作为「好用的数学结论」分类展示（列表在 `sync.mjs` 的 `extraDirs`，展示名在 `scripts/lib/category.mjs`）
    - 生成题解索引页 `docs/solutions/index.md`
    - 生成数据文件 `docs/.vitepress/solutionIndex.json`（标题、摘要、分类、**算法标签**、难度、原题链接、**首次上传日期**）
    - 刷新首页个人数据（洛谷昵称、等级颜色、通过数等）
@@ -162,6 +163,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 
 ```
 acm-icpc/solutions/*.md  ──npm run sync──►  docs/solutions/*.md
+acm-icpc/useful_maths_conclusions/*.md ──►  docs/solutions/useful_maths_conclusions/*.md
                                               ├─► docs/solutions/index.md（索引页外壳）
                                               └─► .vitepress/solutionIndex.json（首页/索引/时间线/搜索）
 ```

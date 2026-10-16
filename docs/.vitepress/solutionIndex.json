@@ -361,6 +361,18 @@
     "source": "https://codeforces.com/gym/102365/problem/C"
   },
   {
+    "title": "gym102829I Luke's Math Problem 题解",
+    "id": "gym102829I",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym102829I_solution",
+    "summary": "给定整数向量 ，求满足以下条件的非空向量序列 的个数（ ）： - 所有向量的分量都是整数； - 对每个 i 0， ，即模长严格递减； - 对每个 i 0， 。 ...",
+    "date": "2026-10-16",
+    "tags": [
+      "组合数学"
+    ],
+    "source": "https://codeforces.com/gym/102829/problem/I"
+  },
+  {
     "title": "gym103414B Guess the Array 题解",
     "id": "gym103414B",
     "category": "Codeforces",
@@ -1357,5 +1369,21 @@
       "数论",
       "枚举"
     ]
+  },
+  {
+    "title": "常用组合数恒等式",
+    "id": "combination_formula",
+    "category": "好用的数学结论",
+    "link": "/solutions/useful_maths_conclusions/combination_formula",
+    "summary": "遇到求和式时，先认清它属于哪一类：沿斜线求和用「曲棍球」，两个组合数相乘求和用「范德蒙德」，带系数 k 用「吸收」，「恰好」类计数用「二项式反演」。实在认不出来...",
+    "date": "2026-10-16"
+  },
+  {
+    "title": "组合数常用预处理",
+    "id": "precompute_combinations",
+    "category": "好用的数学结论",
+    "link": "/solutions/useful_maths_conclusions/precompute_combinations",
+    "summary": "模数默认写成 。下面三种场景按数据范围选一种即可。 适用于模数为质数（如 10^9+7、998244353），n,k 都不超过预处理上界。询问 O(1)。 注意...",
+    "date": "2026-10-16"
   }
 ]

@@ -1,0 +1,3 @@
+npm notice run acm-blog@1.0.0 preview
+npm notice run vitepress preview docs --port 4173
+Built site served at http://localhost:4173/acm-blog/

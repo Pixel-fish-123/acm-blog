@@ -2,6 +2,7 @@
 export function categoryName(dir) {
   if (dir === '专题') return '专题'
   if (dir === 'greedy_tuition') return '贪心入门'
+  if (dir === 'useful_maths_conclusions') return '好用的数学结论'
   const m = dir.match(/^nowcoder_summer_holiday_competition(\d*)$/)
   if (m) return `2026牛客暑假多校联赛（第${m[1] || '1'}场）`
   if (dir.startsWith('nowcoder')) return '牛客' + dir.replace(/^nowcoder_?/, '')
