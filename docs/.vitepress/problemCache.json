@@ -173,6 +173,18 @@
     "2266/A": {
       "rating": 800,
       "name": "Good Contest"
+    },
+    "2261/C": {
+      "rating": null,
+      "name": "I Know About a Million Things"
+    },
+    "2261/B": {
+      "rating": null,
+      "name": "What's the Capital of France?"
+    },
+    "2261/A": {
+      "rating": null,
+      "name": "Hey, It's Me, Souvlakity"
     }
   }
 }

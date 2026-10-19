@@ -44,6 +44,56 @@
     "source": "https://codeforces.com/problemset/problem/2260/C"
   },
   {
+    "title": "cf2261A Hey, It's Me, Souvlakity 题解",
+    "id": "cf2261A",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2261A_solution",
+    "summary": "把 1 到 n 的整数按二进制串 s 分给 Souvlakity（ ）和 Kalamakity（ ），保证 Souvlakity 至少有一个数。两人轮流操作共 ...",
+    "date": "2026-10-19",
+    "tags": [
+      "博弈论"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2261/A"
+  },
+  {
+    "title": "cf2261B What's the Capital of France? 题解",
+    "id": "cf2261B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2261B_solution",
+    "summary": "一行 n 家餐厅，评分 a i。一次操作选相邻两家：若评分不同，把较小的那家加 1；相同则不变。可操作任意次。求所有评分按位或的最大值。 多测， ， ， ，总 ...",
+    "date": "2026-10-19",
+    "tags": [
+      "位运算",
+      "贪心",
+      "数学"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2261/B"
+  },
+  {
+    "title": "cf2261C I Know About a Million Things 题解",
+    "id": "cf2261C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2261C_solution",
+    "summary": "数组 。Moggity 先手，轮流操作：选一个非空下标集合删掉这些元素，要求「只删一个」或「删掉的元素之和为偶数」。面对空数组的人判负。判断先手是否有必胜策略：...",
+    "date": "2026-10-19",
+    "tags": [
+      "博弈论"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2261/C"
+  },
+  {
+    "title": "cf2261D Come Be My Friend, Don't Be So Scared (Easy Version) 题解",
+    "id": "cf2261D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/cf2261D_solution",
+    "summary": "（本题对应 CF 2261D1，输入保证 m=0。）有 n 个隐藏点排成一行。探测器覆盖一段连续点，同时启动后根据各探测器的 0/1 报告要能唯一确定藏匿点。已...",
+    "date": "2026-10-19",
+    "tags": [
+      "构造"
+    ],
+    "source": "https://codeforces.com/problemset/problem/2261/D1"
+  },
+  {
     "title": "cf2266A Good Contest 题解",
     "id": "cf2266A",
     "category": "Codeforces",
@@ -566,6 +616,21 @@
       "DFS"
     ],
     "source": "https://codeforces.com/gym/106760/problem/D"
+  },
+  {
+    "title": "gym106764H Lemon Tang 题解",
+    "id": "gym106764H",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106764H_solution",
+    "summary": "n 个人排成一行，第 i 人得分 d i、教练半径 r i。一次训练选一人 i 当教练，则所有满足 的人得分 +1，同一人可多次当教练，总训练次数 。最大化训练...",
+    "date": "2026-10-19",
+    "tags": [
+      "二分",
+      "贪心",
+      "差分",
+      "单调队列"
+    ],
+    "source": "https://codeforces.com/gym/106764/problem/H"
   },
   {
     "title": "1 线段重合 题解",
