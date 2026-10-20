@@ -1,34 +1,26 @@
 // 插件：frontmatter 缺 source 时按文件名推断原题链接
 // 只推断洛谷 / Codeforces（含 Gym）/ AtCoder，其余平台不猜（与 solution-frontmatter.mdc 一致）
-import path from 'node:path'
-
-function platformOf(dir) {
-  return String(dir || '').split(/[\\/]/)[0]
-}
-
-function idOf(rel) {
-  return path.basename(rel).replace(/_solution\.md$/, '')
-}
+import { platformOf, idOf } from '../lib/problem-id.mjs'
 
 // luogu/P3384 -> https://www.luogu.com.cn/problem/P3384
 // luogu/P3379(tarjan) -> https://www.luogu.com.cn/problem/P3379
 function luoguSource(id) {
-  const m = id.match(/^([A-Z]+\d+)/)
+  const m = String(id || '').match(/^([A-Z]+\d+)/)
   return m ? `https://www.luogu.com.cn/problem/${m[1]}` : ''
 }
 
 // codeforces/cf1748E -> https://codeforces.com/problemset/problem/1748/E
 // codeforces/gym101061F -> https://codeforces.com/gym/101061/problem/F
 function codeforcesSource(id) {
-  const gym = id.match(/^gym(\d+)([A-Za-z]\d*)$/)
+  const gym = String(id || '').match(/^gym(\d+)([A-Za-z]\d*)$/)
   if (gym) return `https://codeforces.com/gym/${gym[1]}/problem/${gym[2].toUpperCase()}`
-  const m = id.match(/^cf(\d+)([A-Za-z]\d*)$/)
+  const m = String(id || '').match(/^cf(\d+)([A-Za-z]\d*)$/)
   return m ? `https://codeforces.com/problemset/problem/${m[1]}/${m[2].toUpperCase()}` : ''
 }
 
 // atcoder/agc_028B -> https://atcoder.jp/contests/agc028/tasks/agc028_b
 function atcoderSource(id) {
-  const m = id.match(/^([a-z]+)_(\d+)([A-Za-z]\d*)$/)
+  const m = String(id || '').match(/^([a-z]+)_(\d+)([A-Za-z]\d*)$/)
   if (!m) return ''
   const contest = `${m[1]}${m[2]}`
   return `https://atcoder.jp/contests/${contest}/tasks/${contest}_${m[3].toLowerCase()}`

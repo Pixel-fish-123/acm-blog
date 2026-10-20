@@ -8,7 +8,8 @@
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "sync": "node scripts/sync.mjs",
-    "luogu": "node scripts/fetch-luogu.mjs"
+    "luogu": "node scripts/fetch-luogu.mjs",
+    "test": "node --test"
   },
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",

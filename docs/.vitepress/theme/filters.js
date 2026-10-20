@@ -2,18 +2,10 @@
 // 首页（HomeLuogu.vue）负责持有筛选状态，SolutionFilter.vue 只负责渲染控件。
 // 题解页抬头的标签链接指向 `/?tag=xxx`，靠 parseFilters 在这里被读回来。
 
-// 洛谷难度档位顺序，与 scripts/plugins/difficulty.mjs 的 LUOGU_DIFFICULTY 保持一致（改了要同步改那边）
-export const LUOGU_TIERS = [
-  '暂无评定',
-  '入门',
-  '普及-',
-  '普及',
-  '普及+/提高-',
-  '提高',
-  '提高+/省选-',
-  '省选/NOI-',
-  'NOI/NOI+/CTS',
-]
+// 洛谷难度档位顺序，与构建脚本共用 theme/luoguDifficulty.js，避免两边各抄一份。
+import { LUOGU_TIERS } from './luoguDifficulty.js'
+
+export { LUOGU_TIERS }
 
 // 抓不到难度的题（gym / ICPC / 牛客等 id 不匹配的平台）统一显示为「未标注」
 export const UNKNOWN_DIFFICULTY = '未标注'

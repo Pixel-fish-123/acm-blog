@@ -1,8 +1,10 @@
 <script setup>
 import { withBase } from 'vitepress'
+import profile from '../profile.json'
 
 // 导航栏洛谷图标（使用 docs/public/luogu_favicon.ico）
-const luoguHome = 'https://www.luogu.com.cn/user/361708'
+const luoguHome = profile.home || `https://www.luogu.com.cn/user/${profile.uid}`
+const luoguName = profile.name || '洛谷'
 </script>
 
 <template>
@@ -11,8 +13,8 @@ const luoguHome = 'https://www.luogu.com.cn/user/361708'
     :href="luoguHome"
     target="_blank"
     rel="noopener"
-    aria-label="洛谷主页"
-    title="洛谷主页"
+    :aria-label="luoguName + ' 的洛谷主页'"
+    :title="luoguName + ' 的洛谷主页'"
   >
     <img class="nav-luogu-icon" :src="withBase('/luogu_favicon.ico')" alt="洛谷" />
   </a>

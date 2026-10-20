@@ -5,21 +5,25 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fetchText, parseLentilleContext } from '../lib/http.mjs'
+import { LUOGU_DIFFICULTY } from '../../docs/.vitepress/theme/luoguDifficulty.js'
+import {
+  platformOf,
+  idOf,
+  luoguPid,
+  cfKey,
+  isGymId,
+} from '../lib/problem-id.mjs'
+import { isFresh } from '../lib/cache.mjs'
+import { mapLimit } from '../lib/async.mjs'
 
-// 洛谷难度档位（0-8，来源：https://www.luogu.com.cn/_lfe/config 的 ProblemDifficulty）
-export const LUOGU_DIFFICULTY = [
-  { name: '暂无评定', color: '#bfbfbf' },
-  { name: '入门', color: '#fe4c61' },
-  { name: '普及-', color: '#f39c11' },
-  { name: '普及', color: '#ffc116' },
-  { name: '普及+/提高-', color: '#52c41a' },
-  { name: '提高', color: '#00c0c0' },
-  { name: '提高+/省选-', color: '#3498db' },
-  { name: '省选/NOI-', color: '#9d3dcf' },
-  { name: 'NOI/NOI+/CTS', color: '#0e1d69' },
-]
+export { LUOGU_DIFFICULTY }
 
 const NAME_TO_COLOR = new Map(LUOGU_DIFFICULTY.map((d) => [d.name, d.color]))
+
+// 洛谷难度很少变化，30 天刷新一次；CF 未出分的题 6 小时后再查。
+const LUOGU_TTL_MS = 30 * 24 * 60 * 60 * 1000
+const CF_NULL_TTL_MS = 6 * 60 * 60 * 1000
+const LUOGU_CONCURRENCY = 4
 
 // Codeforces rating 分段配色
 export function cfColor(rating) {
@@ -39,29 +43,6 @@ export function colorOfDifficulty(difficulty) {
   const cf = text.match(/^CF\s+(\d+)$/i)
   if (cf) return cfColor(Number(cf[1]))
   return NAME_TO_COLOR.get(text) || '#bfbfbf'
-}
-
-function platformOf(dir) {
-  return String(dir || '').split(/[\\/]/)[0]
-}
-
-function idOf(rel) {
-  return path.basename(rel).replace(/_solution\.md$/, '')
-}
-
-function luoguPid(id) {
-  const m = id.match(/^([A-Z]+\d+)/)
-  return m ? m[1] : ''
-}
-
-// cf1748E -> 1748/E；gym101061F -> 101061/F
-function cfKey(id) {
-  const m = String(id || '').match(/^(?:cf|gym)(\d+)([A-Za-z]\d*)$/)
-  return m ? `${m[1]}/${m[2].toUpperCase()}` : ''
-}
-
-function isGymId(id) {
-  return /^gym\d/i.test(String(id || ''))
 }
 
 async function fetchLuoguDifficulty(pid) {
@@ -89,33 +70,139 @@ async function fetchCfRatings(keys) {
   return out
 }
 
+function cacheFile(ctx) {
+  return path.join(ctx.dataDir, 'problemCache.json')
+}
+
+function loadCache(ctx) {
+  let cache = {}
+  try {
+    cache = JSON.parse(fs.readFileSync(cacheFile(ctx), 'utf8'))
+  } catch (e) {
+    if (e.code !== 'ENOENT') ctx.warn(`  difficulty: 缓存读取失败（${e.message}）`)
+  }
+  cache.luogu ||= {}
+  cache.cf ||= {}
+  return cache
+}
+
+// 每次 sync 独立状态，避免模块级变量在多次运行/测试之间串味。
+function stateOf(ctx) {
+  if (!ctx.difficultyState) {
+    ctx.difficultyState = {
+      cache: loadCache(ctx),
+      dirty: false,
+      cfLoaded: false,
+      luoguPreloaded: false,
+      nowIso: new Date().toISOString(),
+    }
+  }
+  return ctx.difficultyState
+}
+
+function luoguNeedsFetch(state, sol, now) {
+  if (sol.meta?.difficulty) return false
+  if (!platformOf(sol.dir).startsWith('luogu')) return false
+  const pid = luoguPid(idOf(sol.rel))
+  if (!pid) return false
+  const cached = state.cache.luogu[pid]
+  return !cached || !cached.difficulty || !isFresh(cached.checkedAt, LUOGU_TTL_MS, now)
+}
+
+// 首次遇到洛谷题时并发预取所有缺缓存/过期的题，而不是在 onSolution 里串行等待。
+async function ensureLuoguCache(ctx) {
+  const state = stateOf(ctx)
+  if (state.luoguPreloaded) return
+  state.luoguPreloaded = true
+  if (ctx.offline) return
+
+  const now = Date.now()
+  const targets = new Set()
+  for (const sol of ctx.solutions || []) {
+    if (!luoguNeedsFetch(state, sol, now)) continue
+    targets.add(luoguPid(idOf(sol.rel)))
+  }
+  if (!targets.size) return
+
+  await mapLimit([...targets], LUOGU_CONCURRENCY, async (pid) => {
+    try {
+      const fresh = await fetchLuoguDifficulty(pid)
+      state.cache.luogu[pid] = { ...fresh, checkedAt: state.nowIso }
+      state.dirty = true
+      ctx.log(`  difficulty: ${pid} -> ${fresh.difficulty}`)
+    } catch (e) {
+      ctx.warn(`  difficulty: 洛谷 ${pid} 抓取失败（${e.message}），跳过`)
+    }
+  })
+}
+
+// 本次 sync 中所有缺少难度的 CF 题，一次请求批量取 rating
+export function collectCfKeys(solutions) {
+  const keys = []
+  for (const sol of solutions || []) {
+    if (sol.meta?.difficulty) continue
+    if (!platformOf(sol.dir).startsWith('codeforces')) continue
+    const id = idOf(sol.rel)
+    if (isGymId(id)) continue
+    const key = cfKey(id)
+    if (key) keys.push(key)
+  }
+  return [...new Set(keys)]
+}
+
+function cfNeedsFetch(state, sol, now) {
+  if (sol.meta?.difficulty) return false
+  if (!platformOf(sol.dir).startsWith('codeforces')) return false
+  const id = idOf(sol.rel)
+  if (isGymId(id)) return false
+  const key = cfKey(id)
+  if (!key) return false
+  const cached = state.cache.cf[key]
+  if (!cached) return true
+  return cached.rating == null && !isFresh(cached.checkedAt, CF_NULL_TTL_MS, now)
+}
+
+async function ensureCfCache(ctx) {
+  const state = stateOf(ctx)
+  if (state.cfLoaded) return
+  state.cfLoaded = true
+  if (ctx.offline) return
+
+  const now = Date.now()
+  if (!(ctx.solutions || []).some((sol) => cfNeedsFetch(state, sol, now))) return
+
+  const keys = collectCfKeys(ctx.solutions)
+  if (!keys.length) return
+  try {
+    const fetched = await fetchCfRatings(keys)
+    for (const key of keys) {
+      const value = fetched[key]
+      if (value) {
+        state.cache.cf[key] = { ...state.cache.cf[key], ...value, checkedAt: state.nowIso }
+        if (value.rating != null) ctx.log(`  difficulty: CF ${key} -> ${value.rating}`)
+      } else {
+        // 比赛还没进 problemset 时也记录 checkedAt，避免每次 sync 都重拉整表。
+        // 但如果旧缓存已有 rating，说明本次只是没查到，不要把它清空。
+        const previous = state.cache.cf[key]
+        if (previous?.rating != null) continue
+        state.cache.cf[key] = {
+          ...previous,
+          rating: null,
+          checkedAt: state.nowIso,
+        }
+      }
+    }
+    state.dirty = true
+  } catch (e) {
+    ctx.warn(`  difficulty: Codeforces 榜单抓取失败（${e.message}），跳过`)
+  }
+}
+
 export default {
   name: 'difficulty',
-  options: { cache: true },
-
-  // 每个实例只加载一次缓存
-  _cache: null,
-  _dirty: false,
-  _cfLoaded: false,
-
-  cacheFile(ctx) {
-    return path.join(ctx.dataDir, 'problemCache.json')
-  },
-
-  loadCache(ctx) {
-    if (this._cache) return this._cache
-    try {
-      this._cache = JSON.parse(fs.readFileSync(this.cacheFile(ctx), 'utf8'))
-    } catch {
-      this._cache = {}
-    }
-    this._cache.luogu ||= {}
-    this._cache.cf ||= {}
-    return this._cache
-  },
 
   async onSolution(sol, ctx) {
-    const cache = this.loadCache(ctx)
+    const state = stateOf(ctx)
     const platform = platformOf(sol.dir)
     const id = idOf(sol.rel)
 
@@ -124,16 +211,26 @@ export default {
       sol.meta.difficultyColor = colorOfDifficulty(sol.meta.difficulty)
       if (platform.startsWith('luogu')) {
         const pid = luoguPid(id)
-        if (pid && !cache.luogu[pid]) {
-          cache.luogu[pid] = { difficulty: sol.meta.difficulty, color: sol.meta.difficultyColor }
-          this._dirty = true
+        if (pid) {
+          state.cache.luogu[pid] = {
+            ...state.cache.luogu[pid],
+            difficulty: sol.meta.difficulty,
+            color: sol.meta.difficultyColor,
+            checkedAt: state.nowIso,
+          }
+          state.dirty = true
         }
       } else if (platform.startsWith('codeforces')) {
         const key = cfKey(id)
         const m = String(sol.meta.difficulty).match(/^CF\s+(\d+)$/i)
-        if (key && m && !cache.cf[key]) {
-          cache.cf[key] = { rating: Number(m[1]), color: sol.meta.difficultyColor }
-          this._dirty = true
+        if (key && m) {
+          state.cache.cf[key] = {
+            ...state.cache.cf[key],
+            rating: Number(m[1]),
+            color: sol.meta.difficultyColor,
+            checkedAt: state.nowIso,
+          }
+          state.dirty = true
         }
       }
       return
@@ -142,18 +239,20 @@ export default {
     if (platform.startsWith('luogu')) {
       const pid = luoguPid(id)
       if (!pid) return
-      let cached = cache.luogu[pid]
-      if (!cached) {
+      await ensureLuoguCache(ctx)
+      let cached = state.cache.luogu[pid]
+      if (!cached && !ctx.offline) {
         try {
           cached = await fetchLuoguDifficulty(pid)
-          cache.luogu[pid] = cached
-          this._dirty = true
+          state.cache.luogu[pid] = { ...cached, checkedAt: state.nowIso }
+          state.dirty = true
           ctx.log(`  difficulty: ${pid} -> ${cached.difficulty}`)
         } catch (e) {
           ctx.warn(`  difficulty: 洛谷 ${pid} 抓取失败（${e.message}），跳过`)
           return
         }
       }
+      if (!cached) return
       sol.meta.difficulty = cached.difficulty
       sol.meta.difficultyColor = cached.color || colorOfDifficulty(cached.difficulty)
       return
@@ -162,49 +261,20 @@ export default {
     if (platform.startsWith('codeforces')) {
       const key = cfKey(id)
       if (!key) return
-      let cached = cache.cf[key]
-      // 新比赛出分前 rating 为 null，每次 sync 都要重查，直到拿到 rating
-      // gym 不在 problemset.problems 里；放进这次批量请求会让缺 rating 的 gym 每次 sync 都重拉整表
-      if (!isGymId(id) && (!cached || cached.rating == null) && !this._cfLoaded) {
-        try {
-          const fetched = await fetchCfRatings(this.collectCfKeys(ctx))
-          for (const [k, v] of Object.entries(fetched)) {
-            if (cache.cf[k] && cache.cf[k].rating === v.rating) continue
-            cache.cf[k] = v
-            this._dirty = true
-            if (v.rating != null) ctx.log(`  difficulty: CF ${k} -> ${v.rating}`)
-          }
-        } catch (e) {
-          ctx.warn(`  difficulty: Codeforces 榜单抓取失败（${e.message}），跳过`)
-        }
-        this._cfLoaded = true
-        cached = cache.cf[key]
-      }
+      await ensureCfCache(ctx)
+      const cached = state.cache.cf[key]
       if (!cached || cached.rating == null) return
       sol.meta.difficulty = `CF ${cached.rating}`
       sol.meta.difficultyColor = cfColor(cached.rating)
     }
   },
 
-  // 本次 sync 中所有缺少难度的 CF 题，一次请求批量取 rating
-  collectCfKeys(ctx) {
-    const keys = []
-    for (const sol of ctx.solutions || []) {
-      if (sol.meta.difficulty) continue
-      if (!platformOf(sol.dir).startsWith('codeforces')) continue
-      const id = idOf(sol.rel)
-      if (isGymId(id)) continue
-      const key = cfKey(id)
-      if (key) keys.push(key)
-    }
-    return keys
-  },
-
   async onFinish(index, ctx) {
-    if (!this._dirty || !this._cache) return
+    const state = ctx.difficultyState
+    if (!state?.dirty) return
     try {
       fs.mkdirSync(ctx.dataDir, { recursive: true })
-      fs.writeFileSync(this.cacheFile(ctx), JSON.stringify(this._cache, null, 2))
+      fs.writeFileSync(cacheFile(ctx), JSON.stringify(state.cache, null, 2))
       ctx.log(`  难度缓存已更新 -> docs/.vitepress/problemCache.json`)
     } catch (e) {
       ctx.warn(`  difficulty: 缓存写入失败（${e.message}）`)

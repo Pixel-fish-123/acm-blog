@@ -4,7 +4,8 @@
 // 解析后返回值：{ meta, body }
 // meta 中的 tags 为数组，其余为字符串；body 为去掉 frontmatter 的正文
 export function parseFrontmatter(raw) {
-  const text = String(raw || '')
+  // 去掉 Windows 编辑器可能写入的 BOM，否则开头的 --- 匹配不到。
+  const text = String(raw || '').replace(/^\uFEFF/, '')
   const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n)?/)
   if (!m) return { meta: {}, body: text }
 

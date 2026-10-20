@@ -1,12 +1,15 @@
 <script setup>
 import { computed } from 'vue'
 import { withBase, useData } from 'vitepress'
+import profile from '../profile.json'
 import { useCurrentSolution } from '../solution.js'
 import { badgeTextColor } from '../filters.js'
 
 // 文章页抬头：作者 + 修改日期；若当前页是题解，再补平台 / 难度 / 标签 / 原题
 const { page } = useData()
-const luoguHome = 'https://www.luogu.com.cn/user/361708'
+const luoguHome = profile.home || `https://www.luogu.com.cn/user/${profile.uid}`
+const authorName = profile.name || 'Pixel_fish'
+const authorColor = profile.color || '#f39c12'
 
 const date = computed(() => {
   const ts = page.value.lastUpdated
@@ -37,7 +40,13 @@ function diffStyle(item) {
 <template>
   <div class="article-header">
     <img class="ah-avatar" :src="withBase('/avatar.png')" alt="" />
-    <a class="ah-name" :href="luoguHome" target="_blank" rel="noopener">Pixel_fish</a>
+    <a
+      class="ah-name"
+      :href="luoguHome"
+      :style="{ color: authorColor }"
+      target="_blank"
+      rel="noopener"
+    >{{ authorName }}</a>
     <span v-if="date" class="ah-date">更新于 {{ date }}</span>
 
     <template v-if="solution">
@@ -85,7 +94,7 @@ function diffStyle(item) {
 .ah-name {
   font-size: 13px;
   font-weight: 600;
-  color: #f39c12; /* 洛谷等级色（npm run sync 自动同步） */
+  color: #f39c12; /* 兜底色；实际颜色由 profile.json 内联 */
   text-decoration: none;
 }
 

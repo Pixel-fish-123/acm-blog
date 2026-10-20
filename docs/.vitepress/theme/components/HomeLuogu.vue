@@ -2,6 +2,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { withBase } from 'vitepress'
 import solutionIndex from '../../solutionIndex.json'
+import luogu from '../profile.json'
 import SolutionFilter from './SolutionFilter.vue'
 import {
   badgeTextColor,
@@ -67,18 +68,7 @@ watch(
   { deep: true }
 )
 
-// 洛谷用户信息（来源：https://www.luogu.com.cn/user/361708）
-const luogu = {
-  home: 'https://www.luogu.com.cn/user/361708',
-  name: 'Pixel_fish',
-  slogan: '有时候在想，然后我忘了（）',
-  color: '#f39c12',
-  followers: 9,
-  following: 11,
-  passed: 385,
-  submitted: 390,
-  ranking: 11854,
-}
+// 洛谷用户信息由 npm run sync 的 luogu-user 插件写入 ../profile.json
 </script>
 
 <template>
@@ -118,7 +108,7 @@ const luogu = {
               </div>
               <div class="lg-item-author">
                 <img class="lg-item-avatar" :src="withBase('/avatar.png')" alt="" />
-                <div class="lg-item-author-name">Pixel_fish</div>
+                <div class="lg-item-author-name">{{ luogu.name }}</div>
                 <div class="lg-item-author-date">{{ item.date }}</div>
               </div>
             </a>

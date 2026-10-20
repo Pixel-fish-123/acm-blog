@@ -3,13 +3,13 @@
 
 // 读取 markdown 首个 h1 作为标题
 export function h1Of(raw) {
-  const m = String(raw || '').match(/^#\s+(.+)$/m)
+  const m = String(raw || '').replace(/^\uFEFF/, '').match(/^#\s+(.+)$/m)
   return m ? m[1].trim() : ''
 }
 
 // 提取纯文本摘要（去掉 frontmatter、代码块、公式、容器语法、markdown 语法）
 export function summaryOf(raw, limit = 80) {
-  let text = String(raw || '')
+  let text = String(raw || '').replace(/^\uFEFF/, '')
   text = text.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, ' ') // frontmatter
   text = text.replace(/```[\s\S]*?```/g, ' ')
   text = text.replace(/`[^`]*`/g, ' ')

@@ -17,6 +17,8 @@ acm-blog/
 │   │   └── theme/
 │   │       ├── index.js           # 主题入口（插槽注入：洛谷图标、作者条、相关题解）
 │   │       ├── filters.js         # 首页筛选/排序/统计的纯函数
+│   │       ├── luoguDifficulty.js # 洛谷难度档位（客户端与 sync 共用）
+│   │       ├── profile.json       # 洛谷账号资料（sync 自动刷新，可手改）
 │   │       ├── solution.js        # 由页面路径反查 solutionIndex 条目
 │   │       ├── custom.css         # 全局洛谷风格样式
 │   │       └── components/
@@ -34,8 +36,9 @@ acm-blog/
 ├── scripts/
 │   ├── sync.mjs                   # 同步脚本：收集题解 → 跑插件 → 写输出
 │   ├── fetch-luogu.mjs            # 只更新洛谷账号数据（npm run luogu）
-│   ├── lib/                       # 共享工具（文件、markdown、分类、frontmatter、HTTP）
+│   ├── lib/                       # 共享工具（文件、markdown、分类、frontmatter、HTTP、输出校验）
 │   └── plugins/                   # 构建期插件（见下文）
+├── tests/                         # node:test 单元测试（无额外依赖）
 ├── .github/workflows/deploy.yml   # push 后自动构建部署到 GitHub Pages
 └── package.json
 ```
@@ -46,8 +49,11 @@ acm-blog/
 npm install        # 首次安装依赖
 npm run dev        # 本地预览 http://localhost:5173（注意访问 /acm-blog/ 路径）
 npm run sync       # 从 acm-icpc 同步题解并刷新洛谷数据
+npm test           # 跑 tests/ 下的单元测试
 npm run build      # 本地构建验证
 npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验证搜索用）
+# 只检查生成结果是否最新，不写文件：
+npm run sync -- --check
 ```
 
 ## 站点功能
@@ -88,21 +94,24 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
    - 拷贝 `acm-icpc/useful_maths_conclusions/` 下的 `.md` 到 `docs/solutions/useful_maths_conclusions/`，作为「好用的数学结论」分类展示（列表在 `sync.mjs` 的 `extraDirs`，展示名在 `scripts/lib/category.mjs`）
    - 生成题解索引页 `docs/solutions/index.md`
    - 生成数据文件 `docs/.vitepress/solutionIndex.json`（标题、摘要、分类、**算法标签**、难度、原题链接、**首次上传日期**）
-   - 刷新首页个人数据（洛谷昵称、等级颜色、通过数等）
+   - 刷新 `docs/.vitepress/theme/profile.json`（洛谷昵称、等级颜色、通过数等）
+   - 写入前先校验（空正文、缺 h1、重复链接等），只重写有变化的文件，并清理已删除题解留下的旧文件
    - 打印缺难度、缺原题链接的篇数（不依赖重新抓取；已有索引也可 `node scripts/lib/meta-gaps.mjs`）
 
 3. **本地验证**：
 
    ```powershell
+   npm test
    npm run build
    ```
 
-   确认输出 `build complete` 且无 `build error`。
+   确认测试全部通过，构建输出 `build complete` 且无 `build error`。
+   只想检查生成结果是否最新时，用 `npm run sync -- --check`（不会写文件；加 `--offline` 可禁止联网）。
 
 4. **发布**：
 
    ```powershell
-   git add docs/
+   git add docs/ scripts/ tests/ package.json
    git commit -m "sync solutions"
    git push origin main
    ```
@@ -118,7 +127,7 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 
 ### 同步脚本（scripts/）
 
-`scripts/sync.mjs` 只负责编排：收集源文件 → 依次跑插件 → 写出题解、索引页和数据文件。
+`scripts/sync.mjs` 只负责编排：收集源文件 → 依次跑插件 → 校验 → 写变化的文件并清理 stale。
 新增功能优先写成插件，登记在 `scripts/plugins/index.mjs`（一行 `[插件, 选项]`，注释掉即停用）：
 
 | 插件 | 作用 |
@@ -126,17 +135,28 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 | `frontmatter` | 解析题解开头的 `tags` / `difficulty` / `source`（纯正则，不依赖 YAML 库） |
 | `infer-meta` | 从 `acm-icpc/.skill/SKILL.md` 读标签词表。已有 `tags` 但不在词表里会警告；没有 `tags` 时按「**算法类型**」最长匹配推断，别名见 `tag-dict.mjs` |
 | `problem-link` | 没有 `source` 时按文件名推断原题链接（洛谷 / CF / Gym / AtCoder）。Gym 形如 `https://codeforces.com/gym/{contest}/problem/{index}` |
-| `difficulty` | 没有 `difficulty` 时抓取洛谷难度或 CF rating，结果缓存到 `problemCache.json` |
-| `git-date` | 用 git 首次加入该题的提交日期作为上传日期，失败退回文件修改时间 |
+| `difficulty` | 没有 `difficulty` 时抓取洛谷难度或 CF rating，结果缓存到 `problemCache.json`。缓存带 `checkedAt`：洛谷 30 天刷新，CF 未出分 6 小时后重查 |
+| `git-date` | 用 git 首次加入该题的提交日期作为上传日期，失败退回文件修改时间；`extraDirs` 也能取到 |
 | `collapse-code` | 把「参考代码」一节包进可折叠块 |
-| `luogu-user` | 抓取洛谷账号数据，更新首页个人栏与文章页昵称颜色 |
+| `luogu-user` | 抓取洛谷账号数据，合并写入 `theme/profile.json`（不改 `.vue` 源码） |
 
 插件接口：`onSolution(sol, ctx)` 每篇题解调用一次，`onFinish(index, ctx)` 全部处理完后调用一次；单个插件报错只打印警告，不会中断整次同步。
+
+### 测试（tests/）
+
+`npm test` 使用 Node 自带的 `node --test`，不新增依赖。测试覆盖纯函数和同步输出层：
+
+- `filters` / `luoguDifficulty`：URL 筛选、排序、难度统计、徽章颜色、档位唯一来源
+- `frontmatter` / `markdown` / `tag-dict`：frontmatter 解析（含 BOM/CRLF）、摘要、标签推断
+- `problem-id` / `source-path` / `output`：题号解析、`srcRel`、写入校验与 `--check` 差异
+- `http` / `cache` / `async` / `luogu-profile` / `difficulty`：本地 HTTP 服务的 cookie/重定向/重试、TTL、并发限制、资料合并
+
+测试不访问外网；`http` 测试起本地 `http.Server`。
 
 ### 首页（HomeLuogu.vue）
 
 - 布局：左侧题解列表（标题 + 平台标签 + 难度徽章 + 摘要，右侧作者头像/名字/日期）。浅色难度底（普及黄、新手灰、青绿等）用深色字。右侧个人栏（头像、等级色用户名、做题数据、洛谷/GitHub 按钮）+「算法标签」「难度分布」「分类」三张可从侧栏筛选的卡片。窄屏下列表在前，侧栏默认收起，点「展开资料与筛选」才打开。
-- **个人信息在组件顶部 `luogu` 常量中硬编码**，由 `npm run sync` 自动刷新（也可手动改）。
+- **个人信息在 `docs/.vitepress/theme/profile.json`**，由 `npm run sync` 的 `luogu-user` 插件自动刷新（也可手动改）；首页、文章页、导航栏共用这一份。
 - **列表与标签完全由 `solutionIndex.json` 驱动**，加文章只需执行 `npm run sync`，无需改组件。
 - 筛选逻辑集中在 `theme/filters.js`（纯函数），筛选条 UI 在 `theme/components/SolutionFilter.vue`。
 
@@ -165,7 +185,8 @@ npm run preview    # 预览构建产物（http://localhost:4173/acm-blog/，验�
 acm-icpc/solutions/*.md  ──npm run sync──►  docs/solutions/*.md
 acm-icpc/useful_maths_conclusions/*.md ──►  docs/solutions/useful_maths_conclusions/*.md
                                               ├─► docs/solutions/index.md（索引页外壳）
-                                              └─► .vitepress/solutionIndex.json（首页/索引/时间线/搜索）
+                                              ├─► .vitepress/solutionIndex.json（首页/索引/时间线/搜索）
+                                              └─► .vitepress/theme/profile.json（洛谷账号资料）
 ```
 
 ## 部署
@@ -192,6 +213,7 @@ acm-icpc/useful_maths_conclusions/*.md ──►  docs/solutions/useful_maths_co
 
 ## 项目约定
 
-- 只提交 `docs/`、`scripts/` 下的改动与 `package.json`/`package-lock.json`；`node_modules`、`.cursor`、`.vitepress/cache`、`.vitepress/dist` 已 gitignore。
+- 只提交 `docs/`、`scripts/`、`tests/` 下的改动与 `package.json`/`package-lock.json`；`node_modules`、`.cursor`、`.vitepress/cache`、`.vitepress/dist` 已 gitignore。
+- `docs/.vitepress/theme/profile.json` 是跟踪的数据文件，不是生成物；`sync` 会合并更新它。
 - 首页与文章页保持洛谷简洁风格：无阴影、4px 圆角、不引入 emoji、不使用额外依赖。
 - 不下载/不安装多余浏览器或依赖（浏览器实测使用本机 Edge）。
