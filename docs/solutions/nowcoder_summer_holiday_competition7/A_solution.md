@@ -130,3 +130,5 @@ $$
 O\left(n \times 31^2\right) = O\left(n \log^2 V\right),
 $$
 其中 $V$ 为值域上界（$31 = \lceil \log_2 V \rceil$）；空间复杂度 $O(n)$（仅需存储数组）。
+
+预估难度：CF 1900（约 1900*）。本题难度由 AI 预估，仅作为参考。

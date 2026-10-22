@@ -193,3 +193,5 @@ int main()
 - 空间复杂度：$O(n)$，两个并查集各 $3$ 个数组，加上 `head`、`order_`、`cnt`，共约 $9 \times 2 \times 10^6$ 个 `int`（约 72 MB），在 1024 MB 限制内。
 - 数值范围：答案最大为 $\binom{2 \times 10^6}{2} \approx 2 \times 10^{12}$，需要 `long long`。
 - 递归版 `root` 的深度：按大小合并保证树高不超过 $\log_2 n \approx 21$，不会爆栈。
+
+预估难度：CF 1500（约 1500*）。本题难度由 AI 预估，仅作为参考。

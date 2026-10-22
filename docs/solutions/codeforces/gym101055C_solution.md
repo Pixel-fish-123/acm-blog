@@ -133,3 +133,5 @@ int main()
 
 - 时间复杂度：筛莫比乌斯函数为 $O(\text{MAXL} \log \text{MAXL})$，其中 $\text{MAXL} = 2 \times 10^5$；每个询问二分 $\log_2(4 \times 10^{10}) \approx 36$ 次，每次判定 $O(\sqrt{x}) \le 2 \times 10^5$，单个询问约 $7.2 \times 10^6$ 次运算，$Q \le 25$ 时总计约 $1.8 \times 10^8$ 次运算。
 - 空间复杂度：$O(\text{MAXL})$，即存放 $\mu$ 的长度 $2 \times 10^5$ 的数组。
+
+预估难度：CF 1800（约 1800*）。本题难度由 AI 预估，仅作为参考。
