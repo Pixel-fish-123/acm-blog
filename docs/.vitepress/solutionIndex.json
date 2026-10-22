@@ -53,6 +53,8 @@
     "tags": [
       "博弈论"
     ],
+    "difficulty": "CF 800",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2261/A"
   },
   {
@@ -67,6 +69,8 @@
       "贪心",
       "数学"
     ],
+    "difficulty": "CF 1100",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2261/B"
   },
   {
@@ -79,6 +83,8 @@
     "tags": [
       "博弈论"
     ],
+    "difficulty": "CF 1000",
+    "difficultyColor": "#bfbfbf",
     "source": "https://codeforces.com/problemset/problem/2261/C"
   },
   {
@@ -437,6 +443,19 @@
     "source": "https://codeforces.com/gym/103414/problem/B"
   },
   {
+    "title": "gym103577L Convert to heap 题解",
+    "id": "gym103577L",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym103577L_solution",
+    "summary": "一棵 n 个点的树（ ），根为 1，点权 a i（ ）。可以做 q 次更新（ ）：第 i 次选一个点集，给其中每个点加上 x i（ ）。要求最终满足堆性质：每个...",
+    "date": "2026-10-23",
+    "tags": [
+      "树形DP",
+      "背包DP"
+    ],
+    "source": "https://codeforces.com/gym/103577/problem/L"
+  },
+  {
     "title": "gym104012E Easily Distinguishable Triangles 题解",
     "id": "gym104012E",
     "category": "Codeforces",
@@ -448,6 +467,32 @@
       "模拟"
     ],
     "source": "https://codeforces.com/gym/104012/problem/E"
+  },
+  {
+    "title": "gym104333A Convolution XOR SUM 题解",
+    "id": "gym104333A",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym104333A_solution",
+    "summary": "给定两个长度为 n 的数组 a、b（ ， ）。对 的每个排列 p，定义 求所有 n! 个排列的 S(p) 之和，对 10^9+7 取模。 算法类型 ：位运算 +...",
+    "date": "2026-10-23",
+    "tags": [
+      "位运算",
+      "组合数学"
+    ],
+    "source": "https://codeforces.com/gym/104333/problem/A"
+  },
+  {
+    "title": "gym104381L Walking to School 题解",
+    "id": "gym104381L",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym104381L_solution",
+    "summary": "n 个路口、m 条无向边（ ， ），从 1 走到 T。每条边权 x i（ ）：x i=0 表示已清雪，否则为积雪深度。设当前「疲惫值」为 d（初始为 0）：走积...",
+    "date": "2026-10-23",
+    "tags": [
+      "最短路",
+      "数学"
+    ],
+    "source": "https://codeforces.com/gym/104381/problem/L"
   },
   {
     "title": "gym104518F Vacation 题解",
@@ -473,6 +518,20 @@
       "矩阵"
     ],
     "source": "https://codeforces.com/gym/105109/problem/D"
+  },
+  {
+    "title": "gym105122A Generator 题解",
+    "id": "gym105122A",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym105122A_solution",
+    "summary": "实现均匀伪随机生成器：每次等概率生成一对整数 (a,b) 满足 。输入 k（ ）与次数 n（ ），输出 n 对。评测只检查样本是否服从均匀分布。 算法类型 ：数...",
+    "date": "2026-10-23",
+    "tags": [
+      "二分",
+      "构造",
+      "数学"
+    ],
+    "source": "https://codeforces.com/gym/105122/problem/A"
   },
   {
     "title": "gym106235A Athletes 题解",

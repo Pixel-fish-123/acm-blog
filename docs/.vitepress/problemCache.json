@@ -2,189 +2,239 @@
   "luogu": {
     "P1115": {
       "difficulty": "普及-",
-      "color": "#f39c11"
+      "color": "#f39c11",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P1126": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P11768": {
       "difficulty": "普及-",
-      "color": "#f39c11"
+      "color": "#f39c11",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P11769": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P1377": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P1395": {
       "difficulty": "普及",
-      "color": "#ffc116"
+      "color": "#ffc116",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P1435": {
       "difficulty": "普及",
-      "color": "#ffc116"
+      "color": "#ffc116",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P1525": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P17333": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P2197": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P2252": {
       "difficulty": "省选/NOI-",
-      "color": "#9d3dcf"
+      "color": "#9d3dcf",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3157": {
       "difficulty": "省选/NOI-",
-      "color": "#9d3dcf"
+      "color": "#9d3dcf",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3375": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3379": {
       "difficulty": "普及",
-      "color": "#ffc116"
+      "color": "#ffc116",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3384": {
       "difficulty": "提高+/省选-",
-      "color": "#3498db"
+      "color": "#3498db",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3385": {
       "difficulty": "普及",
-      "color": "#ffc116"
+      "color": "#ffc116",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3469": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3810": {
       "difficulty": "提高+/省选-",
-      "color": "#3498db"
+      "color": "#3498db",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P3812": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P4279": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P4391": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P4556": {
       "difficulty": "提高+/省选-",
-      "color": "#3498db"
+      "color": "#3498db",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P4782": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P4824": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P5782": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P5854": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P5908": {
       "difficulty": "普及-",
-      "color": "#f39c11"
+      "color": "#f39c11",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P6175": {
       "difficulty": "普及",
-      "color": "#ffc116"
+      "color": "#ffc116",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P6453": {
       "difficulty": "省选/NOI-",
-      "color": "#9d3dcf"
+      "color": "#9d3dcf",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P6487": {
       "difficulty": "NOI/NOI+/CTS",
-      "color": "#0e1d69"
+      "color": "#0e1d69",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P8435": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "P8436": {
       "difficulty": "普及+/提高-",
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "SP18185": {
       "difficulty": "提高",
-      "color": "#00c0c0"
+      "color": "#00c0c0",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     }
   },
   "cf": {
     "1748/E": {
       "rating": 2300,
-      "color": "#f39c12"
+      "color": "#f39c12",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2260/C": {
       "rating": 1300,
-      "color": "#52c41a"
+      "color": "#52c41a",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2267/D": {
       "rating": 1400,
-      "name": "Backrooms Hill"
+      "name": "Backrooms Hill",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2267/C": {
       "rating": 1200,
-      "name": "GCD Treasury"
+      "name": "GCD Treasury",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2267/B": {
       "rating": 800,
-      "name": "Fashionable Array"
+      "name": "Fashionable Array",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2267/A": {
       "rating": 800,
-      "name": "Turn Into a Palindrome"
+      "name": "Turn Into a Palindrome",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2266/D": {
       "rating": 1400,
-      "name": "Falling Concrete"
+      "name": "Falling Concrete",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2266/C": {
       "rating": 1000,
-      "name": "AND, OR, Sort!"
+      "name": "AND, OR, Sort!",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2266/B": {
       "rating": 800,
-      "name": "Three Piles"
+      "name": "Three Piles",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2266/A": {
       "rating": 800,
-      "name": "Good Contest"
+      "name": "Good Contest",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2261/C": {
-      "rating": null,
-      "name": "I Know About a Million Things"
+      "rating": 1000,
+      "name": "I Know About a Million Things",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2261/B": {
-      "rating": null,
-      "name": "What's the Capital of France?"
+      "rating": 1100,
+      "name": "What's the Capital of France?",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     },
     "2261/A": {
+      "rating": 800,
+      "name": "Hey, It's Me, Souvlakity",
+      "checkedAt": "2026-10-22T16:52:20.618Z"
+    },
+    "2261/D": {
       "rating": null,
-      "name": "Hey, It's Me, Souvlakity"
+      "checkedAt": "2026-10-22T16:52:20.618Z"
     }
   }
 }
