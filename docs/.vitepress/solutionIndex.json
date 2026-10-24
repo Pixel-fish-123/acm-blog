@@ -534,6 +534,18 @@
     "source": "https://codeforces.com/gym/105122/problem/A"
   },
   {
+    "title": "gym105477B Russian Roller Coasters 题解",
+    "id": "gym105477B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym105477B_solution",
+    "summary": "一条过山车由依次相连的 2l 段轨道组成，每段轨道在水平方向前进 1 个单位，在竖直方向上升或下降 1 个单位；轨道不能进入地面以下，并且从地面出发、最终回到地...",
+    "date": "2026-10-25",
+    "tags": [
+      "计数DP"
+    ],
+    "source": "https://codeforces.com/gym/105477/problem/B"
+  },
+  {
     "title": "gym106235A Athletes 题解",
     "id": "gym106235A",
     "category": "Codeforces",
@@ -585,6 +597,20 @@
       "位运算"
     ],
     "source": "https://codeforces.com/gym/106565/problem/D"
+  },
+  {
+    "title": "gym106646H Handling Clarifications 题解",
+    "id": "gym106646H",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106646H_solution",
+    "summary": "比赛持续 2n 分钟，每分钟会有一个澄清请求到达。Elisa 在澄清台值班，每分钟必须且只能做一件事： - 取走本分钟到达的请求，得分增加 a i，请求进入队列...",
+    "date": "2026-10-25",
+    "tags": [
+      "贪心",
+      "堆",
+      "线性DP"
+    ],
+    "source": "https://codeforces.com/gym/106646/problem/H"
   },
   {
     "title": "gym106722D Domain Expansion Abraham échate un hint 题解",
