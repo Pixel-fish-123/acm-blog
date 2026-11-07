@@ -10,6 +10,8 @@ export function categoryName(dir) {
   if (mi) return `ICPC ${mi[1]} 网络赛` + (mi[2] ? `（第${mi[2]}场）` : '')
   const mh = dir.match(/^icpc_(\d{4})_henan$/)
   if (mh) return `ICPC ${mh[1]} 区域赛（河南）`
+  const mc = dir.match(/^ccpc_(\d{4})_invitation_zhengzhou$/)
+  if (mc) return `CCPC ${mc[1]} 邀请赛（郑州）`
   if (dir.startsWith('codeforces')) return 'Codeforces'
   if (dir.startsWith('luogu')) return '洛谷'
   if (dir.startsWith('atcoder')) return 'AtCoder'

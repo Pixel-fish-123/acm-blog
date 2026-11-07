@@ -13,6 +13,32 @@
     "source": "https://atcoder.jp/contests/agc028/tasks/agc028_b"
   },
   {
+    "title": "G 直径与最大独立集 题解",
+    "id": "G",
+    "category": "CCPC 2025 邀请赛（郑州）",
+    "link": "/solutions/ccpc_2025_invitation_zhengzhou/G_solution",
+    "summary": "给定正整数 n（ ，所有测试数据满足 ）。要求构造一棵 n 个点的树，使得树的最大独立集大小恰好等于直径长度（直径按边数计算）。无解输出 -1，否则输出 n-1...",
+    "date": "2026-11-07",
+    "tags": [
+      "构造",
+      "数学"
+    ],
+    "source": "https://codeforces.com/gym/105941/problem/G"
+  },
+  {
+    "title": "M 川陀航空学院 题解",
+    "id": "M",
+    "category": "CCPC 2025 邀请赛（郑州）",
+    "link": "/solutions/ccpc_2025_invitation_zhengzhou/M_solution",
+    "summary": "给出 n 个点、m 条边的无向图（ ， ，可能有重边和自环）。每次操作可以添加一条边或删除一条边，求把图变成一棵树（连通且无环）所需的最少操作次数。 算法类型 ...",
+    "date": "2026-11-07",
+    "tags": [
+      "DFS",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/gym/105941/problem/M"
+  },
+  {
     "title": "cf1748E Yet Another Array Counting Problem 题解",
     "id": "cf1748E",
     "category": "Codeforces",
@@ -306,7 +332,8 @@
     "date": "2026-09-25",
     "tags": [
       "分块",
-      "数论"
+      "数论",
+      "树状数组"
     ],
     "source": "https://codeforces.com/gym/101059/problem/D"
   },
@@ -503,7 +530,8 @@
     "date": "2026-09-25",
     "tags": [
       "最小生成树",
-      "DFS"
+      "DFS",
+      "并查集"
     ],
     "source": "https://codeforces.com/gym/104518/problem/F"
   },
@@ -512,10 +540,11 @@
     "id": "gym105109D",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym105109D_solution",
-    "summary": "Michael 已知歌手前 n 天每天发布的唱片数 ，并用 来估计第 x 天的唱片数。给定 n, k 与 ，求 。 数据范围： ， ， 。 第一步：把乘方递推取...",
+    "summary": "Michael 已知歌手前 n 天每天发布的唱片数 ，并用 来估计第 x 天的唱片数。给定 n, k 与 ，求 。 数据范围： ， ， 。 算法类型 ：矩阵 +...",
     "date": "2026-09-25",
     "tags": [
-      "矩阵"
+      "矩阵",
+      "数论"
     ],
     "source": "https://codeforces.com/gym/105109/problem/D"
   },
@@ -524,7 +553,7 @@
     "id": "gym105122A",
     "category": "Codeforces",
     "link": "/solutions/codeforces/gym105122A_solution",
-    "summary": "实现均匀伪随机生成器：每次等概率生成一对整数 (a,b) 满足 。输入 k（ ）与次数 n（ ），输出 n 对。评测只检查样本是否服从均匀分布。 算法类型 ：数...",
+    "summary": "实现均匀伪随机生成器：每次等概率生成一对整数 (a,b) 满足 。输入 k（ ）与次数 n（ ），输出 n 对。评测只检查样本是否服从均匀分布。 算法类型 ：二...",
     "date": "2026-10-23",
     "tags": [
       "二分",
@@ -597,6 +626,34 @@
       "位运算"
     ],
     "source": "https://codeforces.com/gym/106565/problem/D"
+  },
+  {
+    "title": "gym106603F Knapsack One Million 题解",
+    "id": "gym106603F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106603F_solution",
+    "summary": "有 n 种筹码（除样例 n=10 外均有 n=10^6），每种筹码有体积 s i 和价值 v i，且每种筹码数量充足（可视作无穷多）。测试数据保证所有 s i,...",
+    "date": "2026-11-07",
+    "tags": [
+      "背包DP",
+      "贪心",
+      "概率期望"
+    ],
+    "source": "https://codeforces.com/gym/106603/problem/F"
+  },
+  {
+    "title": "gym106603H Shell Shock 题解",
+    "id": "gym106603H",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106603H_solution",
+    "summary": "给定一张有 n 个节点的图（ ），起点为 1，终点为 n。你可以任意在节点对之间添加无向边，使得从 1 到 n 的最短路径（即边数最少的路径）条数尽可能多。求最...",
+    "date": "2026-11-07",
+    "tags": [
+      "贪心",
+      "数学",
+      "构造"
+    ],
+    "source": "https://codeforces.com/gym/106603/problem/H"
   },
   {
     "title": "gym106646H Handling Clarifications 题解",
@@ -718,6 +775,99 @@
     "source": "https://codeforces.com/gym/106764/problem/H"
   },
   {
+    "title": "gym106782D Distinct Orders 题解",
+    "id": "gym106782D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106782D_solution",
+    "summary": "菜单上有 n 道菜（ ），编号 1 到 n，每道菜有版本 1 和版本 2 两种做法。 每天你可以选择一个整数 ，点前 k 道菜（即菜品 ）。每道菜第一次被点到时...",
+    "date": "2026-11-07",
+    "tags": [
+      "构造",
+      "DFS"
+    ],
+    "source": "https://codeforces.com/gym/106782/problem/D"
+  },
+  {
+    "title": "gym106782J Janitor's Cart 题解",
+    "id": "gym106782J",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106782J_solution",
+    "summary": "走廊一端（位置 0）是楼梯口，走廊上依次有 n 间办公室，第 i 间办公室位于距离楼梯口 i 米处，存有 a i 份题面。 推车每次从楼梯口空车出发，最多可装载...",
+    "date": "2026-11-07",
+    "tags": [
+      "贪心",
+      "前缀和"
+    ],
+    "source": "https://codeforces.com/gym/106782/problem/J"
+  },
+  {
+    "title": "gym106785F Permutation Edit Distance 题解",
+    "id": "gym106785F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106785F_solution",
+    "summary": "给定两个长度分别为 n 和 m 的排列 p 与 q。每次操作可以做以下两种编辑之一： - 在一个长度为 L 的排列的任意位置插入 L+1，得到长度为 L+1 的...",
+    "date": "2026-11-07",
+    "tags": [
+      "树状数组",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/gym/106785/problem/F"
+  },
+  {
+    "title": "gym106785G Illuminating Lights 题解",
+    "id": "gym106785G",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106785G_solution",
+    "summary": "平面上有 n 盏灯，第 i 盏灯位于坐标 (x i, y i)。在时刻 T 0，每盏灯照亮以 (x i, y i) 为中心、边长为 2T 的轴对齐正方形区域 。...",
+    "date": "2026-11-07",
+    "tags": [
+      "贪心",
+      "枚举"
+    ],
+    "source": "https://codeforces.com/gym/106785/problem/G"
+  },
+  {
+    "title": "gym106788B Beguiling Your Boss 题解",
+    "id": "gym106788B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106788B_solution",
+    "summary": "有 k 个货舱（编号 ）和一份包含 n 次交换操作的工单，第 t 次操作交换货舱 a t 与 b t 中的货物。 如果跳过工单中某个连续区间 （ ）内的所有操作...",
+    "date": "2026-11-07",
+    "tags": [
+      "哈希",
+      "随机化",
+      "排序",
+      "组合数学"
+    ],
+    "source": "https://codeforces.com/gym/106788/problem/B"
+  },
+  {
+    "title": "gym106795D Monster Mash 题解",
+    "id": "gym106795D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106795D_solution",
+    "summary": "有 n（ ）只怪物排成一排，每只怪物是幽灵 G 或吸血鬼 V。只要相邻两只怪物种类相同，就可以把它们合并成一只另一种类的怪物：GG 变成 V，VV 变成 G，新...",
+    "date": "2026-11-07",
+    "tags": [
+      "贪心",
+      "构造"
+    ],
+    "source": "https://codeforces.com/gym/106795/problem/D"
+  },
+  {
+    "title": "gym106806D Discception 题解",
+    "id": "gym106806D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106806D_solution",
+    "summary": "给出 n（ ）个圆的半径 r i（ ）。问能否把这些圆放到平面上，使得每个圆的圆心都落在另一个圆的圆周上。能则输出 ，否则输出 。 算法类型 ：排序 + 数学（...",
+    "date": "2026-11-07",
+    "tags": [
+      "排序",
+      "数学"
+    ],
+    "source": "https://codeforces.com/gym/106806/problem/D"
+  },
+  {
     "title": "1 线段重合 题解",
     "id": "1",
     "category": "贪心入门",
@@ -726,8 +876,10 @@
     "date": "2026-08-14",
     "tags": [
       "贪心",
-      "堆"
-    ]
+      "堆",
+      "排序"
+    ],
+    "source": "https://www.nowcoder.com/practice/1ae8d0b6bb4e4bcdbf64ec491f63fc37"
   },
   {
     "title": "2 P1090 [NOIP 2004 提高组] 合并果子 题解",
@@ -739,7 +891,8 @@
     "tags": [
       "贪心",
       "堆"
-    ]
+    ],
+    "source": "https://www.luogu.com.cn/problem/P1090"
   },
   {
     "title": "3 P6033 [NOIP 2004 提高组] 合并果子 加强版 题解",
@@ -751,7 +904,8 @@
     "tags": [
       "贪心",
       "单调队列"
-    ]
+    ],
+    "source": "https://www.luogu.com.cn/problem/P6033"
   },
   {
     "title": "4 知识竞赛 题解",
@@ -762,20 +916,23 @@
     "date": "2026-08-14",
     "tags": [
       "排序",
-      "贪心"
-    ]
+      "贪心",
+      "前缀和"
+    ],
+    "source": "https://www.nowcoder.com/practice/2a9089ea7e5b474fa8f688eae76bc050"
   },
   {
     "title": "5 P1012 [NOIP 1998 提高组] 拼数 题解",
     "id": "5",
     "category": "贪心入门",
     "link": "/solutions/greedy_tuition/5_solution",
-    "summary": "设有 n 个正整数 ，将它们连接成一排，相邻数字首尾相接，组成一个最大的整数，输出这个整数。 数据范围： ， 。 贪心 + 自定义排序（邻项交换法）。 问题的关...",
+    "summary": "设有 n 个正整数 ，将它们连接成一排，相邻数字首尾相接，组成一个最大的整数，输出这个整数。 数据范围： ， 。 算法类型 ：贪心 + 排序（邻项交换法自定义比...",
     "date": "2026-08-14",
     "tags": [
       "贪心",
       "排序"
-    ]
+    ],
+    "source": "https://www.luogu.com.cn/problem/P1012"
   },
   {
     "title": "6 P1080 [NOIP 2012 提高组] 国王游戏 题解",
@@ -787,7 +944,8 @@
     "tags": [
       "贪心",
       "排序"
-    ]
+    ],
+    "source": "https://www.luogu.com.cn/problem/P1080"
   },
   {
     "title": "7 P1109 学生分组 题解",
@@ -798,7 +956,8 @@
     "date": "2026-08-14",
     "tags": [
       "贪心"
-    ]
+    ],
+    "source": "https://www.luogu.com.cn/problem/P1109"
   },
   {
     "title": "I Strange Binary 题解",
@@ -921,7 +1080,8 @@
       "Trie",
       "位运算",
       "贪心"
-    ]
+    ],
+    "source": "https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/"
   },
   {
     "title": "leetcode572 另一棵树的子树 题解",
@@ -933,14 +1093,15 @@
     "tags": [
       "KMP",
       "DFS"
-    ]
+    ],
+    "source": "https://leetcode.cn/problems/subtree-of-another-tree/"
   },
   {
     "title": "P1115 最大子段和 题解",
     "id": "P1115",
     "category": "洛谷",
     "link": "/solutions/luogu/P1115_solution",
-    "summary": "给出一个长度为 n 的序列 a，选出其中 连续且非空 的一段使得这段和最大（ ， ）。 线性 DP（Kadane 算法）。 设 dp[i] 表示 以第 i 个元...",
+    "summary": "给出一个长度为 n 的序列 a，选出其中 连续且非空 的一段使得这段和最大（ ， ）。 算法类型 ：线性DP（Kadane 最大子段和算法）。 设 dp[i] ...",
     "date": "2026-09-02",
     "tags": [
       "线性DP"
@@ -1128,11 +1289,11 @@
     "source": "https://www.luogu.com.cn/problem/P3375"
   },
   {
-    "title": "P3379 【模板】最近公共祖先（LCA）题解",
+    "title": "P3379 【模板】最近公共祖先（LCA） 题解",
     "id": "P3379",
     "category": "洛谷",
     "link": "/solutions/luogu/P3379_solution",
-    "summary": "给定一棵有根多叉树（ ，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 。 算法类型 ：倍增求 LCA（在线算法）。 预处理 ：从根出发一次 DF...",
+    "summary": "给定一棵有根多叉树（ ，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 。 算法类型 ：LCA + 树上问题（树上倍增在线求最近公共祖先）。 预处...",
     "date": "2026-09-02",
     "tags": [
       "LCA",
@@ -1143,11 +1304,11 @@
     "source": "https://www.luogu.com.cn/problem/P3379"
   },
   {
-    "title": "P3379(tarjan) 【模板】最近公共祖先（LCA）题解（Tarjan 离线做法）",
+    "title": "P3379(tarjan) 【模板】最近公共祖先（LCA）（Tarjan 离线做法） 题解",
     "id": "P3379(tarjan)",
     "category": "洛谷",
     "link": "/solutions/luogu/P3379(tarjan)_solution",
-    "summary": "给定一棵有根多叉树（ ，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 。 算法类型 ：Tarjan 离线 LCA（DFS 后序 + 并查集）。 ...",
+    "summary": "给定一棵有根多叉树（ ，根为 S），M 次询问，每次求两个点的最近公共祖先。 不保证 。 算法类型 ：LCA + Tarjan + 并查集（DFS 后序回溯 +...",
     "date": "2026-09-02",
     "tags": [
       "LCA",
@@ -1446,8 +1607,10 @@
     "summary": "牛牛和朋友们约定了一套接头密匙系统，用于确认彼此身份。一个密匙用一组数字序列表示，两个密匙被认为一致，当且仅当下面两条同时成立： 1. ，即 b 的长度不超过 ...",
     "date": "2026-09-13",
     "tags": [
-      "Trie"
-    ]
+      "Trie",
+      "差分"
+    ],
+    "source": "https://www.nowcoder.com/practice/c552d3b4dfda49ccb883a6371d9a6932"
   },
   {
     "title": "G Grid Marking 题解",
@@ -1474,7 +1637,7 @@
     ]
   },
   {
-    "title": "G 题解",
+    "title": "G 图上博弈 题解",
     "id": "G",
     "category": "2026牛客暑假多校联赛（第6场）",
     "link": "/solutions/nowcoder_summer_holiday_competition6/G_solution",

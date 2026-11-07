@@ -39,7 +39,7 @@ $k = 1$ 时每项都是 $\binom{\text{cnt}_i}{0} = 1$，答案为 $n - n = 0$，
 
 $n \le 5000$，直接 $O(n^2)$ 枚举有序对 $(i, j)$ 求出 $\text{cnt}_i$。组合数预处理阶乘 $\text{fact}$，用费马小定理求 $\text{fact}[5000]$ 的逆元，再倒推出所有阶乘逆元：
 
-$$\binom{a}{b} = \text{fact}[a] \cdot \text{inv\_fact}[b] \cdot \text{inv\_fact}[a - b] \bmod 998\,244\,353.$$
+$$\binom{a}{b} = \mathrm{fact}[a] \cdot \mathrm{inv\_fact}[b] \cdot \mathrm{inv\_fact}[a - b] \bmod 998\,244\,353.$$
 
 每次相减后加上模数再取模，保证结果非负。
 

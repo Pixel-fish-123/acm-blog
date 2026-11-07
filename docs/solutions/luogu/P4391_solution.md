@@ -8,6 +8,8 @@
 
 ## 核心思路
 
+**算法类型**：KMP（最长 border 与字符串最小周期定理）。
+
 **结论：答案 $=L-\mathrm{next}[L]$**，其中 $\mathrm{next}[i]$ 是 $S$ 长度为 $i$ 的前缀的最长 border 长度。
 
 **第一步，先说明 $p=L-\mathrm{next}[L]$ 确实是一个合法周期。**
