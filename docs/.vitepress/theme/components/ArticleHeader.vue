@@ -9,7 +9,7 @@ import { badgeTextColor } from '../filters.js'
 const { page } = useData()
 const luoguHome = profile.home || `https://www.luogu.com.cn/user/${profile.uid}`
 const authorName = profile.name || 'Pixel_fish'
-const authorColor = profile.color || '#f39c12'
+const authorColor = profile.color || '#52c41a'
 
 const date = computed(() => {
   const ts = page.value.lastUpdated
@@ -94,7 +94,7 @@ function diffStyle(item) {
 .ah-name {
   font-size: 13px;
   font-weight: 600;
-  color: #f39c12; /* 兜底色；实际颜色由 profile.json 内联 */
+  color: #52c41a; /* 兜底色；实际颜色由 profile.json 内联 */
   text-decoration: none;
 }
 

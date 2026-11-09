@@ -656,6 +656,19 @@
     "source": "https://codeforces.com/gym/106603/problem/H"
   },
   {
+    "title": "gym106611H Hurricane Signal 题解",
+    "id": "gym106611H",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106611H_solution",
+    "summary": "平面上香城位于 (H x, H y)，台风当前位于 (C x, C y)（ ）。预测台风沿与 x 轴正半轴逆时针夹角为 （ ）的射线直线移动，但实际运动方向会在...",
+    "date": "2026-11-10",
+    "tags": [
+      "数学",
+      "概率期望"
+    ],
+    "source": "https://codeforces.com/gym/106611/problem/H"
+  },
+  {
     "title": "gym106646H Handling Clarifications 题解",
     "id": "gym106646H",
     "category": "Codeforces",
@@ -855,6 +868,19 @@
     "source": "https://codeforces.com/gym/106795/problem/D"
   },
   {
+    "title": "gym106797B Bye Bye Bilbo 题解",
+    "id": "gym106797B",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106797B_solution",
+    "summary": "有 n 个洞穴（ ），编号 1 到 n，其中 1 号是城镇（根节点），每个洞穴 i 1 都有唯一父节点 p i（满足 ）。烟花的可见范围为 k（ ）：在洞穴 j...",
+    "date": "2026-11-10",
+    "tags": [
+      "贪心",
+      "树形DP"
+    ],
+    "source": "https://codeforces.com/gym/106797/problem/B"
+  },
+  {
     "title": "gym106806D Discception 题解",
     "id": "gym106806D",
     "category": "Codeforces",
@@ -866,6 +892,19 @@
       "数学"
     ],
     "source": "https://codeforces.com/gym/106806/problem/D"
+  },
+  {
+    "title": "gym106806E Endurtaka Mig 题解",
+    "id": "gym106806E",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106806E_solution",
+    "summary": "定义合法单词为 不能 表示成某个子串重复拼接 k 次（ ）的字符串。现给定一个由小写字母组成的非空字符串 s（ ），要求将 s 切分成最少数量的合法单词，输出最...",
+    "date": "2026-11-10",
+    "tags": [
+      "KMP",
+      "构造"
+    ],
+    "source": "https://codeforces.com/gym/106806/problem/E"
   },
   {
     "title": "1 线段重合 题解",
@@ -1095,6 +1134,20 @@
       "DFS"
     ],
     "source": "https://leetcode.cn/problems/subtree-of-another-tree/"
+  },
+  {
+    "title": "leetcode699 掉落的方块 题解",
+    "id": "leetcode699",
+    "category": "LeetCode",
+    "link": "/solutions/leetcode/leetcode699_solution",
+    "summary": "二维平面上的 x 轴上依次落下一系列正方形方块。给定二维数组 ，其中 表示第 i 个方块左边缘对齐 、边长为 ，从极高处垂直下落，直到碰到已落下方块的上表面或 ...",
+    "date": "2026-11-10",
+    "tags": [
+      "线段树",
+      "排序",
+      "二分"
+    ],
+    "source": "https://leetcode.cn/problems/falling-squares/"
   },
   {
     "title": "P1115 最大子段和 题解",
