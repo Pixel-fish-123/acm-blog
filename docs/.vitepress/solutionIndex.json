@@ -1860,6 +1860,21 @@
     ]
   },
   {
+    "title": "U746948 食堂调度方案设计 题解",
+    "id": "U746948",
+    "category": "原创题",
+    "link": "/solutions/original_problems/U746948_solution",
+    "summary": "食堂共有 k 个窗口（ ），每个窗口的打饭机器人配有一块容量为 1 格电的电池，初始时全部满电。前 n 个时刻（ ）中，第 i 个时刻有 a i 名顾客到达（ ...",
+    "date": "2026-11-15",
+    "tags": [
+      "线性DP",
+      "枚举"
+    ],
+    "difficulty": "普及+/提高-",
+    "difficultyColor": "#52c41a",
+    "source": "https://www.luogu.com.cn/problem/U746948"
+  },
+  {
     "title": "常用组合数恒等式",
     "id": "combination_formula",
     "category": "好用的数学结论",
