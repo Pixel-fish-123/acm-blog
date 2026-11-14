@@ -36,3 +36,23 @@ test('inferTags 最多返回 4 个标签', () => {
   const vocabulary = ['a', 'b', 'c', 'd', 'e']
   assert.deepEqual(inferTags('a b c d e', vocabulary, 4), ['a', 'b', 'c', 'd'])
 })
+
+test('inferTags 识别细分别名且英文缩写不跨词误匹配', () => {
+  const vocabulary = [
+    '树状数组',
+    'CDQ分治',
+    '分治',
+    '树上差分',
+    '欧拉回路',
+    '强连通分量',
+    '割点与桥',
+    '0-1Trie',
+    '计算几何',
+  ]
+  assert.deepEqual(inferTags('bit-parallel LCS', vocabulary), [])
+  assert.deepEqual(inferTags('CDQ 分治 + 带权 BIT', vocabulary), ['CDQ分治', '树状数组'])
+  assert.deepEqual(
+    inferTags('欧拉环游 + 树上点差分 + 0-1 字典树 + 多边形不等式', vocabulary, 6),
+    ['欧拉回路', '树上差分', '0-1Trie', '计算几何']
+  )
+})

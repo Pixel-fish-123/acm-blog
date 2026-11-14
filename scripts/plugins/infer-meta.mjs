@@ -26,23 +26,33 @@ export default {
   name: 'infer-meta',
   onSolution(sol, ctx, options) {
     const vocabulary = vocabularyOf(ctx, options)
+    const maxTags = options?.maxTags || 4
+    const line = sol.body.match(/^\*\*算法类型\*\*[：:]\s*(.+)$/m)
+      || sol.body.match(/^算法类型[：:]\s*(.+)$/m)
+    const inferred = line ? inferTags(line[1], vocabulary, maxTags) : []
+
     if (Array.isArray(sol.meta.tags) && sol.meta.tags.length) {
       if (!vocabulary.length) return
       const unknown = sol.meta.tags.filter((tag) => !vocabulary.includes(tag))
       if (unknown.length) {
         ctx.warn(`  infer-meta: ${sol.rel} 的标签不在 SKILL.md 词表中：${unknown.join('、')}`)
       }
+      if (options?.supplement !== false && inferred.length && sol.meta.tags.length < maxTags) {
+        const merged = [...sol.meta.tags]
+        for (const tag of inferred) {
+          if (merged.length >= maxTags) break
+          if (!merged.includes(tag)) merged.push(tag)
+        }
+        if (merged.length > sol.meta.tags.length) {
+          sol.meta.tags = merged
+        }
+      }
       return
     }
 
-    const line = sol.body.match(/^\*\*算法类型\*\*[：:]\s*(.+)$/m)
-      || sol.body.match(/^算法类型[：:]\s*(.+)$/m)
-    if (!line) return
+    if (!inferred.length) return
 
-    const tags = inferTags(line[1], vocabulary, 4)
-    if (!tags.length) return
-
-    sol.meta.tags = tags
-    ctx.log(`  infer-meta: ${sol.rel} -> ${tags.join(', ')}`)
+    sol.meta.tags = inferred
+    ctx.log(`  infer-meta: ${sol.rel} -> ${inferred.join(', ')}`)
   },
 }

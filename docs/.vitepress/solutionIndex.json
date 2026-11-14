@@ -8,7 +8,9 @@
     "date": "2026-09-19",
     "tags": [
       "笛卡尔树",
-      "组合数学"
+      "组合数学",
+      "乘法逆元",
+      "树上问题"
     ],
     "source": "https://atcoder.jp/contests/agc028/tasks/agc028_b"
   },
@@ -21,6 +23,7 @@
     "date": "2026-11-07",
     "tags": [
       "构造",
+      "树的直径",
       "数学"
     ],
     "source": "https://codeforces.com/gym/105941/problem/G"
@@ -266,7 +269,8 @@
     "tags": [
       "最短路",
       "概率期望",
-      "排序"
+      "排序",
+      "枚举"
     ],
     "source": "https://codeforces.com/gym/101047/problem/D"
   },
@@ -306,6 +310,8 @@
     "date": "2026-09-25",
     "tags": [
       "二分",
+      "莫比乌斯反演",
+      "容斥原理",
       "数论"
     ],
     "source": "https://codeforces.com/gym/101055/problem/C"
@@ -331,9 +337,10 @@
     "summary": "给定两个长度为 N 的数组 A 和 B。有 Q 个询问，每个询问给出 i, j, k，要求输出多重集 的大小（按重数计，即满足 、 且 的有序下标对 (p, q...",
     "date": "2026-09-25",
     "tags": [
+      "莫队",
       "分块",
-      "数论",
-      "树状数组"
+      "树状数组",
+      "数论"
     ],
     "source": "https://codeforces.com/gym/101059/problem/D"
   },
@@ -425,7 +432,8 @@
     "date": "2026-10-09",
     "tags": [
       "交互",
-      "数论"
+      "数论",
+      "贪心"
     ],
     "source": "https://codeforces.com/gym/102319/problem/E"
   },
@@ -478,7 +486,8 @@
     "date": "2026-10-23",
     "tags": [
       "树形DP",
-      "背包DP"
+      "背包DP",
+      "位运算"
     ],
     "source": "https://codeforces.com/gym/103577/problem/L"
   },
@@ -530,6 +539,7 @@
     "date": "2026-09-25",
     "tags": [
       "最小生成树",
+      "欧拉回路",
       "DFS",
       "并查集"
     ],
@@ -543,8 +553,10 @@
     "summary": "Michael 已知歌手前 n 天每天发布的唱片数 ，并用 来估计第 x 天的唱片数。给定 n, k 与 ，求 。 数据范围： ， ， 。 算法类型 ：矩阵 +...",
     "date": "2026-09-25",
     "tags": [
-      "矩阵",
-      "数论"
+      "矩阵快速幂",
+      "乘法逆元",
+      "数论",
+      "矩阵"
     ],
     "source": "https://codeforces.com/gym/105109/problem/D"
   },
@@ -602,6 +614,34 @@
     "source": "https://codeforces.com/gym/106235/problem/B"
   },
   {
+    "title": "gym106353C Canal Crossing 题解",
+    "id": "gym106353C",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106353C_solution",
+    "summary": "给定 n（ ）个地点和 n - 1 条带正权 w（ ）的街道，街道构成一棵树。另外给定 m（ ）座长度为 0 的桥。要求寻找一条起点和终点相同的回路（Tour）...",
+    "date": "2026-11-14",
+    "tags": [
+      "树上差分",
+      "欧拉回路",
+      "DFS"
+    ],
+    "source": "https://codeforces.com/gym/106353/problem/C"
+  },
+  {
+    "title": "gym106356H Pothchola 题解",
+    "id": "gym106356H",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106356H_solution",
+    "summary": "给定一个包含 n（ ）个节点的有向图，每个节点 i 有权值 a i（ ）。对于任意两个不同节点 u, v，存在有向边 当且仅当 且 。你可以从任意节点出发沿有向...",
+    "date": "2026-11-14",
+    "tags": [
+      "位运算",
+      "线性DP",
+      "排序"
+    ],
+    "source": "https://codeforces.com/gym/106356/problem/H"
+  },
+  {
     "title": "gym106565B 排考场 题解",
     "id": "gym106565B",
     "category": "Codeforces",
@@ -637,7 +677,8 @@
     "tags": [
       "背包DP",
       "贪心",
-      "概率期望"
+      "概率期望",
+      "单调栈"
     ],
     "source": "https://codeforces.com/gym/106603/problem/F"
   },
@@ -663,10 +704,24 @@
     "summary": "平面上香城位于 (H x, H y)，台风当前位于 (C x, C y)（ ）。预测台风沿与 x 轴正半轴逆时针夹角为 （ ）的射线直线移动，但实际运动方向会在...",
     "date": "2026-11-10",
     "tags": [
-      "数学",
-      "概率期望"
+      "计算几何",
+      "概率期望",
+      "数学"
     ],
     "source": "https://codeforces.com/gym/106611/problem/H"
+  },
+  {
+    "title": "gym106611L Linesweeper 题解",
+    "id": "gym106611L",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106611L_solution",
+    "summary": "一维扫雷棋盘共有 N（ ）个格子排成一行，给定长度为 N 的字符串 s，其中 表示未翻开的格子， 、 、 表示已翻开格子（不含雷）且其左右相邻格子中的地雷总数。...",
+    "date": "2026-11-14",
+    "tags": [
+      "模拟",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/gym/106611/problem/L"
   },
   {
     "title": "gym106646H Handling Clarifications 题解",
@@ -863,7 +918,8 @@
     "date": "2026-11-07",
     "tags": [
       "贪心",
-      "构造"
+      "构造",
+      "同余"
     ],
     "source": "https://codeforces.com/gym/106795/problem/D"
   },
@@ -881,6 +937,20 @@
     "source": "https://codeforces.com/gym/106797/problem/B"
   },
   {
+    "title": "gym106802F Circular Minesweeper 题解",
+    "id": "gym106802F",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106802F_solution",
+    "summary": "交互题。有一个长度为 L = 10^9 的环形格子（编号 ），其中均匀随机分布着 n（ ）颗地雷。每次你可以询问一个格子 ： - 若格子 x 有未引爆的地雷，该...",
+    "date": "2026-11-14",
+    "tags": [
+      "交互",
+      "随机化",
+      "构造"
+    ],
+    "source": "https://codeforces.com/gym/106802/problem/F"
+  },
+  {
     "title": "gym106806D Discception 题解",
     "id": "gym106806D",
     "category": "Codeforces",
@@ -889,6 +959,7 @@
     "date": "2026-11-07",
     "tags": [
       "排序",
+      "计算几何",
       "数学"
     ],
     "source": "https://codeforces.com/gym/106806/problem/D"
@@ -907,6 +978,20 @@
     "source": "https://codeforces.com/gym/106806/problem/E"
   },
   {
+    "title": "gym106821H Popsicle Stick Game 题解",
+    "id": "gym106821H",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106821H_solution",
+    "summary": "有 n（ ）根冰棒棍，第 i 根上写着非负整数 a i（ ）。Dinny 和 Walrus 轮流操作，Dinny 先手，直到所有棍子被拿完。每回合当前玩家按顺序...",
+    "date": "2026-11-14",
+    "tags": [
+      "博弈论",
+      "贪心",
+      "排序"
+    ],
+    "source": "https://codeforces.com/gym/106821/problem/H"
+  },
+  {
     "title": "1 线段重合 题解",
     "id": "1",
     "category": "贪心入门",
@@ -915,6 +1000,7 @@
     "date": "2026-08-14",
     "tags": [
       "贪心",
+      "扫描线",
       "堆",
       "排序"
     ],
@@ -929,7 +1015,8 @@
     "date": "2026-08-14",
     "tags": [
       "贪心",
-      "堆"
+      "堆",
+      "构造"
     ],
     "source": "https://www.luogu.com.cn/problem/P1090"
   },
@@ -942,7 +1029,8 @@
     "date": "2026-08-14",
     "tags": [
       "贪心",
-      "单调队列"
+      "单调队列",
+      "排序"
     ],
     "source": "https://www.luogu.com.cn/problem/P6033"
   },
@@ -1056,6 +1144,7 @@
     "summary": "共有 S 道待解决的题，按\"哪几名队员能做\"分成七类，各类题数依次记作 F 1..F 7（七类之和恰为 S）。类别编号 i 的二进制位指明可做该题的人：第 0 ...",
     "date": "2026-09-10",
     "tags": [
+      "最小割",
       "网络流",
       "二分图"
     ]
@@ -1116,6 +1205,7 @@
     "summary": "给定一个整数数组 ，返回 其中 ， ， （即元素非负且可用 31 位二进制表示）。 要求线性时间，进阶目标为 O(n)。 需要注意下标的约束是 而不是 i<j：...",
     "date": "2026-09-13",
     "tags": [
+      "0-1Trie",
       "Trie",
       "位运算",
       "贪心"
@@ -1131,7 +1221,8 @@
     "date": "2026-09-19",
     "tags": [
       "KMP",
-      "DFS"
+      "DFS",
+      "树上问题"
     ],
     "source": "https://leetcode.cn/problems/subtree-of-another-tree/"
   },
@@ -1144,6 +1235,7 @@
     "date": "2026-11-10",
     "tags": [
       "线段树",
+      "离散化",
       "排序",
       "二分"
     ],
@@ -1216,7 +1308,8 @@
     "date": "2026-09-02",
     "tags": [
       "笛卡尔树",
-      "拓扑排序"
+      "拓扑排序",
+      "单调栈"
     ],
     "difficulty": "提高",
     "difficultyColor": "#00c0c0",
@@ -1260,6 +1353,7 @@
     "date": "2026-09-02",
     "tags": [
       "二分图",
+      "带权并查集",
       "并查集",
       "二分"
     ],
@@ -1276,7 +1370,8 @@
     "date": "2026-09-13",
     "tags": [
       "二分",
-      "构造"
+      "构造",
+      "贪心"
     ],
     "difficulty": "提高",
     "difficultyColor": "#00c0c0",
@@ -1350,6 +1445,7 @@
     "date": "2026-09-02",
     "tags": [
       "LCA",
+      "倍增",
       "树上问题"
     ],
     "difficulty": "普及",
@@ -1366,7 +1462,8 @@
     "tags": [
       "LCA",
       "Tarjan",
-      "并查集"
+      "并查集",
+      "DFS"
     ],
     "difficulty": "普及",
     "difficultyColor": "#ffc116",
@@ -1410,6 +1507,7 @@
     "date": "2026-09-02",
     "tags": [
       "Tarjan",
+      "割点与桥",
       "DFS"
     ],
     "difficulty": "提高",
@@ -1439,7 +1537,8 @@
     "summary": "给定 n 个整数（数字可能重复），从中选取任意个，求最大异或和（ ， ）。 算法类型 ：线性基（异或空间的高斯消元）。 线性基的结构 ：维护数组 p[0..62...",
     "date": "2026-09-02",
     "tags": [
-      "线性基"
+      "线性基",
+      "高斯消元"
     ],
     "difficulty": "提高",
     "difficultyColor": "#00c0c0",
@@ -1482,8 +1581,9 @@
     "date": "2026-09-02",
     "tags": [
       "线段树合并",
-      "树上问题",
-      "差分"
+      "权值线段树",
+      "树上差分",
+      "树上问题"
     ],
     "difficulty": "提高+/省选-",
     "difficultyColor": "#3498db",
@@ -1498,6 +1598,7 @@
     "date": "2026-09-02",
     "tags": [
       "2-SAT",
+      "强连通分量",
       "Tarjan"
     ],
     "difficulty": "提高",
@@ -1528,6 +1629,7 @@
     "date": "2026-09-02",
     "tags": [
       "2-SAT",
+      "强连通分量",
       "Tarjan"
     ],
     "difficulty": "提高",
@@ -1589,7 +1691,8 @@
     "tags": [
       "笛卡尔树",
       "树形DP",
-      "组合数学"
+      "组合数学",
+      "单调栈"
     ],
     "difficulty": "省选/NOI-",
     "difficultyColor": "#9d3dcf",
@@ -1618,7 +1721,9 @@
     "summary": "给定 n 个节点 m 条无向边的图（ ， ，本题采用\"不存在割点的图\"作为点双连通的定义），输出点双连通分量的个数，并输出每个分量（第一行分量数 x；接下来 x...",
     "date": "2026-09-02",
     "tags": [
-      "Tarjan"
+      "Tarjan",
+      "双连通分量",
+      "栈"
     ],
     "difficulty": "普及+/提高-",
     "difficultyColor": "#52c41a",
@@ -1632,7 +1737,10 @@
     "summary": "给定 n 个节点 m 条无向边的图（ ， ， 不保证简单图，可能有重边和自环 ），输出边双连通分量的个数，并输出每个分量（第一行分量数 x；接下来 x 行，每行...",
     "date": "2026-09-02",
     "tags": [
-      "Tarjan"
+      "Tarjan",
+      "割点与桥",
+      "双连通分量",
+      "DFS"
     ],
     "difficulty": "普及+/提高-",
     "difficultyColor": "#52c41a",
@@ -1686,6 +1794,7 @@
     "date": "2026-08-09",
     "tags": [
       "构造",
+      "同余",
       "数论"
     ]
   },
@@ -1732,6 +1841,7 @@
     "summary": "对 的有序对计数，满足： 其中 ，答案可能很大（需 64 位整数）。 算法类型 ：数论（中国剩余定理）+ 按 b 枚举。 若 a < b，则 ，且 ，等式变为 ...",
     "date": "2026-08-09",
     "tags": [
+      "中国剩余定理",
       "数论",
       "枚举"
     ]
