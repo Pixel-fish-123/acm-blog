@@ -16,5 +16,6 @@ export function categoryName(dir) {
   if (dir.startsWith('luogu')) return '洛谷'
   if (dir.startsWith('atcoder')) return 'AtCoder'
   if (dir.startsWith('leetcode')) return 'LeetCode'
+  if (dir.startsWith('hdu')) return 'HDU'
   return dir
 }

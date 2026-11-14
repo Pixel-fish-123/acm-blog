@@ -26,6 +26,12 @@ function atcoderSource(id) {
   return `https://atcoder.jp/contests/${contest}/tasks/${contest}_${m[3].toLowerCase()}`
 }
 
+// hdu/hdu4614 -> https://acm.hdu.edu.cn/showproblem.php?pid=4614
+function hduSource(id) {
+  const m = String(id || '').match(/^(?:hdu)?(\d+)$/i)
+  return m ? `https://acm.hdu.edu.cn/showproblem.php?pid=${m[1]}` : ''
+}
+
 export default {
   name: 'problem-link',
   onSolution(sol, ctx) {
@@ -37,6 +43,7 @@ export default {
     if (platform.startsWith('luogu')) source = luoguSource(id)
     else if (platform.startsWith('codeforces')) source = codeforcesSource(id)
     else if (platform.startsWith('atcoder')) source = atcoderSource(id)
+    else if (platform.startsWith('hdu')) source = hduSource(id)
 
     if (!source) return
     sol.meta.source = source

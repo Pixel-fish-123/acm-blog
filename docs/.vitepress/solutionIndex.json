@@ -1087,6 +1087,19 @@
     "source": "https://www.luogu.com.cn/problem/P1109"
   },
   {
+    "title": "hdu4614 Vases and Flowers 题解",
+    "id": "hdu4614",
+    "category": "HDU",
+    "link": "/solutions/hdu/hdu4614_solution",
+    "summary": "有 n 个花瓶，编号为 ，初始时所有花瓶都是空的，每个花瓶最多只能插 1 朵花。给定 m 次操作（ ），操作分为两种： 1. ：从编号 A 的花瓶开始，依次往后...",
+    "date": "2026-11-15",
+    "tags": [
+      "线段树",
+      "二分"
+    ],
+    "source": "https://acm.hdu.edu.cn/showproblem.php?pid=4614"
+  },
+  {
     "title": "I Strange Binary 题解",
     "id": "I",
     "category": "ICPC 2024 网络赛（第2场）",
