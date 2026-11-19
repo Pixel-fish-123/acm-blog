@@ -27,9 +27,20 @@ export default {
   onSolution(sol, ctx, options) {
     const vocabulary = vocabularyOf(ctx, options)
     const maxTags = options?.maxTags || 4
+    const isMathNote = sol.dir === 'useful_maths_conclusions'
     const line = sol.body.match(/^\*\*算法类型\*\*[：:]\s*(.+)$/m)
       || sol.body.match(/^算法类型[：:]\s*(.+)$/m)
-    const inferred = line ? inferTags(line[1], vocabulary, maxTags) : []
+    const inferred = line
+      ? inferTags(line[1], vocabulary, maxTags)
+      : isMathNote
+        ? inferTags(sol.body, vocabulary, maxTags)
+        : []
+    if (isMathNote && (!vocabulary.length || vocabulary.includes('好用的数学结论'))) {
+      const idx = inferred.indexOf('好用的数学结论')
+      if (idx > 0) inferred.splice(idx, 1)
+      if (idx !== 0) inferred.unshift('好用的数学结论')
+      if (inferred.length > maxTags) inferred.length = maxTags
+    }
 
     if (Array.isArray(sol.meta.tags) && sol.meta.tags.length) {
       if (!vocabulary.length) return

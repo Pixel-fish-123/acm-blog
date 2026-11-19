@@ -585,8 +585,31 @@ watch(
 .lg-tagbox {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 8px;
-  padding: 14px 20px 18px;
+  max-height: 320px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+  padding: 14px 16px 18px 20px;
+}
+
+.lg-tagbox::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lg-tagbox::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lg-tagbox::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.lg-tagbox::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .lg-tagbtn {

@@ -924,6 +924,20 @@
     "source": "https://codeforces.com/gym/106795/problem/D"
   },
   {
+    "title": "gym106796I I Don't Miss Pennies 题解",
+    "id": "gym106796I",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106796I_solution",
+    "summary": "商店取消 1 分硬币后，信用卡支付仍按原价（精确到分）结算，而现金支付会将单笔交易总额四舍五入到最近的 5 分倍数： - 总额模 5 余 1, 2 时向下舍入（...",
+    "date": "2026-11-19",
+    "tags": [
+      "贪心",
+      "数学",
+      "同余"
+    ],
+    "source": "https://codeforces.com/gym/106796/problem/I"
+  },
+  {
     "title": "gym106797B Bye Bye Bilbo 题解",
     "id": "gym106797B",
     "category": "Codeforces",
@@ -990,6 +1004,19 @@
       "排序"
     ],
     "source": "https://codeforces.com/gym/106821/problem/H"
+  },
+  {
+    "title": "gym106825D Energetic Cook 题解",
+    "id": "gym106825D",
+    "category": "Codeforces",
+    "link": "/solutions/codeforces/gym106825D_solution",
+    "summary": "厨师 Monocarp 在连续 n（ ）天里经营餐厅，第 i 天有 a i（ ）名顾客，每位顾客需要一份汤或一份饺子： - 做一份汤 消耗 1 点体力，保质期至...",
+    "date": "2026-11-19",
+    "tags": [
+      "二分",
+      "贪心"
+    ],
+    "source": "https://codeforces.com/gym/106825/problem/D"
   },
   {
     "title": "1 线段重合 题解",
@@ -1880,7 +1907,13 @@
     "category": "好用的数学结论",
     "link": "/solutions/useful_maths_conclusions/combination_formula",
     "summary": "遇到求和式时，先认清它属于哪一类：沿斜线求和用「曲棍球」，两个组合数相乘求和用「范德蒙德」，带系数 k 用「吸收」，「恰好」类计数用「二项式反演」。实在认不出来...",
-    "date": "2026-10-16"
+    "date": "2026-10-16",
+    "tags": [
+      "好用的数学结论",
+      "组合数学",
+      "卡特兰数",
+      "容斥原理"
+    ]
   },
   {
     "title": "组合数常用预处理",
@@ -1888,6 +1921,12 @@
     "category": "好用的数学结论",
     "link": "/solutions/useful_maths_conclusions/precompute_combinations",
     "summary": "模数默认写成 。下面三种场景按数据范围选一种即可。 适用于模数为质数（如 10^9+7、998244353），n,k 都不超过预处理上界。询问 O(1)。 注意...",
-    "date": "2026-10-16"
+    "date": "2026-10-16",
+    "tags": [
+      "好用的数学结论",
+      "组合数学",
+      "乘法逆元",
+      "卢卡斯定理"
+    ]
   }
 ]

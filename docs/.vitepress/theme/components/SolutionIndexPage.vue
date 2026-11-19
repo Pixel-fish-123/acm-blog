@@ -275,8 +275,31 @@ function toggle(tag) {
 .si-tags {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 8px;
-  padding: 12px 20px 18px;
+  max-height: min(460px, calc(100vh - 220px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+  padding: 12px 16px 18px 20px;
+}
+
+.si-tags::-webkit-scrollbar {
+  width: 6px;
+}
+
+.si-tags::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.si-tags::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.si-tags::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .si-tag {
@@ -327,6 +350,10 @@ function toggle(tag) {
     width: 100%;
     position: static;
     order: -1;
+  }
+
+  .si-tags {
+    max-height: 220px;
   }
 }
 </style>

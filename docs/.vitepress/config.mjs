@@ -168,7 +168,7 @@ export default defineConfig({
         // 前缀 `_` 让 VitePress 跳过序列化，所以这里可以正常用闭包和 node API。
         _render(src, env, md) {
           const rel = env.relativePath || ''
-          const isSolution = rel.startsWith('solutions/') && rel.endsWith('_solution.md')
+          const isSolution = rel.startsWith('solutions/') && rel !== 'solutions/index.md'
           const source = isSolution ? stripReferenceCode(src) : src
           const html = md.render(source, env)
           if (!isSolution) return html
